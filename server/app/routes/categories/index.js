@@ -5,7 +5,8 @@ module.exports = router;
 var _ = require('lodash');
 
 // get all categories
-router.get('/', function() {
+// >> fixed
+router.get('/:category', function() {
     models.Category.find(req.query).exec().then(function(categories) {
         req.json(categories)
     });

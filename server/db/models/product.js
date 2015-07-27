@@ -4,22 +4,25 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
     title: {
         type: String,
-        unique: true
+        unique: true,
+        required: true
     },
     description: {
-        type: String
+        type: String,
+        required: true
     },
     price: {
-        type: Integer
+        type: Number,
+        required: true
     },
     inventory: {
-        type: Integer
+        type: Number
     },
     category: {
-        type: String
+        type: CategoryDocument
     },
     photo: {
-        type: Array,
+        type: String,
         default:
     }
 });
