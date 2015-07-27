@@ -67,11 +67,3 @@
 // 	});
 
 // });
-
-
-router.use("/products", prouter){
-
-}
-
-prouter.get("/:productid")
-prouter.get("/:category")
