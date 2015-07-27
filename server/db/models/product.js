@@ -19,11 +19,11 @@ var schema = new mongoose.Schema({
         type: Number
     },
     category: {
-        type: CategoryDocument
+        type: [categoryDocument]
     },
     photo: {
         type: String,
-        default:
+        default: "http://wiki.solid-run.com/images/7/75/No_image_available.png"
     }
 });
 
