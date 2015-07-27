@@ -103,7 +103,7 @@ describe('User model', function () {
             var saltSpy;
 
             var createUser = function () {
-                return User.create({ email: 'obama@gmail.com', password: 'potus' });
+                return User.create({ email: 'obama@gmail.com', password: 'potus', name: {first: "Maria", last: "Evans" } });
             };
 
             beforeEach(function () {
@@ -142,6 +142,19 @@ describe('User model', function () {
 
         });
 
+    });
+
+    describe("virtuals", function () {
+        var createUser = function () {
+                return User.create({ email: 'obama@gmail.com', password: 'potus', name: {first: "Maria", last: "Evans" } });
+        };
+
+        it("should form a full_name for the user from first and last names", function (done) {
+            createUser().then(function (user) {
+                expect(user.full_name).to.equal("Maria Evans");
+                done();
+            });
+        });
     });
 
 });
