@@ -91,9 +91,9 @@ gulp.task('buildCSS', function () {
 gulp.task('seedDB', function () {
 
     var users = [
-        { email: 'testing@fsa.com', password: 'testing123' },
-        { email: 'joe@fsa.com', password: 'rainbowkicks' },
-        { email: 'obama@gmail.com', password: 'potus' }
+        { email: 'testing@fsa.com', password: 'testing123', name: {first: "Joe", last:"JoJo"} },
+        { email: 'joe@fsa.com', password: 'rainbowkicks', name: {first: "Bobo", last: "Bob"} }, 
+        { email: 'obama@gmail.com', password: 'potus', name: {first: "Carrie", last: "Gumbo"} }
     ];
 
     var dbConnected = require('./server/db');
