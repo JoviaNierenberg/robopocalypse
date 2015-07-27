@@ -4,10 +4,12 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     email: {
-        type: String
+        type: String, 
+        required: true
     },
     password: {
-        type: String
+        type: String, 
+        required: true
     },
     salt: {
         type: String
@@ -23,7 +25,21 @@ var schema = new mongoose.Schema({
     },
     google: {
         id: String
-    }
+    },
+    name: {
+        first: {
+            type: String,
+            required: true
+        },
+        last: {
+            type: String,
+            required: true
+        } 
+    },
+    orders: {
+        type: [String]
+    },
+    photo: String
 });
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations
@@ -48,6 +64,10 @@ schema.pre('save', function (next) {
 
     next();
 
+});
+
+schema.virtual("full_name").get(function () {
+    return this.name.first + " " + this.name.last;
 });
 
 schema.statics.generateSalt = generateSalt;
