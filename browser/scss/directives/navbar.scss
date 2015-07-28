@@ -26,11 +26,11 @@ navbar {
     cursor: pointer;
     transition: color 0.2s;
     &.active {
-      color: darken(#f31214, 10%);
+      color: darken(#85BAD0, 10%);
     }
     &:hover {
       background: none;
-      color: #f31214;
+      color: #85BAD0;
     }
     &:focus {
       background: none;
@@ -39,10 +39,11 @@ navbar {
 
   .login-button {
     float: right;
-    border: 1px solid black;
+    border: 1px solid #85BAD0;
     margin-top: 10px;
-    background: none;
+    background-color: #85BAD0;
     outline: none !important;
+    color: white;
   }
 
   .welcome {
@@ -52,7 +53,7 @@ navbar {
       color: white;
     }
     a {
-      color: #f30046;
+      color: #85BAD0;
       cursor: pointer;
     }
   }

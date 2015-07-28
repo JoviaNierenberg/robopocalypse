@@ -24,6 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "~0.10.0"
+    "angular-material": "~0.10.0",
+    "bootstrap-material-design": "~0.3.0"
   }
 }
