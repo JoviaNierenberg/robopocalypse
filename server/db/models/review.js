@@ -7,7 +7,7 @@ var schema = new mongoose.Schema({
         required: true
     },
     product: {
-        type: mongoose.model('User'),
+        type: mongoose.model('Product'),
         required: true
     },
     text: {
