@@ -1,10 +1,10 @@
 <div>
 	<div class="col-lg-2">
-		<img class="col-lg-8" ng-src="{{theProduct.photo}}">
+		<img class="col-lg-8" ng-src="{{theProduct.photo}}" ui-sref="product({id: '{{theProduct._id}}' })">
 		<div>${{theProduct.price}}, {{theProduct.inventory}} left</div>
 	</div>
 	<div>
-		<h3>{{theProduct.title}}</h3>
+		<h3 ui-sref="product({id: '{{theProduct._id}}' })">{{theProduct.title}}</h3>
 		<p>{{theProduct.description}}</p>
 	</div>
 </div>

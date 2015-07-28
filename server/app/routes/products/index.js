@@ -3,13 +3,12 @@ var router = require('express').Router();
 require('../../../db/models')
 var mongoose = require("mongoose");
 module.exports = router;
-var _ = require('lodash');
 var Product = mongoose.model("Product");
 
 router.param('productId', function(req, res, next, productId) {
     Product.findById(productId).exec()
         .then(function(product) {
-            if (!product) throw HttpError(404);
+            if (!product) throw new Error("Product doesn't exist");
             else {
                 req.product = product;
                 next();
@@ -30,7 +29,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
     Product.create(req.body)
         .then(function(product) {
-            //
+            res.send(product);
         })
 })
 

@@ -32,7 +32,7 @@ var schema = new mongoose.Schema({
 });
 
 schema.virtual('shortDesc').get(function(){
-    return description.substring(0, 200)
+    return this.description.substring(0, 200)
 })
 
 schema.methods.getReviews = function(){

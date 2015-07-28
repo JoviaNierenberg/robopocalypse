@@ -1,4 +1,4 @@
-app.directive('review', function (Reviews) {
+app.directive('review', function () {
     return {
         restrict: 'E',
         scope: {
@@ -6,9 +6,10 @@ app.directive('review', function (Reviews) {
         	id: '='
         },
         templateUrl: 'js/common/directives/review/review.html',
-        link: function(scope){
-        	scope.user = user;
-        	scope.reviews = Reviews.getReviews(user, id);
+        link: function () {
+            //fix later
+        	// scope.user = user;
+        	// scope.reviews = Reviews.getReviews(user, id);
         }
     };
 });
