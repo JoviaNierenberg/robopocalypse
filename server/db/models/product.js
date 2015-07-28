@@ -19,7 +19,7 @@ var schema = new mongoose.Schema({
         type: Number
     },
     category: {
-        type: [Objectid]
+        type: [mongoose.Schema.Types.ObjectId]
     },
     photo: {
         type: String,
