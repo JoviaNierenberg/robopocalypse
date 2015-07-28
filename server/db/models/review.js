@@ -1,15 +1,13 @@
 'use strict';
 var mongoose = require('mongoose');
-var User = require('./user')
-var Product = require('./product')
 
 var schema = new mongoose.Schema({
     user: {
-        type: User,
+        type: ObjectId,
         required: true
     },
     product: {
-        type: Product,
+        type: ObjectId,
         required: true
     },
     text: {
