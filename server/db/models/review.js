@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     user: {
-        type: mongoose.model('User'),
+        type: ObjectId,
         required: true
     },
     product: {
-        type: mongoose.model('Product'),
+        type: ObjectId,
         required: true
     },
     text: {
@@ -16,15 +16,15 @@ var schema = new mongoose.Schema({
         minlength: 10
     },
     rating: {
-        type: Integer,
+        type: Number,
         required: true
     },
     upVotes: {
-        type: Integer,
+        type: Number,
         default: 0
-    }
+    },
     downVotes: {
-        type: Integer,
+        type: Number,
         default: 0
     }
 });
