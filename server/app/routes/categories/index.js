@@ -1,14 +1,17 @@
 'use strict';
 var router = require('express').Router();
-var Product = require('../../../db/models/product')
+require('../../../db/models');
+var mongoose = require("mongoose");
+var Category = mongoose.schema("Category");
+
 module.exports = router;
-var _ = require('lodash');
+
 
 // get all categories
 // >> fixed
-router.get('/:category', function() {
-    models.Category.find(req.query).exec().then(function(categories) {
-        req.json(categories)
+router.get('/:category', function(res, req) {
+    Category.find(req.query).exec().then(function(categories) {
+        res.json(categories)
     });
 });
 

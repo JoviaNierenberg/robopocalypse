@@ -32,7 +32,7 @@ app.factory("Products", function($http) {
     // deletes product based on ID
     deleteProduct: function(id) {
       return $http.delete('/api/products/' + id).then(function(response) {
-        console.log("Product with ID of " + id + " was successfully deleted.");
+        console.log(response, "Product with ID of " + id + " was successfully deleted.");
       });
     },
     // updates product using form data
