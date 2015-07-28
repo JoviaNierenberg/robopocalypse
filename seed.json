@@ -1,0 +1,5 @@
+{
+	"undefined": "localhost:27017/fsg-app",
+	"dev": "localhost:27017/fsg-app",
+	"prod": "localhost:27017/fsg-app"
+}
