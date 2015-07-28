@@ -1,16 +1,15 @@
 app.config(function ($stateProvider) {
 	$stateProvider.state("product", {
 		url: "/product/{id}",
-		resolve: {
-			product: function (Products, $stateParams) {
-				return Products.getOne($stateParams.id);
-			}
-		}
+		templateUrl: "js/product/product.html",
+		controller: "ProductCtrl"
 	});
 });
 
 
-app.controller('ProductCtrl', function($scope, $state, Products) {
+app.controller('ProductCtrl', function ($scope, Products, $stateParams) {
   // returns all products
-  console.log($scope);
+  Products.getOne($stateParams.id).then(function (product) {
+  	$scope.product = product;
+  });
 });
