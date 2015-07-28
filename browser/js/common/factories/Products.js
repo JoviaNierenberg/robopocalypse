@@ -3,14 +3,15 @@ app.factory("Products", function($http) {
   return {
     // returns all products
     getAll: function() {
-      return $http.get('/products').then(function(response) {
+      return $http.get('/api/products').then(function(response) {
+        console.log(response);
         return response.data;
       });
     },
     // creates a product using form data
     createProduct: function(data) {
       // is there an easier way to create a product using all the data inputted into the form?
-      return $http.post('/products/create', {
+      return $http.post('/api/products/create', {
         category: data.category,
         title: data.title,
         description: data.description,
@@ -23,21 +24,21 @@ app.factory("Products", function($http) {
     },
     // returns product based on ID
     getOne: function(id) {
-      return $http.get('/products' + id).then(function(response) {
+      return $http.get('/api/products/' + id).then(function(response) {
         productID = id;
         return response.data;
       });
     },
     // deletes product based on ID
     deleteProduct: function(id) {
-      return $http.delete('/products' + id).then(function(response) {
+      return $http.delete('/api/products/' + id).then(function(response) {
         console.log("Product with ID of " + id + " was successfully deleted.");
       });
     },
     // updates product using form data
     // is there an easier way to update a product using all the data inputted into the form?
     updateProduct: function(data) {
-      return $http.post('products/update', {
+      return $http.post('/api/products/update', {
         _id: productID,
         category: data.category,
         title: data.title,

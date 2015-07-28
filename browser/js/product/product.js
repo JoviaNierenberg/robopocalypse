@@ -1,10 +1,16 @@
+app.config(function ($stateProvider) {
+	$stateProvider.state("product", {
+		url: "/product/{id}",
+		resolve: {
+			product: function (Products, $stateParams) {
+				return Products.getOne($stateParams.id);
+			}
+		}
+	});
+});
+
+
 app.controller('ProductCtrl', function($scope, $state, Products) {
   // returns all products
-  Products.getAll().then(function(data) {
-    $scope.products = data;
-  });
-  // adds product to user's cart
-  $scope.addToCart = function(product) {
-    Cart.addToCart(product);
-  };
+  console.log($scope);
 });

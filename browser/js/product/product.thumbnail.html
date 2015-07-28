@@ -1,7 +1,7 @@
 <div>
-	<div>
-		<img ng-src="">
-		<div>{{theProduct.starRating}}</div>
+	<div class="col-lg-2">
+		<img class="col-lg-8" ng-src="{{theProduct.photo}}">
+		<div>${{theProduct.price}}, {{theProduct.inventory}} left</div>
 	</div>
 	<div>
 		<h3>{{theProduct.title}}</h3>
