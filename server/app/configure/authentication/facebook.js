@@ -4,7 +4,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 var UserModel = mongoose.model('User');
 
-module.exports = function (app) {
+module.exports = function(app) {
 
     var facebookConfig = app.getValue('env').FACEBOOK;
 
@@ -14,10 +14,12 @@ module.exports = function (app) {
         callbackURL: facebookConfig.callbackURL
     };
 
-    var verifyCallback = function (accessToken, refreshToken, profile, done) {
+    var verifyCallback = function(accessToken, refreshToken, profile, done) {
 
-        UserModel.findOne({ 'facebook.id': profile.id }).exec()
-            .then(function (user) {
+        UserModel.findOne({
+                'facebook.id': profile.id
+            }).exec()
+            .then(function(user) {
 
                 if (user) {
                     return user;
@@ -29,12 +31,12 @@ module.exports = function (app) {
                     });
                 }
 
-            }).then(function (userToLogin) {
+            }).then(function(userToLogin) {
                 done(null, userToLogin);
-            }, function (err) {
+            }, function(err) {
                 console.error('Error creating user from Facebook authentication', err);
                 done(err);
-            })
+            });
 
     };
 
@@ -43,8 +45,10 @@ module.exports = function (app) {
     app.get('/auth/facebook', passport.authenticate('facebook'));
 
     app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', { failureRedirect: '/login' }),
-        function (req, res) {
+        passport.authenticate('facebook', {
+            failureRedirect: '/login'
+        }),
+        function(req, res) {
             res.redirect('/');
         });
 
