@@ -1,8 +1,10 @@
 'use strict';
 var router = require('express').Router();
-var Product = require('../../../db/models/product')
+require('../../../db/models')
+var mongoose = require("mongoose");
 module.exports = router;
 var _ = require('lodash');
+var Product = mongoose.model("Product");
 
 router.param('productId', function(req, res, next, productId) {
     Product.findById(productId).exec()
@@ -17,14 +19,15 @@ router.param('productId', function(req, res, next, productId) {
 });
 
 //get all products
-router.get('/', function(req, res, next) {
-    Product.find().exec().then(function(products) {
+router.get('/', function(req, res) {
+    Product.find().exec().then(function (products) {
+        console.log(products);
         res.json(products)
     })
 })
 
 // add a products
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
     Product.create(req.body)
         .then(function(product) {
             //
@@ -32,7 +35,7 @@ router.post('/', function(req, res, next) {
 })
 
 // get single product
-router.get('/:productId', function(req, res, next) {
+router.get('/:productId', function(req, res) {
     res.json(req.product);
 })
 

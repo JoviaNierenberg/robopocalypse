@@ -1,8 +1,9 @@
-'use strict';
-var router = require('express').Router();
+"use strict";
+var router = require("express").Router();
 module.exports = router;
 
-router.use('/users', require('./users'));
+router.use("/users", require("./users"));
+router.use("/products", require("./products"));
 
 // Make sure this is after all of
 // the registered routes!
