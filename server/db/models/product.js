@@ -1,15 +1,18 @@
 'use strict';
 var mongoose = require('mongoose');
+require('../../../server/db/models');
 
 var schema = new mongoose.Schema({
     title: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        trim: true
     },
     description: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     price: {
         type: Number,
@@ -27,5 +30,12 @@ var schema = new mongoose.Schema({
     }
 });
 
+schema.virtual('shortDesc').get(function(){
+    return description.substring(0, 200)
+})
+
+schema.methods.getReviews = function(){
+    mongoose.model('Review').find({product: this._id}).then(function(reviews){return reviews});
+}
 
 mongoose.model('Product', schema);
