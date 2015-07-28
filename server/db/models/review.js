@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     user: {
-        type: Objectid,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     product: {
-        type: Objectid,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     text: {
