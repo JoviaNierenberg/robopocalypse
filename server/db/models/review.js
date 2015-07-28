@@ -16,15 +16,15 @@ var schema = new mongoose.Schema({
         minlength: 10
     },
     rating: {
-        type: Integer,
+        type: Number,
         required: true
     },
     upVotes: {
-        type: Integer,
+        type: Number,
         default: 0
-    }
+    },
     downVotes: {
-        type: Integer,
+        type: Number,
         default: 0
     }
 });
