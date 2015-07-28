@@ -19,7 +19,8 @@ var schema = new mongoose.Schema({
         required: true
     },
     inventory: {
-        type: Number
+        type: Number,
+        require: true
     },
     category: {
         type: [mongoose.Schema.Types.ObjectId]
