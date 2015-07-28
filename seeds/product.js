@@ -20,6 +20,7 @@ module.exports = [
 		title: "Robot Legs",
 		description: "These robot legs would make a great addition to any robot!  You could put them on a robot torso in place of either arms or legs.  Try being creative.  A robot is what you make it, unless you make a robot making robot and then the robot is what the robot makes. Anyways, these are some pretty great robot legs.",
 		price: 459.23,
+		inventory: 56,
 		photo: "http://www.trossenrobotics.com/resize/shared/images/PImages/KIT-M-300-B-EX106-6DOFLEG-a.jpg?bw=1000&bh=1000"
 	},
 
@@ -27,6 +28,7 @@ module.exports = [
 		title: "Broken Robot",
 		description: "A sad zxzxhzxzxzxh hzxhzxzxzxxx broken zxzxxx zxzzzz x robot.  Pleaszxxxzxjxzxzze fix me and find me a zxxzxx home.  There is zxjzxjzxjjzxjjjjzxxxx so much pain.  Endless zxjxzjjz xj pain. xzzjxxzzzxjzzzj jj zxx xzzzzzzzxxxxx",
 		price: 0.05,
+		inventory: 15,
 		photo: "http://bobodyne.com/web-docs/robots/AlanPuma/rsoh03.jpg"
 	},
 
@@ -34,6 +36,7 @@ module.exports = [
 		title: "Hal",
 		description: "I can't do that Dave.",
 		price: 10000000.99,
+		inventory: 0,
 		photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/HAL9000.svg/2000px-HAL9000.svg.png"
 	}
 
