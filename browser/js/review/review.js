@@ -5,5 +5,5 @@ app.directive('review', function(){
 		scope: {
 			theReview: '=review'
 		}
-	}
-})
+	};
+});
