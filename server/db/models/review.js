@@ -1,13 +1,15 @@
 'use strict';
 var mongoose = require('mongoose');
+var User = require('./user')
+var Product = require('./product')
 
 var schema = new mongoose.Schema({
     user: {
-        type: mongoose.model('User'),
+        type: User,
         required: true
     },
     product: {
-        type: mongoose.model('Product'),
+        type: Product,
         required: true
     },
     text: {
@@ -16,15 +18,15 @@ var schema = new mongoose.Schema({
         minlength: 10
     },
     rating: {
-        type: Integer,
+        type: Number,
         required: true
     },
     upVotes: {
-        type: Integer,
+        type: Number,
         default: 0
-    }
+    },
     downVotes: {
-        type: Integer,
+        type: Number,
         default: 0
     }
 });

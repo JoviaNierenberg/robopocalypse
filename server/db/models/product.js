@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var Category = require('./category')
 
 var schema = new mongoose.Schema({
     title: {
@@ -19,12 +20,13 @@ var schema = new mongoose.Schema({
         type: Number
     },
     category: {
-        type: [categoryDocument]
+        type: [Category]
     },
     photo: {
         type: String,
         default: "http://wiki.solid-run.com/images/7/75/No_image_available.png"
     }
 });
+
 
 mongoose.model('Product', schema);
