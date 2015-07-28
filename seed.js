@@ -36,7 +36,7 @@ var seedProducts = function () {
 
 connectToDb.then(function () {
     seedUsers().then(function() {
-        seedProducts();
+        return seedProducts();
     }).then(function () {
         console.log(chalk.green("Seed successful!"));
         process.kill(0);
