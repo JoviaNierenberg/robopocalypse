@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose');
-var Category = require('./category')
 
 var schema = new mongoose.Schema({
     title: {
@@ -20,7 +19,7 @@ var schema = new mongoose.Schema({
         type: Number
     },
     category: {
-        type: [Category]
+        type: [ObjectId]
     },
     photo: {
         type: String,
