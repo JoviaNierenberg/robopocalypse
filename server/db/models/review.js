@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
     user: {
-        type: mongoose.model('User'),
+        type: String,
         required: true
     },
     product: {
-        type: mongoose.model('Product'),
+        type: String,
         required: true
     },
     text: {
