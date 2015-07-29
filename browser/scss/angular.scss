@@ -1,0 +1,19 @@
+.md-button.left {
+    border-radius: 10px 0 0 10px;
+}
+.md-button.middle {
+    border-radius: 0;
+    border-left: 1px solid rgba(230, 230, 230, 0.96);
+    border-right: 1px solid rgba(230, 230, 230, 0.96);
+}
+.md-button.right {
+    border-radius: 0 10px 10px 0;
+}
+
+.md-button:not([disabled]):hover {
+  color: rgba(150, 150, 0, 1);
+}
+
+.md-button:focus{
+  color: rgba(150, 150, 0, 1);
+}
