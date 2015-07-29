@@ -8,12 +8,11 @@ app.config(function($stateProvider) {
 
 app.controller('signupController', function($scope, $window, User, AuthService, $state) {
     $scope.createUser = function(userData) {
-        console.log("create user entered. User data:", userData);
         User.signup(userData)
         .then(function(){
-            console.log('in .then')
-            // delete $scope.SignupForm;
-            $state.go('home')
+            AuthService.getLoggedInUser().then(function(user){
+                if (user) $state.go('home');
+            })
         })
     };
     $scope.googleAuth = function() {
