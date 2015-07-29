@@ -4,7 +4,6 @@ app.factory("Products", function($http) {
     // returns all products
     getAll: function() {
       return $http.get('/api/products').then(function(response) {
-        console.log(response);
         return response.data;
       });
     },
