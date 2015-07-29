@@ -2,14 +2,14 @@
 var router = require('express').Router();
 require('../../../db/models');
 var mongoose = require("mongoose");
-// var Order = mongoose.schema("Order");
+var Order = mongoose.model("Order");
 
 module.exports = router;
 
 
 // get all orders
 // >> fixed
-router.get('/', function(res) {
+router.get('/', function(req, res) {
     // Order.find().exec().then(function(orders) {
     //     res.json(orders)
     // });
@@ -17,16 +17,19 @@ router.get('/', function(res) {
 
 //get a particular user's orders
 
-router.get('/:userId', function(res, req) {
+router.get('/:userId', function(req, res) {
     // Order.find(req.query).exec().then(function(orders) {
     //     res.json(orders)
     // });
 });
 
 // add order
-router.post('/', function(res, req) {
-	console.log(req.body);
-	res.send("ORDER POSTED");
+router.post('/', function(req, res) {
+	Order.create({items: req.body.items, buyer: "Isaac"}, function (err, order) {
+		if(err) res.send(err);
+		res.send(order);
+	});
+	
 })
 
 // update order

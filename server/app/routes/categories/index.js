@@ -9,7 +9,7 @@ module.exports = router;
 
 // get all categories
 // >> fixed
-router.get("/:category", function(res, req) {
+router.get("/:category", function(req, res) {
     // Category.find(req.query).exec().then(function(categories) {
     //     res.json(categories)
     // });

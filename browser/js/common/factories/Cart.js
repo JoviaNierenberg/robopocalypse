@@ -54,7 +54,8 @@ app.factory('Cart', function ($rootScope, $http, $state) {
             $rootScope.$emit("cartChange", cart);
         },
         submitOrder: function () {
-            $http.post("/orders/", cart).then(function (res) {
+            console.log("submitted");
+            $http.post("/api/orders/", cart).then(function (res) {
                 console.log(res.data)
                 // $state.go("confirmation");
             });
