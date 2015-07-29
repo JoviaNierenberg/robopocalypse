@@ -1,9 +1,24 @@
+@font-face {
+  font-family: RobotTitle;
+  src: url("/fonts/bionic-kid/BIONICKIDSLANTED3D.ttf");
+}
+@font-face {
+  font-family: RobotBody;
+  src: url("/fonts/disposabledroid-bb/DisposableDroidBB.ttf");
+}
+@font-face {
+  font-family: RobotHeader;
+  src: url("/fonts/freshbot/FRESHBOT.TTF");
+}
+
+
 * {
   box-sizing: border-box;
 }
 
 body {
   background: #fdfdfd;
+  font-family: RobotBody;
 }
 
 @mixin clearfix {
@@ -29,3 +44,4 @@ img {
 @import "tutorial/main";
 @import "login/main";
 @import "angular";
+@import "cart";
