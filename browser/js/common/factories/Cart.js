@@ -1,4 +1,4 @@
-app.factory('Cart', function($rootScope) {
+app.factory('Cart', function ($rootScope, $http, $state) {
     var cart = {
         items: {},
         subtotal: 0,
@@ -8,31 +8,31 @@ app.factory('Cart', function($rootScope) {
     return {
 
         // returns products in cart
-        getCart: function() {
-            return cart
+        getCart: function () {
+            return cart;
         },
         // adds a product to the cart
-        addToCart: function(product) {
+        addToCart: function (product) {
             if(cart.items[product.title] === undefined){
-                cart.items[product.title] = {product: product, quantity: 1}
+                cart.items[product.title] = {product: product, quantity: 1};
             }
             else{
-                cart.items[product.title].quantity++
+                cart.items[product.title].quantity++;
             }
-            cart.subtotal += product.price
-            cart.totalItems++
-            $rootScope.$emit("cartChange", cart)
+            cart.subtotal += product.price;
+            cart.totalItems++;
+            $rootScope.$emit("cartChange", cart);
         },
         // removes an item from the cart
-        removeFromCart: function(product) {
+        removeFromCart: function (product) {
             if(cart.items[product.title].quantity === 1){
-                delete cart.items[product.title]
+                delete cart.items[product.title];
             } else{
-                cart.items[product.title].quantity--
+                cart.items[product.title].quantity--;
             }
-            cart.subtotal -= product.price
-            cart.totalItems--
-            $rootScope.$emit("cartChange", cart)
+            cart.subtotal -= product.price;
+            cart.totalItems--;
+            $rootScope.$emit("cartChange", cart);
         },
         // gets total price of all items in cart
         // getsubtotal: function() {
@@ -47,11 +47,18 @@ app.factory('Cart', function($rootScope) {
         //     return count
         // },
         // completely resets cart to empty
-        emptyCart: function() {
-            cart.items = {}
-            cart.subtotal = 0
-            cart.totalItems = 0
-            $rootScope.$emit("cartChange", cart)
+        emptyCart: function () {
+            cart.items = {};
+            cart.subtotal = 0;
+            cart.totalItems = 0;
+            $rootScope.$emit("cartChange", cart);
         },
+        submitOrder: function () {
+            console.log("submitted");
+            $http.post("/api/orders/", cart).then(function (res) {
+                console.log(res.data)
+                // $state.go("confirmation");
+            });
+        }
     };
 });
