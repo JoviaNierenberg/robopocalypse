@@ -1,7 +1,7 @@
 app.factory('Cart', function() {
     var cart = {
         items: {},
-        totalPrice: 0,
+        subtotal: 0,
         totalItems: 0
     };
 
@@ -14,28 +14,28 @@ app.factory('Cart', function() {
         // adds a product to the cart
         addToCart: function(product) {
             if(cart.items[product.title] === undefined){
-                cart.items[product.title] = 1
+                cart.items[product.title] = {product: product, quantity: 1}
             }
             else{
-                cart.items[product.title]++
+                cart.items[product.title].quantity++
             }
-            cart.totalPrice += product.price
+            cart.subtotal += product.price
             cart.totalItems++
             return cart
         },
         // removes an item from the cart
         removeFromCart: function(product) {
-            if(cart.items[product.title] === 1){
+            if(cart.items[product.title].quantity === 1){
                 delete cart.items[product.title]
             } else{
-                cart.items--
+                cart.items[product.title]quantity--
             }
-            cart.totalPrice -= product.price
+            cart.subtotal -= product.price
             cart.totalItems--
             return cart
         },
         // gets total price of all items in cart
-        // getTotalPrice: function() {
+        // getsubtotal: function() {
 
         // },
         // updates number of products in cart
@@ -49,7 +49,7 @@ app.factory('Cart', function() {
         // completely resets cart to empty
         emptyCart: function() {
             cart.items = {}
-            cart.totalPrice = 0
+            cart.subtotal = 0
             cart.totalItems = 0
             return cart
         },
