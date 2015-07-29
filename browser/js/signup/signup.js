@@ -12,6 +12,7 @@ app.controller('signupController', function($scope, $window, User, AuthService, 
         User.signup(userData)
         .then(function(){
             console.log('in .then')
+            // AuthService.login()
             // delete $scope.SignupForm;
             $state.go('home')
         })
