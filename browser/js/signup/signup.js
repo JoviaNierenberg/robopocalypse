@@ -6,7 +6,7 @@ app.config(function($stateProvider) {
     });
 });
 
-app.controller('signupController', function($scope, $window, User, $state) {
+app.controller('signupController', function($scope, $window, User, AuthService, $state) {
     $scope.createUser = function(userData) {
         console.log("create user entered. User data:", userData);
         User.signup(userData)
