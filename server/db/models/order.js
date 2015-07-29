@@ -5,4 +5,4 @@ var schema = new mongoose.Schema({
     name: String
 });
 
-mongoose.model("Category", schema);
+mongoose.model("Order", schema);
