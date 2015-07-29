@@ -1,11 +1,11 @@
-'use strict';
-window.app = angular.module('Robopocalypse', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt']);
+"use strict";
+window.app = angular.module("Robopocalypse", ["ui.router", "ui.bootstrap", "fsaPreBuilt", "ngMaterial"]);
 
 app.config(function ($urlRouterProvider, $locationProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)
     $locationProvider.html5Mode(true);
-    // If we go to a URL that ui-router doesn't have registered, go to the "/" url.
-    $urlRouterProvider.otherwise('/');
+    // If we go to a URL that ui-router doesn"t have registered, go to the "/" url.
+    $urlRouterProvider.otherwise("/");
 });
 
 // This app.run is for controlling access to specific states.
@@ -18,7 +18,7 @@ app.run(function ($rootScope, AuthService, $state) {
 
     // $stateChangeStart is an event fired
     // whenever the process of changing a state begins.
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {
 
         if (!destinationStateRequiresAuth(toState)) {
             // The destination state does not require authentication
@@ -42,7 +42,7 @@ app.run(function ($rootScope, AuthService, $state) {
             if (user) {
                 $state.go(toState.name, toParams);
             } else {
-                $state.go('login');
+                $state.go("login");
             }
         });
 
