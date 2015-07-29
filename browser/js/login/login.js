@@ -10,7 +10,6 @@ app.controller('LoginCtrl', function($scope, $window, AuthService, $state) {
     $scope.login = {};
     $scope.error = null;
     $scope.sendLogin = function(loginInfo) {
-        console.log("loginInfo: ", loginInfo)
         $scope.error = null;
         AuthService.login(loginInfo).then(function() {
             $state.go('home');
