@@ -1,0 +1,13 @@
+<div ng-controller="CartCtrl">
+	<h3>Shopping Cart</h3>
+	<hr>
+	<div ng-repeat="item in items">
+		{{item.product.title}}
+		{{item.product.photo}}
+		{{item.quantity}}
+	</div>
+	<div>
+		{{cart.totalItems}}
+		{{cart.subtotal}}
+	</div>
+</div>
