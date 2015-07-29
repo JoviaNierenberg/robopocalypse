@@ -21,3 +21,15 @@ router.get("/:userid", ensureAuthenticated, function (req, res) {
     });
 });
 
+router.post('/create', function (req, res, next) {
+    // delete req.body.isAdmin;
+    console.log("in api/users/create route")
+    User.create(req.body)
+    .then(function (user) {
+        // req.login(user, function () {
+            res.status(201).json(user);
+        // });
+    })
+    .then(null, next);
+});
+

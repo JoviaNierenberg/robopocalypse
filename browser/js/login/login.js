@@ -18,9 +18,9 @@ app.controller('LoginCtrl', function($scope, $window, AuthService, $state) {
         });
     };
     $scope.googleAuth = function() {
-        $window.location.href = "/authentication/google";
+        $window.location.href = "/auth/google";
     };
     $scope.facebookAuth = function() {
-        $window.location.href = "/authentication/facebook";
+        $window.location.href = "/auth/facebook";
     };
 });
