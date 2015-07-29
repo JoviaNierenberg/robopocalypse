@@ -2,9 +2,12 @@
 	<h3>Shopping Cart</h3>
 	<hr>
 	<div ng-repeat="item in items">
-		<img ng-src="{{item.product.photo}}"/>
-		<p>{{item.product.title}}</p>
-		<p>({{item.quantity}})</p>
+		<div class="cart-img">
+			<img class="img-responsive" ng-src="{{item.product.photo}}"/>
+		</div><!-- 
+	 --><div class="cart-detail">
+			<p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price}}</p>
+		</div>
 	</div>
 	<div>
 		<p>{{cart.totalItems}} items</p>
