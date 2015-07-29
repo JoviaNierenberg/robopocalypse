@@ -1,8 +1,5 @@
 app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
   // returns all products
-
-  console.log("hi")
-
   Products.getAll().then(function(data) {
     $scope.products = data;
   });
