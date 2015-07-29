@@ -1,16 +1,17 @@
 <div class="container-fluid row">
 	<div class="container-fluid col-lg-2 col-md-2 col-sm-2 col-xs-2">
 		<div style="margin-top:25px">
-		<img class="col-lg-8 col-md-8 col-sm-8 col-xs-8" ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
+		<img ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
 		</div>
 		<div class="container-fluid" style="float:left; clear:both">
 			<h3>${{theProduct.price}}</h3>
 			<h4><span style="color:red"><b>Only {{theProduct.inventory}} left</b></span></h4>
 		</div>
 	</div>
-	<div class="container-fluid col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	<div class="container-fluid">
 		<h2><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h2>
 		<p>{{theProduct.description}}</p>
+		<h3 ng-click="add(theProduct)">Add to Cart +</h3>
 	</div>
 
 </div>

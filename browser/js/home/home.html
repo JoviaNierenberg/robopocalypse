@@ -1,4 +1,8 @@
 <section id="home" ng-controller="HomeCtrl">
-    <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
-    <cart></cart>
+	<div class="col-lg-8">
+	    <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
+	</div>
+	<div class="col-lg-4">
+	    <cart></cart>
+	</div>
 </section>

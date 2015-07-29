@@ -4,6 +4,11 @@ app.directive('productThumbnail', function(){
 		templateUrl: 'js/product/product.thumbnail.html',
 		scope: {
 			theProduct: '=product'
+		},
+		controller: function ($scope, Cart) {
+			$scope.add = function (product) {
+				Cart.addToCart(product);
+			};
 		}
 	}
 })
