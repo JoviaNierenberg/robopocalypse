@@ -38,6 +38,14 @@ module.exports = [
 		price: 10000000.99,
 		inventory: 0,
 		photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/HAL9000.svg/2000px-HAL9000.svg.png"
+	},
+
+	{
+		title: "Sleepy Robot",
+		description: "Yeah, I know what you're thinking.  What a tired little robot.  Well.  You would be quite surprised to learn that this is one of the most dangerous robots in our collection.  She can sleep for nine maybe ten hours in a day, but when it comes time to guard a secret military installation or wreak havok in a metropolitan area.... well let's just say that you had better stay out of her way.\n\nSleepy Robot requires AAA batteries and can't go without a enormous dose of lethal radiation for more than 6 hours.  Sleepy Robot owns you and your family.  Sleep Robot will never die.",
+		price: 567.55,
+		inventory: 47,
+		photo: "https://s-media-cache-ak0.pinimg.com/736x/e2/c6/c5/e2c6c5a2639b5679decaadae209fd5d2.jpg"
 	}
 
 ];
