@@ -1,8 +1,8 @@
-'use strict';
-var mongoose = require('mongoose');
+"use strict";
+var mongoose = require("mongoose");
 
 var schema = new mongoose.Schema({
     name: String
 });
 
-mongoose.model('Category', schema);
+mongoose.model("Category", schema);
