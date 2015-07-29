@@ -19,7 +19,8 @@ var schema = new mongoose.Schema({
         required: true
     },
     inventory: {
-        type: Number
+        type: Number,
+        require: true
     },
     category: {
         type: [mongoose.Schema.Types.ObjectId]
@@ -31,7 +32,7 @@ var schema = new mongoose.Schema({
 });
 
 schema.virtual('shortDesc').get(function(){
-    return description.substring(0, 200)
+    return this.description.substring(0, 200)
 })
 
 schema.methods.getReviews = function(){

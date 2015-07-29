@@ -12,14 +12,12 @@ var ensureAuthenticated = function (req, res, next) {
     }
 };
 
-var error = function (err) {
-    console.log(err);
-    res.status(401).end();
-}
-
 router.get("/:userid", ensureAuthenticated, function (req, res) {
     User.findById(req.params.userid).then(function (user) {
         res.send(user);
-    }, error);
+    }, function (err) {
+        console.log(err);
+        res.status(401).end();
+    });
 });
 
