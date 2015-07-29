@@ -28,16 +28,24 @@
             <p ui-sref="home">
                 <robot-logo></robot-logo>
             </p>
-            <md-button ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()" ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</md-button>
 
-            <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
+            <md-button class="nav-group nav-line" ui-sref="home">Robopocalypse</md-button>
+            <md-button class="nav-group nav-line" ui-sref="home">Browse</md-button>
+
+            
+
+            <span flex></span>
+            <md-input-container class="nav-line">
+            <md-icon md-svg-icon="/images/cake.svg" aria-label="Cake Icon"></md-icon>
+            <input class="md-primary" type="text" placeholder="Browse our products"> 
+            </md-input-container>
+
+            <md-button class="nav-group nav-line" ng-show="!user" ui-sref="login">Login</md-button>
             <div ng-show="user" class="welcome">
                 <span>Welcome, {{ user.email }}!</span>
-                <a ng-click="logout()">Logout</a>
+                <md-button class="nav-button" ng-click="logout()">Logout</md-button>
             </div>
 
-
-            <input type="text" class="form-control col-lg-8" placeholder="Search">
         </div>
       <!-- <div class="md-toolbar-tools">
         <md-button class="md-icon-button" aria-label="Settings">
