@@ -6,13 +6,7 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
         templateUrl: 'js/common/directives/navbar/navbar.html',
         link: function (scope) {
 
-            scope.items = [
-                { label: 'Robopocalypse', state: 'home' },
-                { label: 'Browse', state: 'home' },
-                // { label: 'About', state: 'about' },
-                // { label: 'GitHub', state: 'docs' },
-                { label: 'Members Only', state: 'membersOnly', auth: true }
-            ];
+            
 
             scope.user = null;
 
