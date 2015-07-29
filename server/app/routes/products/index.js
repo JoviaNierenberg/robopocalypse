@@ -20,7 +20,6 @@ router.param('productId', function(req, res, next, productId) {
 //get all products
 router.get('/', function(req, res) {
     Product.find().exec().then(function (products) {
-        console.log(products);
         res.json(products)
     })
 })
