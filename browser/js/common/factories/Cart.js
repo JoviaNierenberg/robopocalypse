@@ -1,4 +1,4 @@
-app.factory('Cart', function() {
+app.factory('Cart', function($rootScope) {
     var cart = {
         items: {},
         subtotal: 0,
@@ -21,18 +21,18 @@ app.factory('Cart', function() {
             }
             cart.subtotal += product.price
             cart.totalItems++
-            return cart
+            $rootScope.$emit("cartChange", cart)
         },
         // removes an item from the cart
         removeFromCart: function(product) {
             if(cart.items[product.title].quantity === 1){
                 delete cart.items[product.title]
             } else{
-                cart.items[product.title]quantity--
+                cart.items[product.title].quantity--
             }
             cart.subtotal -= product.price
             cart.totalItems--
-            return cart
+            $rootScope.$emit("cartChange", cart)
         },
         // gets total price of all items in cart
         // getsubtotal: function() {
@@ -51,7 +51,7 @@ app.factory('Cart', function() {
             cart.items = {}
             cart.subtotal = 0
             cart.totalItems = 0
-            return cart
+            $rootScope.$emit("cartChange", cart)
         },
     };
 });

@@ -1,13 +1,14 @@
-<div ng-controller="CartCtrl">
+<div>
 	<h3>Shopping Cart</h3>
 	<hr>
 	<div ng-repeat="item in items">
-		{{item.product.title}}
 		{{item.product.photo}}
+		{{item.product.title}}
 		{{item.quantity}}
 	</div>
 	<div>
 		{{cart.totalItems}}
 		{{cart.subtotal}}
+		something else
 	</div>
 </div>
