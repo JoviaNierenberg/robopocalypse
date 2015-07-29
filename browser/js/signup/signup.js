@@ -1,19 +1,20 @@
 app.config(function($stateProvider) {
     $stateProvider.state('signup', {
         url: '/signup',
-        templateUrl: 'js/signup/create.html',
+        templateUrl: 'js/signup/signup.html',
         controller: 'signupController'
     });
 });
 
-app.controller('signupController', function($scope, $window, AuthService, Signup, $state) {
-    $scope.createUser = function() {
-        console.log("creat user signupController");
-        Signup.createUser($scope.SignupForm).then(function(response) {
-            console.log("User creation response ", response);
-            delete $scope.SignupForm;
-            $state.go('home');
-        });
+app.controller('signupController', function($scope, $window, User, AuthService, $state) {
+    $scope.createUser = function(userData) {
+        console.log("create user entered. User data:", userData);
+        User.signup(userData)
+        .then(function(){
+            console.log('in .then')
+            // delete $scope.SignupForm;
+            $state.go('home')
+        })
     };
     $scope.googleAuth = function() {
         console.log("Authenticating with Google OAuth2");
