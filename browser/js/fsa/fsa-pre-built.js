@@ -101,20 +101,6 @@
             });
         };
 
-        this.signup = function (credentials){
-            return $http.post('/signup', credentials)
-                .then(function (response) {
-                    console.log("in $http.post")
-                    return response.data;
-                })
-                .then(function (user) {
-                    // $rootScope.isLoggedIn = true;
-                    // $rootScope.isAdmin = user.isAdmin;
-                    // $rootScope.currentUser = user;
-                    return user;
-                });
-        }
-
     });
 
     app.service('Session', function ($rootScope, AUTH_EVENTS) {

@@ -4,14 +4,14 @@
         <!-- first name -->
         <div class="form-group">
             <label>First Name</label>
-            <input type="text" name="firstName" class="form-control" ng-model="credentials.firstName" required>
+            <input type="text" name="firstName" class="form-control" ng-model="credentials.name.first" required>
             <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
         </div>
 
         <!-- last name -->
         <div class="form-group">
             <label>Last Name</label>
-            <input type="text" name="lastName" class="form-control" ng-model="credentials.lastName" required>
+            <input type="text" name="lastName" class="form-control" ng-model="credentials.name.last" required>
             <p ng-show="registrationForm.lastName.$invalid; registrationForm.$submitted" class="help-block">Your last name is required.</p>
         </div>
 
