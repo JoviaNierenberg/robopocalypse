@@ -51,7 +51,6 @@ var seedReviews = function () {
     }).then(function(reviews){
         return Review.createAsync(reviews);
     })
-    // return Review.createAsync(reviews);
 };
 
 connectToDb.then(function () {
