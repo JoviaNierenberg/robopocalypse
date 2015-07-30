@@ -12,10 +12,13 @@ var itemize = function (items) {
 
 
 var schema = new mongoose.Schema({
-    buyer: {type: String, required: true},
+    buyer: {type: mongoose.Schema.Types.ObjectId, required: true},
+ 	billing: {type: String, required: true},
+ 	shipping: {type: String},
     // This vvvv doesn't seem like the best way to do this, 
     // each set of items is an object with the form {(Objectid(1): quantity, Objectid(2): quantity}
     items: {type: Object, required: true, set: itemize},
+    price: {type: Number, required: true},
     status: {type: String, default: "Created"}
 });
 
