@@ -36,9 +36,6 @@ var schema = new mongoose.Schema({
             required: true
         }
     },
-    orders: {
-        type: [String]
-    },
     photo: String
 });
 

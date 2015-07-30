@@ -1,33 +1,27 @@
 
+var mongoose = require('mongoose');
+require('../../../server/db/models');
+var Product = mongoose.model('Product');
+
+var expect = require('chai').expect;
+
+var dbURI = 'mongodb://localhost:27017/testingDB';
+var clearDB = require('mocha-mongoose')(dbURI);
+
+var supertest = require('supertest');
+var app = require('../../../server/app');
+var agent = supertest.agent(app)
+
+
 // describe('app', function () {
-// 	it('serves up static files (from the static folder in the public folder) on /files route', function (done) {
-// 		agent
-// 		.get('/files/index.html')
-// 		.expect(200)
-// 		.end(function (err, res) {
-// 			if (err) return done(err);
-// 			fs.readFile(__dirname + '/public/static/index.html', function (err, contents) {
-// 				if (err) return done(err);
-// 				expect(res.text).to.equal(contents.toString());
-// 				done();
-// 			});
-// 		});
-// 	});
 
 // 	it('handles internal server errors', function (done) {
 // 		// in an actual application, this route wouldn't exist
 // 		// it's here just to test how you handle errors in an express app
 // 		agent
-// 		.get('/broken')
+// 		.post('/api/products')
+// 		.body({title: 'something'})
 // 		.expect(500, done);
-// 	});
-
-// 	it('handles custom errors', function (done) {
-// 		// in an actual application, this route wouldn't exist
-// 		// it's here just to test how you handle errors in an express app
-// 		agent
-// 		.get('/forbidden')
-// 		.expect(403, done);
 // 	});
 
 // 	describe('/numVisits', function () {
