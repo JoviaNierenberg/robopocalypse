@@ -23,6 +23,7 @@ var chalk = require("chalk");
 var connectToDb = require("./server/db");
 var User = Promise.promisifyAll(mongoose.model("User"));
 var Product = Promise.promisifyAll(mongoose.model("Product"));
+var Review = Promise.promisifyAll(mongoose.model("Review"));
 
 var seedUsers = function() {
     var users = require("./seeds/user");
@@ -45,12 +46,32 @@ var dropDatabase = function() {
     });
 };
 
-connectToDb.then(function() {
+var seedReviews = function () {
+    var reviews, users, products;
+    reviews = require("./seeds/review");
+    return User.find().exec().then(function(people){
+        users = people;
+        return Product.find().exec();
+    }).then(function(stuff){
+        products = stuff;
+        reviews.forEach(function(review){
+            review.user = users[1];
+            review.product = products[1];
+        })
+        return reviews;
+    }).then(function(reviews){
+        return Review.createAsync(reviews);
+    })
+};
+
+connectToDb.then(function () {
     dropDatabase().then(function() {
         return seedUsers();
     }).then(function() {
         return seedProducts();
     }).then(function() {
+        return seedReviews();
+    }).then(function () {
         console.log(chalk.green("Seed successful!"));
         process.kill(0);
     }).catch(function(err) {

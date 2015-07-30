@@ -1,8 +1,9 @@
-
 <section id="home">
 	<div class="col-lg-8">
 	    <product-thumbnail product="singleProduct"></product-thumbnail>
 	<div>
+		<h3>Reviews</h3>
+		<product-review ng-repeat="review in reviews"></product-review>
 		<!-- <review ng-repeat="reviewEntry in reviews" review="reviewEntry"></review> -->
 	</div>
 	</div>
@@ -10,3 +11,4 @@
 	    <cart></cart>
 	</div>
 </section>
+

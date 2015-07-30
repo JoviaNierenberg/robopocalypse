@@ -18,15 +18,15 @@ var schema = new mongoose.Schema({
     rating: {
         type: Number,
         required: true
-    },
-    upVotes: {
-        type: Number,
-        default: 0
-    },
-    downVotes: {
-        type: Number,
-        default: 0
     }
+    // upVotes: {
+    //     type: Number,
+    //     default: 0
+    // },
+    // downVotes: {
+    //     type: Number,
+    //     default: 0
+    // }
 });
 
 mongoose.model('Review', schema);
