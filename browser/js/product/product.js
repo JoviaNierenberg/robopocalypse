@@ -6,7 +6,6 @@ app.config(function ($stateProvider) {
 	});
 });
 
-<<<<<<< HEAD
 
 app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams) {
   // returns all products
