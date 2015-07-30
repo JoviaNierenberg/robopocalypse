@@ -17,8 +17,8 @@ name in the environment files.
 
 */
 
-var mongoose = require("mongoose");
 var Promise = require("bluebird");
+var mongoose = Promise.promisifyAll(require("mongoose"));
 var chalk = require("chalk");
 var connectToDb = require("./server/db");
 var User = Promise.promisifyAll(mongoose.model("User"));
@@ -34,8 +34,21 @@ var seedProducts = function () {
     return Product.createAsync(products);
 }
 
+var dropDatabase = function(){
+    return new Promise(function (resolve, reject){
+        mongoose.connection.db.dropDatabase(function(err, result){
+            if(err) reject(err)
+            else{
+                resolve(result)
+            }
+        })
+    })
+}
+
 connectToDb.then(function () {
-    seedUsers().then(function() {
+    dropDatabase().then(function(){
+        return seedUsers()
+    }).then(function() {
         return seedProducts();
     }).then(function () {
         console.log(chalk.green("Seed successful!"));
