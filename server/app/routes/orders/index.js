@@ -35,6 +35,7 @@ router.get('/user/:userId', function(req, res) {
     Order.find({buyer: req.params.userId}).exec().then(function(orders) {
         res.json(orders)
     });
+});
 
 //get a single orders
 router.get('/:orderId', function(req, res) {
@@ -43,11 +44,13 @@ router.get('/:orderId', function(req, res) {
 
 // add order
 router.post('/', function(req, res) {
-	Order.create({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.price}, function (err, order) {
+    console.log({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.subtotal})
+	Order.create({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.subtotal}, function (err, order) {
+        console.log(err);
         if(err) res.send(err);
 		res.json(order);
 	});
-})
+});
 
 // update order
 router.put('/:orderId', function(req, res, next) {
