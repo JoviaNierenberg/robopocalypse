@@ -10,5 +10,5 @@ app.directive('productThumbnail', function(){
 				Cart.addToCart(product);
 			};
 		}
-	}
-})
+	};
+});

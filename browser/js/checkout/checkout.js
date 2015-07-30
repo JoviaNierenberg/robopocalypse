@@ -6,10 +6,8 @@ app.config(function ($stateProvider) {
 	});
 });
 
-
-
 app.controller("CheckoutCtrl", function ($scope, Cart) {
 	$scope.submitOrder = function () {
 		Cart.submitOrder();
-	}
+	};
 });

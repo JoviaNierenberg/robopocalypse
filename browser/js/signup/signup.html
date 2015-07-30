@@ -1,10 +1,10 @@
-<div class="signin-container">
+<div class="container">
     <form ng-submit="createUser(credentials)">
-        
+
         <!-- first name -->
         <div class="form-group">
             <label>First Name</label>
-            <input type="text" name="firstName" class="form-control" ng-model="credentials.name.first" required>
+            <input type="text" name="firstName" class="form-control" required>
             <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
         </div>
 
@@ -69,6 +69,6 @@
 
     </form> -->
 
-    <button  class= "btn btn-danger" ng-click="googleAuth()">Login with Google</button>
-    <button  class= "btn btn-danger" ng-click="facebookAuth()">Login with Facebook</button>
+    <button  class= "btn btn-danger" ng-click="googleAuth()"><i class="fa fa-google fa-2x"></i>Login with Google</button>
+    <button  class= "btn btn-danger" ng-click="facebookAuth()"><i class="fa fa-facebook fa-2x"></i>Login with Facebook</button>
 </div>
