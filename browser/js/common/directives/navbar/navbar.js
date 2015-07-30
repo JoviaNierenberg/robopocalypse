@@ -13,6 +13,9 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
                    $state.go('home');
                 });
             };
+            scope.viewUserPage = function () {
+                $state.go("user", {id: scope.user._id});
+            }
             var setUser = function () {
                 AuthService.getLoggedInUser().then(function (user) {
                     scope.user = user;
