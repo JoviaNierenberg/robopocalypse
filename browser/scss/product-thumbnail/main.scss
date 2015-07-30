@@ -1,0 +1,31 @@
+.product-thumbnail-card.mdl-card {
+    width: auto;
+}
+
+.product-thumbnail-card > .mdl-card__title {
+    color: #fff;
+}
+
+.product-thumbnail-card > .mdl-card__menu {
+    color: #fff;
+}
+
+.product-thumbnail-card > .mdl-card__media {
+    overflow: hidden;
+    background: transparent;
+}
+.product-thumbnail-card > .mdl-card__media img {
+    width: 100%;
+}
+
+h3.ng-binding {
+  padding: 16px;
+}
+
+b.ng-binding {
+  padding: 16px
+}
+
+a.ng-binding:hover {
+  text-decoration: none;
+}
