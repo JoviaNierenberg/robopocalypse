@@ -44,9 +44,7 @@ router.get('/:orderId', function(req, res) {
 
 // add order
 router.post('/', function(req, res) {
-    console.log({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.subtotal})
 	Order.create({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.subtotal}, function (err, order) {
-        console.log(err);
         if(err) res.send(err);
 		res.json(order);
 	});
@@ -68,7 +66,7 @@ router.put('/:orderId', function(req, res, next) {
 router.delete('/:orderId', function(req, res, next) {
     req.order.remove()
         .then(function() {
-            res.status(200).end();
+            res.status(204).end();
         })
         .then(null, next);
 });
