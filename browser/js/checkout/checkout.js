@@ -12,4 +12,5 @@ app.controller("CheckoutCtrl", function ($scope, Cart) {
 	$scope.submitOrder = function () {
 		Cart.submitOrder();
 	}
+	$scope.checkout = true;
 });
