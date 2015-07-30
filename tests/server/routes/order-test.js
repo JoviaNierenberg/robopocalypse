@@ -123,7 +123,7 @@ describe('order route', function () {
 					.send({
 						billing: 'abc st. 123, ab 123123',
 						items: items,
-						price: 10000
+						subtotal: 10000
 					})
 					.end(function (err, res) {
 						if (err) return done(err);
@@ -147,6 +147,18 @@ describe('order route', function () {
 				});
 			});
 			
+			it('GET Orders through user/:userId', function (done) {
+				agent
+				.get('/api/orders/user/' + user._id)
+				.expect(200)
+				.end(function (err, res) {
+					if (err) return done(err);
+					expect(res.body[0].price).to.equal(order.price);
+					done();
+				});
+			});
+
+
 			it('GET Single Order', function (done) {
 				agent
 				.get('/api/orders/' + order._id)
@@ -165,48 +177,48 @@ describe('order route', function () {
 				.end(done);
 			});
 			
-			// it('PUT one', function (done) {
-			// 	agent
-			// 	.put('/api/products/' + product[0]._id)
-			// 	.send({
-			// 		title: 'Mr. Roboto'
-			// 	})
-			// 	.expect(200)
-			// 	.end(function (err, res) {
-			// 		if (err) return done(err);
-			// 		expect(res.body.title).to.equal('Mr. Roboto');
-			// 		done();
-			// 	});
-			// });
+			it('PUT one', function (done) {
+				agent
+				.put('/api/orders/' + order._id)
+				.send({
+					price: 200
+				})
+				.expect(200)
+				.end(function (err, res) {
+					if (err) return done(err);
+					expect(res.body.price).to.equal(200);
+					done();
+				});
+			});
 
-			// it('PUT one that doesn\'t exist', function (done) {
-			// 	agent
-			// 	.put('/api/books/123abcnotamongoid')
-			// 	.send({title: 'Attempt To Update Book Title'})
-			// 	.expect(404)
-			// 	.end(done);
-			// });
+			it('PUT one that doesn\'t exist', function (done) {
+				agent
+				.put('/api/orders/123abcnotamongoid')
+				.send({title: 'Attempt To Update Book Title'})
+				.expect(404)
+				.end(done);
+			});
 			
-			// it('DELETE one', function (done) {
-			// 	agent
-			// 	.delete('/api/products/' + product[0]._id)
-			// 	.expect(204)
-			// 	.end(function (err, res) {
-			// 		if (err) return done(err);
-			// 		Product.findById(product[0]._id, function (err, b) {
-			// 			if (err) return done(err);
-			// 			expect(b).to.be.null;
-			// 			done();
-			// 		});
-			// 	});
-			// });
+			it('DELETE one', function (done) {
+				agent
+				.delete('/api/orders/' + order._id)
+				.expect(204)
+				.end(function (err, res) {
+					if (err) return done(err);
+					Order.findById(product[0]._id, function (err, b) {
+						if (err) return done(err);
+						expect(b).to.be.null;
+						done();
+					});
+				});
+			});
 
-			// it('DELETE one that doesn\'t exist', function (done) {
-			// 	agent
-			// 	.delete('/api/products/123abcnotamongoid')
-			// 	.expect(404)
-			// 	.end(done);
-			// });
+			it('DELETE one that doesn\'t exist', function (done) {
+				agent
+				.delete('/api/orders/123abcnotamongoid')
+				.expect(404)
+				.end(done);
+			});
 
 
 		});

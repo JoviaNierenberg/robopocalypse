@@ -115,7 +115,7 @@ describe('product route', function () {
 
 			it('PUT one that doesn\'t exist', function (done) {
 				agent
-				.put('/api/books/123abcnotamongoid')
+				.put('/api/products/123abcnotamongoid')
 				.send({title: 'Attempt To Update Book Title'})
 				.expect(404)
 				.end(done);
