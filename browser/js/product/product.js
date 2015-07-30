@@ -6,7 +6,6 @@ app.config(function ($stateProvider) {
 	});
 });
 
-
 app.controller('ProductCtrl', function ($scope, Products, $stateParams) {
   // returns all products
   Products.getOne($stateParams.id).then(function (product) {

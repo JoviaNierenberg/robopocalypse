@@ -2,8 +2,8 @@
 var router = require('express').Router();
 require('../../../db/models');
 var mongoose = require("mongoose");
+var Admin = mongoose.model("User");
 module.exports = router;
-var Product = mongoose.model("Product");
 
 router.param('productId', function(req, res, next, productId) {
     Product.findById(productId).exec()

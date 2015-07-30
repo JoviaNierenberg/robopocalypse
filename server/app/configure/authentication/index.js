@@ -53,6 +53,14 @@ module.exports = function (app) {
         }
     });
 
+    app.get('/isAdmin', function(req, res) {
+        if (req.user.isAdmin) {
+            res.send({user: _.omit(req.user.toJSON(), ['salt', 'password'])});
+        } else {
+            res.status(401).send('You are not an admin!');
+        }
+    });
+
     // Simple /logout route.
     app.get('/logout', function (req, res) {
         req.logout();
