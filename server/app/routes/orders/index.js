@@ -15,6 +15,8 @@ router.param('orderId', function(req, res, next, orderId) {
                 req.order = order;
                 next();
             }
+        }, function(err){
+            res.send(404)
         })
         .then(null, next);
 });
@@ -22,26 +24,31 @@ router.param('orderId', function(req, res, next, orderId) {
 // get all orders
 // >> fixed
 router.get('/', function(req, res) {
-    Order.find().exec().then(function(orders) {
+    Order.find(req.query).exec().then(function(orders) {
         res.json(orders)
     });
 });
 
-//get a particular user's orders
 
-router.get('/:userId', function(req, res) {
+//get a particular user's orders
+router.get('/user/:userId', function(req, res) {
     Order.find({buyer: req.params.userId}).exec().then(function(orders) {
         res.json(orders)
     });
 });
 
+//get a single orders
+router.get('/:orderId', function(req, res) {
+    res.json(req.order);
+});
+
 // add order
 router.post('/', function(req, res) {
-	Order.create({items: req.body.items, buyer: "Isaac"}, function (err, order) {
-		if(err) res.send(err);
-		res.send(order);
+	Order.create({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.subtotal}, function (err, order) {
+        if(err) res.send(err);
+		res.json(order);
 	});
-})
+});
 
 // update order
 router.put('/:orderId', function(req, res, next) {
@@ -59,7 +66,7 @@ router.put('/:orderId', function(req, res, next) {
 router.delete('/:orderId', function(req, res, next) {
     req.order.remove()
         .then(function() {
-            res.status(200).end();
+            res.status(204).end();
         })
         .then(null, next);
 });

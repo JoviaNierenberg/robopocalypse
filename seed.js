@@ -17,23 +17,34 @@ name in the environment files.
 
 */
 
-var mongoose = require("mongoose");
 var Promise = require("bluebird");
+var mongoose = Promise.promisifyAll(require("mongoose"));
 var chalk = require("chalk");
 var connectToDb = require("./server/db");
 var User = Promise.promisifyAll(mongoose.model("User"));
 var Product = Promise.promisifyAll(mongoose.model("Product"));
 var Review = Promise.promisifyAll(mongoose.model("Review"));
 
-var seedUsers = function () {
+var seedUsers = function() {
     var users = require("./seeds/user");
     return User.createAsync(users);
 };
 
-var seedProducts = function () {
+var seedProducts = function() {
     var products = require("./seeds/product");
     return Product.createAsync(products);
-}
+};
+
+var dropDatabase = function() {
+    return new Promise(function(resolve, reject) {
+        mongoose.connection.db.dropDatabase(function(err, result) {
+            if (err) reject(err);
+            else {
+                resolve(result);
+            }
+        });
+    });
+};
 
 var seedReviews = function () {
     var reviews, users, products;
@@ -54,14 +65,16 @@ var seedReviews = function () {
 };
 
 connectToDb.then(function () {
-    seedUsers().then(function() {
+    dropDatabase().then(function() {
+        return seedUsers();
+    }).then(function() {
         return seedProducts();
     }).then(function() {
         return seedReviews();
     }).then(function () {
         console.log(chalk.green("Seed successful!"));
         process.kill(0);
-    }).catch(function (err) {
+    }).catch(function(err) {
         console.error(err);
         process.kill(1);
     });

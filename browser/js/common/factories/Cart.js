@@ -1,4 +1,4 @@
-app.factory('Cart', function ($rootScope, $http, $state) {
+app.factory('Cart', function ($rootScope, $http) {
     var cart = {
         items: {},
         subtotal: 0,
@@ -54,6 +54,7 @@ app.factory('Cart', function ($rootScope, $http, $state) {
             $rootScope.$emit("cartChange", cart);
         },
         submitOrder: function () {
+            cart.billing = "Test";
             $http.post("/api/orders/", cart).then(function (res) {
                 console.log(res.data)
                 // $state.go("confirmation");

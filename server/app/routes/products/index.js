@@ -1,56 +1,62 @@
-'use strict';
-var router = require('express').Router();
-require('../../../db/models')
+"use strict";
+var router = require("express").Router();
+require("../../../db/models");
 var mongoose = require("mongoose");
 module.exports = router;
 var Product = mongoose.model("Product");
 
-router.param('productId', function(req, res, next, productId) {
+router.param("productId", function(req, res, next, productId) {
     Product.findById(productId).exec()
         .then(function(product) {
-            if (!product) throw new Error("Product doesn't exist");
+            if (!product) res.send(404);
             else {
                 req.product = product;
                 next();
             }
+        }, function(err) {
+            res.send(404);
         })
         .then(null, next);
 });
 
 //get all products
-router.get('/', function(req, res) {
-    Product.find().exec().then(function (products) {
-        res.json(products)
-    })
-})
+router.get("/", function(req, res) {
+    console.log(req.session);
+    Product.find().exec().then(function(products) {
+        res.json(products);
+    });
+});
 
 // add a products
-router.post('/', function(req, res) {
+router.post("/", function(req, res) {
     Product.create(req.body)
         .then(function(product) {
-            res.send(product);
-        })
-})
+            res.status(201).json(product);
+        });
+});
 
 // get single product
-router.get('/:productId', function(req, res) {
+router.get("/:productId", function(req, res) {
     res.json(req.product);
-})
+});
 
 // update single product
 router.put('/:productId', function(req, res, next) {
+    for (var key in req.body) {
+        req.product[key] = req.body[key];
+    }
     req.product.save()
         .then(function(product) {
             res.json(product);
         })
         .then(null, next);
-})
+});
 
 // delete productId
-router.delete('/:productId', function(req, res, next) {
+router.delete("/:productId", function(req, res, next) {
     req.product.remove()
         .then(function() {
-            res.status(200).end();
+            res.status(204).end();
         })
         .then(null, next);
-})
+});

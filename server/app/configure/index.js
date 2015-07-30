@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 module.exports = function (app) {
 
     // setValue and getValue are merely alias
@@ -10,14 +10,14 @@ module.exports = function (app) {
         return app.get(path);
     };
 
-    require('./app-variables')(app);
-    require('./static-middleware')(app);
-    require('./parsing-middleware')(app);
+    require("./app-variables")(app);
+    require("./static-middleware")(app);
+    require("./parsing-middleware")(app);
 
     // Logging middleware, set as application
     // variable inside of server/app/configure/app-variables.js
-    app.use(app.getValue('log'));
+    app.use(app.getValue("log"));
 
-    require('./authentication')(app);
+    require("./authentication")(app);
 
 };
