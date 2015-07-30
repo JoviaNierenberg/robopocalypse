@@ -21,6 +21,7 @@ router.param("productId", function (req, res, next, productId) {
 
 //get all products
 router.get("/", function (req, res) {
+    console.log(req.session);
     Product.find().exec().then(function (products) {
         res.json(products)
     })
@@ -40,7 +41,7 @@ router.get("/:productId", function (req, res) {
 })
 
 // update single product
-router.put('/:productId', function(req, res, next) {
+router.put('/:productId', function (req, res, next) {
     for(var key in req.body){
         req.product[key] = req.body[key]
     }
