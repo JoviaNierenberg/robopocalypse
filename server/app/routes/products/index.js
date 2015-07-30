@@ -19,6 +19,7 @@ router.param("productId", function (req, res, next, productId) {
 
 //get all products
 router.get("/", function (req, res) {
+    console.log(req.session);
     Product.find().exec().then(function (products) {
         res.json(products)
     })

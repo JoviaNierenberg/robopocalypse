@@ -4,10 +4,9 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
         restrict: 'E',
         scope: {},
         templateUrl: 'js/common/directives/navbar/navbar.html',
-        link: function (scope) {
+        link: function (scope, element, attr) {
 
             
-
             scope.user = null;
 
             scope.isLoggedIn = function () {
@@ -19,6 +18,12 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
                    $state.go('home');
                 });
             };
+
+            scope.viewUserPage = function () {
+                if(scope.user) {
+                    $state.go("user", {id: scope.user._id});
+                }
+            }
 
             var setUser = function () {
                 AuthService.getLoggedInUser().then(function (user) {
