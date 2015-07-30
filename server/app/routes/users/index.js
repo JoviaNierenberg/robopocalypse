@@ -12,6 +12,21 @@ var ensureAuthenticated = function (req, res, next) {
     }
 };
 
+// var isAdmin = function (req, res, next) {
+//     User.findById(req.session.passport.user)
+//     .exec().then(next, function(){res.status(403).end})
+// };
+
+// //for admin to see all users
+// router.get("/", isAdmin, function (req, res) {
+//     User.find(req.query).then(function (users) {
+//         res.send(users);
+//     }, function (err) {
+//         console.log(err);
+//         res.status(403).end();
+//     });
+// });
+
 router.get("/:userid", ensureAuthenticated, function (req, res) {
     User.findById(req.params.userid).then(function (user) {
         res.send(user);
