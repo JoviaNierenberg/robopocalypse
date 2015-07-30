@@ -76,7 +76,6 @@
             if (this.isAuthenticated() && fromServer !== true) {
                 return $q.when(Session.user);
             }
-
             // Make request GET /session.
             // If it returns a user, call onSuccessfulLogin with the response.
             // If it returns a 401 response, we catch it and instead resolve to null.
