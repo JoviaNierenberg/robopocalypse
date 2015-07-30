@@ -1,11 +1,11 @@
-'use strict';
-var router = require('express').Router();
-require('../../../db/models')
+"use strict";
+var router = require("express").Router();
+require("../../../db/models")
 var mongoose = require("mongoose");
 module.exports = router;
 var Product = mongoose.model("Product");
 
-router.param('productId', function(req, res, next, productId) {
+router.param("productId", function (req, res, next, productId) {
     Product.findById(productId).exec()
         .then(function(product) {
             if (!product) res.send(404)
@@ -20,14 +20,14 @@ router.param('productId', function(req, res, next, productId) {
 });
 
 //get all products
-router.get('/', function(req, res) {
+router.get("/", function (req, res) {
     Product.find().exec().then(function (products) {
         res.json(products)
     })
 })
 
 // add a products
-router.post('/', function(req, res) {
+router.post("/", function (req, res) {
     Product.create(req.body)
         .then(function(product) {
             res.status(201).json(product);
@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
 })
 
 // get single product
-router.get('/:productId', function(req, res) {
+router.get("/:productId", function (req, res) {
     res.json(req.product);
 })
 
@@ -44,7 +44,6 @@ router.put('/:productId', function(req, res, next) {
     for(var key in req.body){
         req.product[key] = req.body[key]
     }
-
     req.product.save()
         .then(function(product) {
             res.json(product);
@@ -53,7 +52,7 @@ router.put('/:productId', function(req, res, next) {
 })
 
 // delete productId
-router.delete('/:productId', function(req, res, next) {
+router.delete("/:productId", function (req, res, next) {
     req.product.remove()
         .then(function() {
             res.status(204).end();

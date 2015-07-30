@@ -1,4 +1,4 @@
-app.factory('Cart', function ($rootScope, $http, $state) {
+app.factory('Cart', function ($rootScope, $http) {
     var cart = {
         items: {},
         subtotal: 0,
