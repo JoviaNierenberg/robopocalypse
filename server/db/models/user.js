@@ -36,18 +36,12 @@ var schema = new mongoose.Schema({
             required: true
         }
     },
-<<<<<<< HEAD
-    orders: {
-        type: [String]
-    },
     photo: String,
     isAdmin: {
         type: Boolean,
         default: false
     }
-=======
-    photo: String
->>>>>>> 7bece5f64f0e1d7d767c8c489474d90fe9c25adb
+
 });
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations
