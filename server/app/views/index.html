@@ -4,12 +4,29 @@
 <head>
     <base href="/" />
     <title>Robopocalypse</title>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="stackstore, robots">
+    <meta name="description" content="Our stackstore project.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <!-- Roboto Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css" />
+    <!-- Material icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Angular Material  Design -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css" href="/bootstrap-material-design/dist/material.min.css">
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-pink.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Our compiled CSS -->
     <link rel="stylesheet" type="text/css" href="/style.css" />
-    <meta name="viewport" content="initial-scale=1" />
+    <!-- lodash -->
     <script src="/lodash/index.js"></script>
     <!-- Angular Material Dependencies -->
     <script src="/angular/angular.js"></script>
@@ -18,14 +35,20 @@
     <script src="/angular-material/angular-material.js"></script>
     <script src="/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/angular-bootstrap/ui-bootstrap.js"></script>
+    <!-- Angular UI Router JS -->
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- Material Design Lite JS -->
+    <!-- <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script> -->
+    <!-- Socket IO -->
     <script src="/socket.io-client/socket.io.js"></script>
+    <!-- Our compiled JS -->
     <script src="/main.js"></script>
 </head>
 
 <body ng-app="Robopocalypse">
     <navbar></navbar>
+    <!-- <div id="main" ui-view></div> -->
     <md-content id="main" ui-view></md-content>
-
 </body>
 
 </html>
