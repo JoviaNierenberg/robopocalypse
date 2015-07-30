@@ -7,7 +7,10 @@ app.config(function ($stateProvider) {
 });
 
 app.controller("CheckoutCtrl", function ($scope, Cart) {
+	$scope.cart = Cart.getCart();
 	$scope.submitOrder = function () {
 		Cart.submitOrder();
 	};
+	$scope.checkout = true;
 });
+

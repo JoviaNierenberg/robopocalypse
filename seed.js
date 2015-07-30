@@ -24,36 +24,36 @@ var connectToDb = require("./server/db");
 var User = Promise.promisifyAll(mongoose.model("User"));
 var Product = Promise.promisifyAll(mongoose.model("Product"));
 
-var seedUsers = function () {
+var seedUsers = function() {
     var users = require("./seeds/user");
     return User.createAsync(users);
 };
 
-var seedProducts = function () {
+var seedProducts = function() {
     var products = require("./seeds/product");
     return Product.createAsync(products);
-}
+};
 
-var dropDatabase = function(){
-    return new Promise(function (resolve, reject){
-        mongoose.connection.db.dropDatabase(function(err, result){
-            if(err) reject(err)
-            else{
-                resolve(result)
+var dropDatabase = function() {
+    return new Promise(function(resolve, reject) {
+        mongoose.connection.db.dropDatabase(function(err, result) {
+            if (err) reject(err);
+            else {
+                resolve(result);
             }
-        })
-    })
-}
+        });
+    });
+};
 
-connectToDb.then(function () {
-    dropDatabase().then(function(){
-        return seedUsers()
+connectToDb.then(function() {
+    dropDatabase().then(function() {
+        return seedUsers();
     }).then(function() {
         return seedProducts();
-    }).then(function () {
+    }).then(function() {
         console.log(chalk.green("Seed successful!"));
         process.kill(0);
-    }).catch(function (err) {
+    }).catch(function(err) {
         console.error(err);
         process.kill(1);
     });
