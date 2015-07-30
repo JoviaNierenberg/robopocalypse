@@ -46,6 +46,30 @@ module.exports = [
 		price: 567.55,
 		inventory: 47,
 		photo: "https://s-media-cache-ak0.pinimg.com/736x/e2/c6/c5/e2c6c5a2639b5679decaadae209fd5d2.jpg"
+	},
+
+	{
+		title: "Golden Robot",
+		description: "This golden robot is so valuable.  A millionaire had it made.  His name was Lebron James.  Lebron James is a terrific golden robot, was rather.  He's gone now.  All sold out.",
+		price: 5000,
+		inventory: 0,
+		photo: "http://ecx.images-amazon.com/images/I/41cud3dGZ6L._SY355_.jpg"
+	},
+
+	{
+		title: "Botfun McDonald",
+		description: "Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy! Yippy!",
+		price: 10.05,
+		inventory: 9001,
+		photo: "http://www.sciencekids.co.nz/images/facts/robots/qrio.jpg"
+	},
+
+	{
+		title: "Big Ol' Lady",
+		description: "She's a mean robot.  She's a big robot.  She will smash you under her titanium foot.  Watch out for the Big Ol' Lady robot.  She's angry and out for revenge.  Seriously don't buy this robot.",
+		price: 640.45,
+		inventory: 1,
+		photo: "http://www.dfki.de/web/news/cebit2013/aila/index_html/2013-02-28.2175750087/image"
 	}
 
 ];
