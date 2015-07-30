@@ -31,15 +31,7 @@
 
 ## Product Item
 
-- Robots
-    - Robocop
-    - Terminator
-
----
-
-## Team Name
-
-- **Robopocalypse**
+### Robots
 
 ---
 
@@ -58,5 +50,5 @@
 ---
 
 > Built with ❤️ at [Fullstack Academy](http://fullstackacademy.com "Fullstack Academy").
-> 
+>
 > Last updated July 28, 2015
