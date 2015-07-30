@@ -8,7 +8,7 @@ app.factory('Orders', function($http) {
     },
     // get orders based on user
     getOrdersByUser: function(userId) {
-      return $http.get('/api/orders/' + userId).then(function(response) {
+      return $http.get('/api/orders/user/' + userId).then(function(response) {
         return response.data;
       });
     },

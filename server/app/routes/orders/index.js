@@ -28,11 +28,15 @@ router.get('/', function(req, res) {
 });
 
 //get a particular user's orders
-
-router.get('/:userId', function(req, res) {
+router.get('/user/:userId', function(req, res) {
     Order.find({buyer: req.params.userId}).exec().then(function(orders) {
         res.json(orders)
     });
+});
+
+
+router.get('/:orderId', function(req, res) {
+    res.json(req.order);
 });
 
 // add order
