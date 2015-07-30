@@ -48,13 +48,24 @@
         ]);
     });
 
-    app.service('AuthService', function ($http, Session, $rootScope, AUTH_EVENTS, $q) {
+    app.service('AuthService', function ($http, Session, $rootScope, AUTH_EVENTS, $q, Cart) {
 
         function onSuccessfulLogin(response) {
             var data = response.data;
             Session.create(data.id, data.user);
             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+            if(data.cart){
+                Cart.setCart(data.cart);
+            }
             return data.user;
+        }
+
+        function onGuestSession(response){
+            var data = response.data;
+            Session.createGuest(data.id);
+            if(data.cart){
+                Cart.setCart(data.cart);
+            }
         }
 
         // Uses the session factory to see if an
@@ -76,10 +87,17 @@
             if (this.isAuthenticated() && fromServer !== true) {
                 return $q.when(Session.user);
             }
+
             // Make request GET /session.
             // If it returns a user, call onSuccessfulLogin with the response.
             // If it returns a 401 response, we catch it and instead resolve to null.
-            return $http.get('/session').then(onSuccessfulLogin).catch(function () {
+            return $http.get('/session').then(function (res) {
+                if(res.data.user) {
+                    onSuccessfulLogin(res);
+                }else {
+                    onGuestSession(res);
+                }
+            }).catch(function () {
                 return null;
             });
 
@@ -121,6 +139,10 @@
             this.id = sessionId;
             this.user = user;
         };
+
+        this.createGuest = function (sessionId) {
+            this.id = sessionId;
+        }
 
         this.destroy = function () {
             this.id = null;

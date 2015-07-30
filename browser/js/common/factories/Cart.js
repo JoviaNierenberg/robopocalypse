@@ -9,13 +9,17 @@ app.factory('Cart', function ($rootScope, $http) {
         $http.put("/api/cart", cart).then(function (res) {
             console.log(res.data);
         });
-    }
+    };
 
     return {
 
         // returns products in cart
         getCart: function () {
             return cart;
+        },
+        setCart: function (initCart) {
+            cart = initCart;
+            $rootScope.$emit("cartChange", cart);
         },
         // adds a product to the cart
         addToCart: function (product) {
