@@ -14,6 +14,9 @@ router.param('category', function (req, res, next, category) {
                 req.category = cat;
                 next();
             }
+        }, function(err){
+                err.status = 404
+                next(err)
         })
         .then(null, next);
 });
