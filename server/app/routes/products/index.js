@@ -8,11 +8,13 @@ var Product = mongoose.model("Product");
 router.param("productId", function (req, res, next, productId) {
     Product.findById(productId).exec()
         .then(function(product) {
-            if (!product) throw new Error("Product doesn't exist");
+            if (!product) res.send(404)
             else {
                 req.product = product;
                 next();
             }
+        }, function(err){
+            res.send(404)
         })
         .then(null, next);
 });
@@ -29,7 +31,7 @@ router.get("/", function (req, res) {
 router.post("/", function (req, res) {
     Product.create(req.body)
         .then(function(product) {
-            res.send(product);
+            res.status(201).json(product);
         })
 })
 
@@ -39,7 +41,10 @@ router.get("/:productId", function (req, res) {
 })
 
 // update single product
-router.put("/:productId", function (req, res, next) {
+router.put('/:productId', function (req, res, next) {
+    for(var key in req.body){
+        req.product[key] = req.body[key]
+    }
     req.product.save()
         .then(function(product) {
             res.json(product);
@@ -51,7 +56,7 @@ router.put("/:productId", function (req, res, next) {
 router.delete("/:productId", function (req, res, next) {
     req.product.remove()
         .then(function() {
-            res.status(200).end();
+            res.status(204).end();
         })
         .then(null, next);
 })
