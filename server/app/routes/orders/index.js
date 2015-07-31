@@ -16,6 +16,7 @@ router.param('orderId', function(req, res, next, orderId) {
                 next();
             }
         }, function(err){
+            console.log(err);
             res.send(404)
         })
         .then(null, next);

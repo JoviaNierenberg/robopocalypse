@@ -1,7 +1,6 @@
 'use strict';
 
 app.factory('User', function($http) {
-    var userID = '';
     return {
         // returns all users
         getAll: function() {
@@ -12,7 +11,6 @@ app.factory('User', function($http) {
         // get single user
         getOne: function(id) {
             return $http.get('/api/users/' + id).then(function(response) {
-                userID = id;
                 return response.data;
             });
         },
