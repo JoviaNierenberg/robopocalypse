@@ -25,7 +25,7 @@
             <h1 class="mdl-button mdl-card__title-text"><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h1>
         </div>
         <div class="mdl-card__supporting-text">
-            {{theProduct.description}}
+            {{theProduct.description | shortdesc}}
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <h3>${{theProduct.price}}</h3>
