@@ -16,13 +16,6 @@ app.config(function ($urlRouterProvider, $locationProvider, $mdThemingProvider) 
         });
 });
 
-app.filter("shortdesc", function () {
-    return function(description) {
-        if(description.length > 200) return description.slice(0, 200) + ".....";
-        else return description;
-    };
-});
-
 // This app.run is for controlling access to specific states.
 app.run(function ($rootScope, AuthService, $state) {
 

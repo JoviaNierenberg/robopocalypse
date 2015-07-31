@@ -6,7 +6,7 @@
 			<img class="img-responsive" ng-src="{{item.product.photo}}"/>
 		</div><!-- 
 	 --><div class="cart-detail">
-			<p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price}}</p>
+			<p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price | getPrice}}</p>
 		</div>
 	</div>
 	<div>
