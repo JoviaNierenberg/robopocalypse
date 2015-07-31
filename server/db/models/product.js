@@ -20,10 +20,11 @@ var schema = new mongoose.Schema({
     },
     inventory: {
         type: Number,
-        require: true
+        required: true
     },
     category: {
-        type: [mongoose.Schema.Types.ObjectId]
+        type: [mongoose.Schema.Types.ObjectId], 
+        required: true
     },
     photo: {
         type: String,
