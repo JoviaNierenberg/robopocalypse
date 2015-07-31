@@ -1,7 +1,11 @@
 app.config(function ($stateProvider) {
   $stateProvider.state("admin", {
     url: "/admin",
-    templateUrl: "js/admin/dashboard.html"
+    templateUrl: "js/admin/dashboard.html",
+    data: {
+            isAdmin: true,
+            authenticate: true
+        }
   })
 });
 
