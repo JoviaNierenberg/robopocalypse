@@ -15,9 +15,13 @@ app.factory('Reviews', function($http) {
         // returns review based on ID
         getOne: function(id) {
           return $http.get('/api/reviews/' + id).then(function(res) {
-            // reviewID = id;
             return res.data;
           });
+        },
+        deleteReview: function (id) {
+            return $http.delete("/api/reviews/" + id).then(function (res) {
+                return res.data;
+            })
         }
     };
 });

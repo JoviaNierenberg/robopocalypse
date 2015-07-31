@@ -1,13 +1,24 @@
-module.exports = [
-	{name: "Evil"},
+module.exports = [{
+        name: "Evil"
+    },
 
-	{name: "Diabolical"},
+    {
+        name: "Diabolical"
+    },
 
-	{name: "Sinister"},
+	{
+        name: "Sinister"
+    },
 
-	{name: "Hero"},
+	{
+        name: "Hero"
+    },
 
-	{name: "Useless"},
+	{
+        name: "Useless"
+    },
 
-	{name: "To Be Abused"}
+	{
+        name: "To Be Abused"
+    }
 ];

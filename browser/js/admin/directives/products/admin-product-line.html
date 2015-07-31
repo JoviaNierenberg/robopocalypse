@@ -1,0 +1,9 @@
+<div class="col-md-2">
+    <h2>Title: {{theProduct.title}}</h2>
+    <img ng-src="{{theProduct.photo}}" style="width:100px">
+    <p>Description: {{theProduct.description}} | limitTo:shortDesc }}</p>
+    <h3>Price: {{theProduct.price | currency}}</h3>
+    <h4>Inventory: {{theProduct.inventory}}</h4>
+    <button ng-click="editProduct()">Edit</button>
+    <button ng-click="deleteProduct()">Delete</button>
+</div>

@@ -14,6 +14,6 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders) {
 		});
 		Orders.getOrdersByUser(user._id).then(function (orders) {
 			$scope.orders = orders;
-		});
+		}); 
 	});
 });
