@@ -6,9 +6,13 @@ app.config(function ($stateProvider) {
 	});
 });
 
-app.controller('ProductCtrl', function ($scope, Products, $stateParams) {
+
+app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams) {
   // returns all products
   Products.getOne($stateParams.id).then(function (product) {
   	$scope.singleProduct = product;
+  });
+  Reviews.getReviews().then(function(reviews){
+  	$scope.reviews = reviews;
   });
 });
