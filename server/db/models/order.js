@@ -1,9 +1,7 @@
 "use strict";
 var mongoose = require("mongoose");
-require('../../../server/db/models');
 
 var Product = mongoose.model('Product')
-
 
 var itemize = function (items) {
 	var dbItems = {};
@@ -27,14 +25,15 @@ var cartize = function(items){
 }
 
 var schema = new mongoose.Schema({
-    buyer: {type: mongoose.Schema.Types.ObjectId, required: true},
+    buyer: {type: mongoose.Schema.Types.Objectid, ref: "User", required: true},
  	billing: {type: String, required: true},
  	shipping: {type: String},
     // This vvvv doesn't seem like the best way to do this, 
     // each set of items is an object with the form {(Objectid(1): quantity, Objectid(2): quantity}
     items: {type: Object, required: true, get: cartize, set: itemize},
     price: {type: Number, required: true},
-    status: {type: String, default: "Created"}
+    status: {type: String, default: "Created"},
+    coupon: {type: mongoose.Schema.Types.Objectid, ref: "Coupon"}
 });
 
 mongoose.model("Order", schema);

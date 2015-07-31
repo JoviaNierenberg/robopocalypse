@@ -1,6 +1,5 @@
 'use strict';
 var mongoose = require('mongoose');
-require('../../../server/db/models');
 
 var schema = new mongoose.Schema({
     title: {
@@ -23,7 +22,11 @@ var schema = new mongoose.Schema({
         require: true
     },
     category: {
-        type: [mongoose.Schema.Types.ObjectId]
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Category",
+            required: true
+        }]
     },
     photo: {
         type: String,
