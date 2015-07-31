@@ -13,12 +13,7 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders) {
 			$scope.reviews = reviews;
 		});
 		Orders.getOrdersByUser(user._id).then(function (orders) {
-			console.log(orders);
 			$scope.orders = orders;
 		});
 	});
-
 });
-
-
-
