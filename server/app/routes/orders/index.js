@@ -30,14 +30,6 @@ router.get('/', function(req, res) {
     });
 });
 
-
-//get a particular user's orders
-router.get('/user/:userId', function(req, res) {
-    Order.find({buyer: req.params.userId}).exec().then(function(orders) {
-        res.json(orders)
-    });
-});
-
 //get a single orders
 router.get('/:orderId', function(req, res) {
     res.json(req.order);
@@ -45,9 +37,12 @@ router.get('/:orderId', function(req, res) {
 
 // add order
 router.post('/', function(req, res) {
-	Order.create({items: req.body.items, buyer: req.session.passport.user, billing: req.body.billing, price: req.body.subtotal}, function (err, order) {
+    req.body.buyer = req.session.passport.user
+	Order.create(req.body)
+    .then(function (order){
+        res.json(order)
+    }, function(err) {
         if(err) res.send(err);
-		res.json(order);
 	});
 });
 

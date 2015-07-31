@@ -19,7 +19,9 @@ var schema = new mongoose.Schema({
     },
     rating: {
         type: Number,
-        required: true
+        required: true,
+        min: 0,
+        max: 5
     }
     // upVotes: {
     //     type: Number,

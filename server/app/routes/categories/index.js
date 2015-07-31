@@ -28,20 +28,18 @@ router.get("/", function (req, res, next) {
 	}, next);
 });
 
-router.get("/:category", function (req, res, next) {
-    if(req.category) {
-    	res.json(req.category);
-    }else{
-    	next();
-    }
+router.get("/:category", function (req, res) {
+    res.json(req.category);
 });
 
 // add category
 router.post("/", function(req, res) {
-	Category.create({name: req.body.name}, function (err, category) {
-		if(err) res.send(err);
-		res.send(category);
-	});
+	Category.create({name: req.body.name})
+    .then(function(category){
+        res.send(category)
+    }, function(err){
+        res.send(err)
+    })
 })
 
 // update category
