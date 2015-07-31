@@ -5,6 +5,7 @@ module.exports = [{
             first: "Billy",
             last: "Pilgrim"
         },
+        Roles: ["Admin"],
         photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg"
     },
 
@@ -15,7 +16,7 @@ module.exports = [{
             first: "Elaine",
             last: "MacBook"
         },
-        isAdmin: true,
+        Roles: ["Admin"],
         photo: "http://www.fullstackacademy.com/img/team/omri_bernstein.jpg"
     },
 
@@ -26,7 +27,7 @@ module.exports = [{
             first: "Bilbo",
             last: "Bunny"
         },
-        isAdmin: true,
+        Roles: ["Admin"],
         photo: "http://www.fullstackacademy.com/img/team/scott_dalessandro.jpg"
     },
 
