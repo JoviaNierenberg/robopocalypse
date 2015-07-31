@@ -11,6 +11,6 @@ app.directive("adminReviewLine", function () {
 
 app.controller("AdminReviewLineCtrl", function ($scope, Reviews){
 	$scope.delete = function () {
-		Reviews.deleteReview($scope.theUser._id);
+		Reviews.deleteReview($scope.theReview._id);
 	}
 });
