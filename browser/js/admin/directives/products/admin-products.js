@@ -8,6 +8,7 @@ app.directive('adminProducts', function() {
 
 app.controller('AdminProductsCtrl', function($scope, Products) {
   Products.getAll().then(function(products) {
+    console.log(products);
     $scope.products = products;
   });
 });

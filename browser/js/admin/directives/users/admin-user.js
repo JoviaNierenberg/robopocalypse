@@ -3,10 +3,8 @@ app.directive("adminUsers", function () {
 		restrict: "E",
 		templateUrl: "js/admin/directives/users/admin-user.html",
 		controller: "AdminUserCtrl"
-	}
+	};
 });
-
-
 
 app.controller("AdminUserCtrl", function ($scope, User) {
 	User.getAll().then(function (users) {
