@@ -49,7 +49,7 @@ module.exports = function (app) {
         if (req.user) {
             res.send({ user: _.omit(req.user.toJSON(), ['salt', 'password']), cart: req.session.cart });
         } else {
-            res.status({cart: req.session.cart });
+            res.send({ cart: req.session.cart });
         }
     });
 
@@ -64,7 +64,7 @@ module.exports = function (app) {
     // Simple /logout route.
     app.get('/logout', function (req, res) {
         req.logout();
-        res.status(200).end();
+        res.send({ cart: req.session.cart });
     });
 
     // Each strategy enabled gets registered.
