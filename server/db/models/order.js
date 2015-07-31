@@ -24,6 +24,14 @@ var cartize = function(items) {
     return dbItems;
 };
 
+function getPrice(num){
+    return (num/100).toFixed(2);
+}
+
+function setPrice(num){
+    return num*100;
+}
+
 var schema = new mongoose.Schema({
     buyer: {
         type: mongoose.Schema.Types.ObjectId,
@@ -47,7 +55,9 @@ var schema = new mongoose.Schema({
     },
     price: {
         type: Number,
-        required: true
+        required: true,
+        get: getPrice,
+        set: setPrice
     },
     status: {
         type: String,

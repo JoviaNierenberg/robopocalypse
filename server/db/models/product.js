@@ -1,6 +1,14 @@
 'use strict';
 var mongoose = require('mongoose');
 
+function getPrice(num){
+    return (num/100).toFixed(2);
+}
+
+function setPrice(num){
+    return num*100;
+}
+
 var schema = new mongoose.Schema({
     title: {
         type: String,
@@ -15,7 +23,9 @@ var schema = new mongoose.Schema({
     },
     price: {
         type: Number,
-        required: true
+        required: true,
+        set: setPrice,
+        get: getPrice
     },
     inventory: {
         type: Number,
@@ -34,6 +44,10 @@ var schema = new mongoose.Schema({
     }
 });
 
+schema.path('category').validate(function(value){
+    return (value.length !== 0)
+}, 'No category added')
+
 schema.virtual('shortDesc').get(function() {
     return this.description.substring(0, 200);
 });
@@ -41,7 +55,7 @@ schema.virtual('shortDesc').get(function() {
 schema.methods.getReviews = function() {
     mongoose.model('Review').find({
         product: this._id
-    }).then(function(reviews) {
+    }).exec().then(function(reviews) {
         return reviews;
     });
 };
