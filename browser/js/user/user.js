@@ -16,8 +16,4 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders) {
 			$scope.orders = orders;
 		});
 	});
-
 });
-
-
-

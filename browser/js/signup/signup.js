@@ -12,8 +12,8 @@ app.controller('signupController', function($scope, $window, User, AuthService, 
         .then(function(){
             AuthService.getLoggedInUser().then(function(user){
                 if (user) $state.go('home');
-            })
-        })
+            });
+        });
     };
     $scope.googleAuth = function() {
         console.log("Authenticating with Google OAuth2");

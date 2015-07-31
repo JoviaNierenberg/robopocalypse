@@ -2,11 +2,11 @@ app.config(function ($stateProvider) {
   $stateProvider.state("admin", {
     url: "/admin",
     templateUrl: "js/admin/dashboard.html"
-  })
+  });
 });
 
 
-app.controller('AdminCtrl', function ($scope, Products, Categories, Users, Orders, $stateParams){
+app.controller('AdminCtrl', function ($scope, Products, Categories, User){
       $scope.deleteProduct = function (product) {
         Products.deleteProduct(product._id);
       };
@@ -28,6 +28,4 @@ app.controller('AdminCtrl', function ($scope, Products, Categories, Users, Order
       // $scope.updateOrderStatus = function() {
       //   Orders.updateOrder(order);
       // };
-    
-  };
 });
