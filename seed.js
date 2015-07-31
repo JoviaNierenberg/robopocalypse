@@ -46,7 +46,10 @@ var dropDatabase = function() {
     });
 };
 
+// seeds reviews, setting each seed user as the creator of one review
+// and each seed product as being reviewed once
 var seedReviews = function () {
+    var counter = 0;
     var reviews, users, products;
     reviews = require("./seeds/review");
     return User.find().exec().then(function(people){
@@ -55,8 +58,8 @@ var seedReviews = function () {
     }).then(function(stuff){
         products = stuff;
         reviews.forEach(function(review){
-            review.user = users[1];
-            review.product = products[1];
+            review.user = users[counter];
+            review.product = products[counter++];
         })
         return reviews;
     }).then(function(reviews){

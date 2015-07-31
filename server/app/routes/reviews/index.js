@@ -19,7 +19,8 @@ router.param('reviewId', function(req, res, next, reviewId) {
 
 //get all reviews
 router.get('/', function(req, res) {
-    Review.find().exec().then(function (reviews) {
+    console.log("req.query: ", req.query)
+    Review.find(req.query).exec().then(function (reviews) {
         res.json(reviews)
     })
 })
