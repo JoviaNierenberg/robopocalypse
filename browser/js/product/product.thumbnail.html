@@ -28,7 +28,7 @@
             {{theProduct.description | shortdesc}}
         </div>
         <div class="mdl-card__actions mdl-card--border">
-            <h3>${{theProduct.price}}</h3>
+            <h3>${{theProduct.price | getPrice}}</h3>
             <p><span style="color:red"><b>ONLY {{theProduct.inventory}} LEFT</b></span></p>
         </div>
         <div class="mdl-card__menu">
