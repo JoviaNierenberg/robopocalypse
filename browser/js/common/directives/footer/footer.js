@@ -1,4 +1,4 @@
-app.directive('footer', function() {
+app.directive('roboFooter', function() {
     return {
         restrict: 'E',
         scope: {},
