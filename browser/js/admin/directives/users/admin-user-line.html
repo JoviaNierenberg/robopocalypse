@@ -1,0 +1,9 @@
+<div>
+	<img style="width: 100px" ng-src="{{theUser.photo}}"/>
+	<p class="lineItem">Id: {{theUser._id}}</p>
+	<p class="lineItem">Email: {{theUser.email}}</p>
+	<p class="lineItem">Name: {{theUser.name.first}} {{theUser.name.last}}</p>
+	<p class="lineItem">Admin: {{theUser.isAdmin}}</p>
+	<p class="lineItem">{{theUser}}</p>
+	<md-button ng-click="delete()">Delete User</md-button>
+</div>
