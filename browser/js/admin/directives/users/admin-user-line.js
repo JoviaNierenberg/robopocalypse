@@ -6,13 +6,13 @@ app.directive("adminUserLine", function () {
 		scope: {
 			theUser: "=user"
 		}
-	}
+	};
 });
 
 app.controller("AdminUserLineCtrl", function ($scope, User){
 	$scope.delete = function () {
 		User.deleteUser($scope.theUser._id);
-	}
+	};
 });
 
 
