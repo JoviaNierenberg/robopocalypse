@@ -1,7 +1,12 @@
-module.exports = [
-	{name: "Evil"},
+module.exports = [{
+        name: "Evil"
+    },
 
-	{name: "Diabolical"},
+    {
+        name: "Diabolical"
+    },
 
-	{name: "Sinister"}
+    {
+        name: "Sinister"
+    }
 ];
