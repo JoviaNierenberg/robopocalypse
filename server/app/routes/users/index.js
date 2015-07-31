@@ -2,6 +2,7 @@
 var router = require("express").Router();
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
+var _ = require("lodash");
 module.exports = router;
 
 var ensureAuthenticated = function (req, res, next) {
@@ -22,7 +23,7 @@ router.param('userid', function(req, res, next, userid) {
         .then(function(user) {
             if (!user) throw new Error("User doesn't exist");
             else {
-                req.user = user;
+                req.user = _.omit(user.toJSON(), ['salt', 'password']);
                 next();
             }
         })
@@ -32,6 +33,9 @@ router.param('userid', function(req, res, next, userid) {
 // //for admin to see all users
 router.get("/", isAdmin, function (req, res) {
     User.find(req.query).then(function (users) {
+        users = users.map(function (user) {
+            return _.omit(user.toJSON(), ['salt', 'password']);
+        });
         res.send(users);
     }, function (err) {
         console.log(err);

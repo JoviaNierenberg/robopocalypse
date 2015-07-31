@@ -35,15 +35,19 @@
 
 
 <div>
-  <p ng-click="show('users')">Users</p>
-  <p ng-click="show('products')">Products</p>
-  <p ng-click="show('orders')">Orders</p>
-  <p ng-click="show('categories')">Categories</p>
-  <p ng-click="show('reviews')">Reviews</p>
-  <admin-users ng-show="'users' === activeTab"></admin-users>
-  <admin-products ng-show="'products' === activeTab"></admin-products>
-  <admin-orders ng-show="'orders' === activeTab"></admin-orders>
-  <admin-categories ng-show="'categories' === activeTab"></admin-categories>
-  <admin-reviews ng-show="'reviews' === activeTab"></admin-reviews>
+  <div class="col-lg-3 col-md-3 col-sm-3">
+    <p ng-click="show('users')">Users</p>
+    <p ng-click="show('products')">Products</p>
+    <p ng-click="show('orders')">Orders</p>
+    <p ng-click="show('categories')">Categories</p>
+    <p ng-click="show('reviews')">Reviews</p>
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-9">
+    <admin-users ng-show="'users' === activeTab"></admin-users>
+    <admin-products ng-show="'products' === activeTab"></admin-products>
+    <admin-orders ng-show="'orders' === activeTab"></admin-orders>
+    <admin-categories ng-show="'categories' === activeTab"></admin-categories>
+    <admin-reviews ng-show="'reviews' === activeTab"></admin-reviews>
+  </div>
 
 </div>
