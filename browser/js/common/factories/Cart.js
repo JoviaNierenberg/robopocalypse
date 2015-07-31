@@ -5,11 +5,19 @@ app.factory('Cart', function ($rootScope, $http) {
         totalItems: 0
     };
 
+    var updateCart = function () {
+        $http.put("/api/cart", cart);
+    };
+
     return {
 
         // returns products in cart
         getCart: function () {
             return cart;
+        },
+        setCart: function (initCart) {
+            cart = initCart;
+            $rootScope.$emit("cartChange", cart);
         },
         // adds a product to the cart
         addToCart: function (product) {
@@ -22,6 +30,7 @@ app.factory('Cart', function ($rootScope, $http) {
             cart.subtotal += product.price;
             cart.totalItems++;
             $rootScope.$emit("cartChange", cart);
+            updateCart();
         },
         // removes an item from the cart
         removeFromCart: function (product) {
@@ -33,25 +42,15 @@ app.factory('Cart', function ($rootScope, $http) {
             cart.subtotal -= product.price;
             cart.totalItems--;
             $rootScope.$emit("cartChange", cart);
+            updateCart();
         },
-        // gets total price of all items in cart
-        // getsubtotal: function() {
-
-        // },
-        // updates number of products in cart
-        // getTotalItems: function() {
-        //     var count = 0;
-        //     for(var key in cart.items){
-        //         count += cart.items[key]
-        //     }
-        //     return count
-        // },
         // completely resets cart to empty
         emptyCart: function () {
             cart.items = {};
             cart.subtotal = 0;
             cart.totalItems = 0;
             $rootScope.$emit("cartChange", cart);
+            updateCart();
         },
         submitOrder: function () {
             cart.billing = "Test";
