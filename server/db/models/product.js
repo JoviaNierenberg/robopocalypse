@@ -19,7 +19,7 @@ var schema = new mongoose.Schema({
     },
     inventory: {
         type: Number,
-        require: true
+        required: true
     },
     category: {
         type: [{
