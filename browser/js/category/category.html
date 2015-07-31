@@ -1,0 +1,18 @@
+<section id='browse'>
+<div ng-controller="CategoryCtrl">
+    <md-content class="md-padding">
+    <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect>
+      <md-tab ng-repeat="tab in tabs"
+              label="{{tab.name}}">
+        <div style="text-align: center;">
+          <div>
+          	<div ng-repeat="product in tab.content">
+          		<product-thumbnail product="product"></product-thumbnail>
+          	</div>
+          </div>
+        </div>
+      </md-tab>
+    </md-tabs>
+	</md-content>
+</div>
+<section>

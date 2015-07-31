@@ -2,8 +2,8 @@ app.factory("Products", function($http) {
   var productID = '';
   return {
     // returns all products
-    getAll: function() {
-      return $http.get('/api/products').then(function(response) {
+    getAll: function(query) {
+      return $http.get('/api/products', {params: query}).then(function(response) {
         return response.data;
       });
     },
