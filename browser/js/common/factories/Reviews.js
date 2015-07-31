@@ -18,6 +18,11 @@ app.factory('Reviews', function($http) {
             return res.data;
           });
         },
+        updateReview: function (id, review) {
+            return $http.put("/api/reviews/" + id, review).then(function(res){
+                return res.data;
+            });
+        },
         deleteReview: function (id) {
             return $http.delete("/api/reviews/" + id).then(function (res) {
                 return res.data;
