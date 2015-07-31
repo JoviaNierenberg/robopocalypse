@@ -10,9 +10,14 @@ app.directive("adminUserLine", function () {
 });
 
 app.controller("AdminUserLineCtrl", function ($scope, User){
+
 	$scope.delete = function () {
 		User.deleteUser($scope.theUser._id);
 	};
+
+	$scope.update = function () {
+		User.updateUser($scope.theUser._id, $scope.theUser);
+	}
 });
 
 

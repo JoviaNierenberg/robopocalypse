@@ -1,9 +1,28 @@
-<div class="col-md-2">
-    <h2>Title: {{theProduct.title}}</h2>
-    <img src="{{theProduct.photo}}" style="width:100px">
-    <p>Description: {{theProduct.description}} | limitTo:shortDesc }}</p>
-    <h3>Price: {{theProduct.price | currency}}</h3>
-    <h4>Inventory: {{theProduct.inventory}}</h4>
-    <button ng-click="editProduct()">Edit</button>
-    <button ng-click="deleteProduct()">Delete</button>
+<div>
+	<form>
+		<img ng-src="{{theProduct.photo}}" style="width:80px"/>
+		<md-input-container class="lineItem" flex>
+			<label>Id</label>
+			<input ng-model="theProduct._id" class="lineItem" disabled>
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Title</label>
+			<input ng-model="theProduct.title" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Description</label>
+			<input ng-model="theProduct.description" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Price</label>
+			<input ng-model="theProduct.price" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Inventory</label>
+			<input ng-model="theProduct.inventory" class="lineItem">
+		</md-input-container>
+		<md-button ng-click="update()">Update</md-button>
+    	<md-button ng-click="delete()">Delete</md-button>
+	</form>    
 </div>
+<hr>

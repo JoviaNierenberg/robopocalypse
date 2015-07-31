@@ -59,6 +59,9 @@ router.get('/:reviewId', function(req, res) {
 
 // update single review
 router.put('/:reviewId', function(req, res, next) {
+     for (var key in req.body) {
+        req.review[key] = req.body[key];
+    }
     req.review.save()
         .then(function(review) {
             res.json(review);

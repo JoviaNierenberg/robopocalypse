@@ -6,9 +6,16 @@ app.directive("adminUsers", function () {
 	};
 });
 
-app.controller("AdminUserCtrl", function ($scope, User) {
-	User.getAll().then(function (users) {
-		console.log(users);
-		$scope.users = users;
-	});
+app.controller("AdminUserCtrl", function ($scope, $rootScope, User) {
+	var getUsers = function () {
+		User.getAll().then(function (users) {
+			$scope.users = users;
+		});
+	}
+
+	getUsers();
+	
+
+	var unbind = $rootScope.$on("userUpdate", getUsers);
+	$scope.$on("$destroy", unbind);
 });
