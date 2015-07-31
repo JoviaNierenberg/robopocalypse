@@ -21,7 +21,7 @@ var cartize = function(items){
 			var input = {}
 			input[product] = items[item]
 			dbItems[product.title] = input
-		})
+		});
 	}
 	return dbItems
 }
