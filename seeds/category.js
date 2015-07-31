@@ -3,5 +3,11 @@ module.exports = [
 
 	{name: "Diabolical"},
 
-	{name: "Sinister"}
+	{name: "Sinister"},
+
+	{name: "Hero"},
+
+	{name: "Useless"},
+
+	{name: "To Be Abused"}
 ];
