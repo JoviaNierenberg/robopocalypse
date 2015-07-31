@@ -1,4 +1,4 @@
-app.directive('footer', function($rootScope, AuthService, AUTH_EVENTS, $state) {
+app.directive('footer', function() {
     return {
         restrict: 'E',
         scope: {},
