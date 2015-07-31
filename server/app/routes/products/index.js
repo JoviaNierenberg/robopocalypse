@@ -22,6 +22,7 @@ router.param("productId", function(req, res, next, productId) {
 
 //get all products
 router.get("/", function(req, res) {
+    if(req.query.category) req.query.category = JSON.parse(req.query.category)
     Product.find(req.query).exec().then(function (products) {
         res.json(products)
     }, function(err){
