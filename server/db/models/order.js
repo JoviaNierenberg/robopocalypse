@@ -25,7 +25,7 @@ var cartize = function(items){
 }
 
 var schema = new mongoose.Schema({
-    buyer: {type: mongoose.Schema.Types.Objectid, ref: "User", required: true},
+    buyer: {type: mongoose.Schema.Types.ObjectId, ref: "User", required: true},
  	billing: {type: String, required: true},
  	shipping: {type: String},
     // This vvvv doesn't seem like the best way to do this, 
@@ -33,7 +33,7 @@ var schema = new mongoose.Schema({
     items: {type: Object, required: true, get: cartize, set: itemize},
     price: {type: Number, required: true},
     status: {type: String, default: "Created"},
-    coupon: {type: mongoose.Schema.Types.Objectid, ref: "Coupon"}
+    coupon: {type: mongoose.Schema.Types.ObjectId, ref: "Coupon"}
 });
 
 mongoose.model("Order", schema);
