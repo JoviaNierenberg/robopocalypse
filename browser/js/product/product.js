@@ -6,13 +6,17 @@ app.config(function ($stateProvider) {
 	});
 });
 
-
 app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams) {
   // returns all products
   Products.getOne($stateParams.id).then(function (product) {
-  	$scope.singleProduct = product;
-  });
-  Reviews.getReviews().then(function(reviews){
-  	$scope.reviews = reviews;
-  });
+  	return $scope.singleProduct = product;
+    // gets all reviews for the product that has just been found
+  }).then(function(product){
+      Reviews.getReviews({product: product._id }).then(function(reviews){
+      $scope.reviews = reviews;
+    });
+  }).catch(function(error){
+      console.log(error)
+    })
+  
 });

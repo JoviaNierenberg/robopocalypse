@@ -52,5 +52,4 @@ schema.virtual('shortDesc').get(function() {
     return this.description.substring(0, 200);
 });
 
-
 mongoose.model('Product', schema);
