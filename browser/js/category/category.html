@@ -2,7 +2,7 @@
 <div ng-controller="CategoryCtrl">
     <md-content class="md-padding">
     <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect>
-      <md-tab ng-repeat="tab in tabs"
+      <md-tab ng-repeat="tab in tabs | orderBy:'name'"
               label="{{tab.name}}">
         <div style="text-align: center;">
           <div>
