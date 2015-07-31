@@ -14,7 +14,17 @@ var ensureAuthenticated = function (req, res, next) {
 
 var isAdmin = function (req, res, next) {
     User.findById(req.session.passport.user._id)
-    .exec().then(next, function(){res.status(403).end})
+    .exec()
+    .then(function(user){
+        if(user.role.indexOf('Admin')!== -1){
+            next
+        }
+        else{
+            res.status(403).end
+        }
+    }, function(){
+        res.status(403).end
+    })
 };
 
 router.param('userid', function(req, res, next, userid) {
