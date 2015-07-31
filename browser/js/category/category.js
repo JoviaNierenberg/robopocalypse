@@ -9,12 +9,12 @@ app.config(function ($stateProvider) {
 app.controller('CategoryCtrl', function ($scope, Categories, Products, $stateParams) {
 
   $scope.tabs = []
-
   Categories.getAll().then(function(categories){
     categories.forEach(function(category){
       Products.getAll({category: {$all: category._id}}).then(function(products){
         category.content = products
         $scope.tabs.push(category)
+        $scope.loaded = true;
       })
     })
   })
