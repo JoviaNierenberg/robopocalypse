@@ -13,7 +13,7 @@ module.exports = [
 		description: "Tough robot. Tougher robot. The Terminator.  The Terminator is the most dangerous robot on the market.  A veritable killing machine, this machine will destroy you and everyone you care about.  Not for kids, not for parents, not for anyone.  Look out world, you have met your maker. \nKaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching \n\nKaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching Kaching \nKaching \nKaching \nKaching \nKaching \nKaching \nKaching \nKaching",
 		price: 10000,
 		inventory: 100,
-		photo: "http://img1.goodfon.su/original/1920x1200/e/d6/terminator-robot-skelet-cherep.jpg"
+		photo: "http://cdn.wegotthiscovered.com/wp-content/uploads/THE-TERMINATOR-BY-MRF-terminator-30881291-1920-1200.jpg"
 	},
 
 	{
