@@ -22,9 +22,10 @@ router.param("productId", function(req, res, next, productId) {
 
 //get all products
 router.get("/", function(req, res) {
-    console.log(req.session);
     Product.find(req.query).exec().then(function (products) {
         res.json(products)
+    }, function(err){
+        res.send(err)
     })
 })
 
@@ -33,6 +34,8 @@ router.post("/", function(req, res) {
     Product.create(req.body)
         .then(function(product) {
             res.status(201).json(product);
+        }, function(err){
+            res.send(err)
         });
 });
 

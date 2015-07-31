@@ -52,12 +52,5 @@ schema.virtual('shortDesc').get(function() {
     return this.description.substring(0, 200);
 });
 
-schema.methods.getReviews = function() {
-    mongoose.model('Review').find({
-        product: this._id
-    }).exec().then(function(reviews) {
-        return reviews;
-    });
-};
 
 mongoose.model('Product', schema);

@@ -53,7 +53,7 @@ var schema = new mongoose.Schema({
         get: cartize,
         set: itemize
     },
-    price: {
+    subtotal: {
         type: Number,
         required: true,
         get: getPrice,
@@ -61,7 +61,7 @@ var schema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: "Created"
+        enum: ['Created', 'In Progress', 'Complete']
     },
     coupon: {
         type: mongoose.Schema.Types.ObjectId,
