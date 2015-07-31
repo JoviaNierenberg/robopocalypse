@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('User', function($http) {
+app.factory('User', function($http, $rootScope) {
     return {
         // returns all users
         getAll: function() {
@@ -20,6 +20,7 @@ app.factory('User', function($http) {
         deleteUser: function(id) {
             return $http.delete('/api/users/' + id)
                 .then(function(response) {
+                    $rootScope.$emit("userUpdate");
                     return response.data;
                 });
         },
