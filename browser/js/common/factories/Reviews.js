@@ -2,7 +2,6 @@ app.factory('Reviews', function($http) {
     return {
         // returns all reviews
         getReviews: function(query) {
-            console.log("query in review factory: ", query)
         return $http.get('/api/reviews/', {params: query}).then(function(res) {
                 return res.data;
             });
