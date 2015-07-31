@@ -1,9 +1,28 @@
 <div>
-	<img style="width: 100px" ng-src="{{theUser.photo}}"/>
-	<p class="lineItem">Id: {{theUser._id}}</p>
-	<p class="lineItem">Email: {{theUser.email}}</p>
-	<p class="lineItem">Name: {{theUser.name.first}} {{theUser.name.last}}</p>
-	<p class="lineItem">Admin: {{theUser.isAdmin}}</p>
-	<p class="lineItem">{{theUser}}</p>
-	<md-button ng-click="delete()">Delete User</md-button>
+	<form>
+		<img style="width: 80px" ng-src="{{theUser.photo}}"/>
+		<md-input-container class="lineItem" flex>
+			<label>Id</label>
+			<input ng-model="theUser._id" class="lineItem" disabled>
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Email</label>
+			<input ng-model="theUser.email" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>First Name</label>
+			<input ng-model="theUser.name.first" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Last Name</label>
+			<input ng-model="theUser.name.last" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Roles</label>
+			<input ng-model="theUser.Roles" class="lineItem">
+		</md-input-container>
+		<md-button ng-click="update()">Update</md-button>
+		<md-button ng-click="delete()">Delete</md-button>
+	</form>
+	<hr>
 </div>

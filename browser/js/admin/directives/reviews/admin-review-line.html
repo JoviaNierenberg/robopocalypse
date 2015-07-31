@@ -1,9 +1,27 @@
 <div>
-	<!-- <img style="width: 100px" ng-src="{{theReview.photo}}"/>
-	<p class="lineItem">Id: {{theReview._id}}</p>
-	<p class="lineItem">Email: {{theReview.email}}</p>
-	<p class="lineItem">Name: {{theReview.name.first}} {{theReview.name.last}}</p>
-	<p class="lineItem">Admin: {{theReview.isAdmin}}</p> -->
-	<p class="lineItem">{{theReview}}</p>
-	<md-button ng-click="delete()">Delete Review</md-button>
+	<form>
+		<md-input-container class="lineItem" flex>
+			<label>Id</label>
+			<input ng-model="theReview._id" class="lineItem" disabled>
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>User</label>
+			<input ng-model="theReview.user" class="lineItem" disabled>
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Product</label>
+			<input ng-model="theReview.product" class="lineItem" disabled>
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Text</label>
+			<input ng-model="theReview.text" class="lineItem">
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Rating</label>
+			<input ng-model="theReview.rating" class="lineItem" disabled>
+		</md-input-container>
+		<md-button ng-click="update()">Update</md-button>
+		<md-button ng-click="delete()">Delete</md-button>
+	</form>
+	<hr>
 </div>

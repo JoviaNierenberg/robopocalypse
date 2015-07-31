@@ -8,8 +8,15 @@ app.directive("adminReviews", function () {
 
 
 
-app.controller("AdminReviewCtrl", function ($scope, Reviews) {
-	Reviews.getReviews().then(function (reviews) {
-		$scope.reviews = reviews;
-	});
+app.controller("AdminReviewCtrl", function ($scope, $rootScope, Reviews) {
+	var getReviews = function () {
+		Reviews.getReviews().then(function (reviews) {
+			$scope.reviews = reviews;
+		});
+	};
+
+	getReviews();
+
+	var unbind = $rootScope.$on("reviewUpdate", getReviews);
+	$scope.$on("$destroy", unbind);
 });

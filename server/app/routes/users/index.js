@@ -2,6 +2,7 @@
 var router = require("express").Router();
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
+var _ = require("lodash");
 module.exports = router;
 
 var ensureAuthenticated = function (req, res, next) {
@@ -32,6 +33,9 @@ router.param('userid', function(req, res, next, userid) {
 // //for admin to see all users
 router.get("/", isAdmin, function (req, res) {
     User.find(req.query).then(function (users) {
+        users = users.map(function (user) {
+            return _.omit(user.toJSON(), ['salt', 'password']);
+        });
         res.send(users);
     }, function (err) {
         console.log(err);
@@ -40,17 +44,27 @@ router.get("/", isAdmin, function (req, res) {
 });
 
 router.get("/:userid", ensureAuthenticated, function (req, res) {
-    res.send(req.user);
+    res.send(_.omit(req.user.toJSON(), ['salt', 'password']));
 });
 
 router.post('/create', function (req, res, next) {
     User.create(req.body)
     .then(function (user) {
         req.login(user, function () {
-            res.status(201).json(user);
+            res.status(201).json(_.omit(user.toJSON(), ['salt', 'password']));
         });
     })
     .then(null, next);
+});
+
+router.put("/:userid", function (req, res, next) {
+    for (var key in req.body) {
+        req.user[key] = req.body[key];
+    }
+    req.user.save()
+    .then(function (savedUser) {
+        res.json(_.omit(savedUser.toJSON(), ['salt', 'password']));
+    }).then(null, next);
 });
 
 router.delete("/:userid", function (req, res, next) {

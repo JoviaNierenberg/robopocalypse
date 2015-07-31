@@ -1,4 +1,4 @@
-app.factory('Reviews', function($http) {
+app.factory('Reviews', function($http, $rootScope) {
     return {
         // returns all reviews
         getReviews: function(query) {
@@ -18,8 +18,14 @@ app.factory('Reviews', function($http) {
             return res.data;
           });
         },
+        updateReview: function (id, review) {
+            return $http.put("/api/reviews/" + id, review).then(function(res){
+                return res.data;
+            });
+        },
         deleteReview: function (id) {
             return $http.delete("/api/reviews/" + id).then(function (res) {
+                $rootScope.$emit("reviewUpdate");
                 return res.data;
             })
         }

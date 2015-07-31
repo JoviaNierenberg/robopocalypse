@@ -10,13 +10,10 @@ app.directive('adminProductLine', function() {
 });
 
 app.controller("AdminProductLineCtrl", function($scope, Products) {
-    $scope.deleteProduct = function() {
+    $scope.delete = function() {
         Products.deleteProduct($scope.theProduct._id);
     };
-    $scope.editProduct = function(id) {
-        Products.getOne($scope.theProduct._id).then(function(response) {
-            // go to state where we edit product?
-            $scope.singleProduct = response;
-        });
+    $scope.update = function() {
+        Products.updateProduct($scope.theProduct._id, $scope.theProduct);
     };
 });
