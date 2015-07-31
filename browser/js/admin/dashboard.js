@@ -5,7 +5,8 @@ app.config(function ($stateProvider) {
     data: {
             isAdmin: true,
             authenticate: true
-        }
+        },
+    controller: "AdminCtrl"
   })
 });
 
@@ -31,7 +32,7 @@ app.controller('AdminCtrl', function ($scope, Products, Categories, User, Orders
   };
 
   $scope.show = function (what) {
-    $scope.active = what;
+    $scope.activeTab = what;
   };
       // $scope.updateOrderStatus = function() {
       //   Orders.updateOrder(order);
