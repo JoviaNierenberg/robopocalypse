@@ -4,7 +4,7 @@ app.factory('User', function($http) {
     return {
         // returns all users
         getAll: function() {
-            return $http.get('/api/users').then(function(response) {
+            return $http.get('/api/users/').then(function(response) {
                 return response.data;
             });
         },
@@ -16,7 +16,7 @@ app.factory('User', function($http) {
         },
         // deletes user based on ID
         deleteUser: function(id) {
-            return $http.delete('/api/users' + id).then(function(response) {
+            return $http.delete('/api/users/' + id).then(function(response) {
                 console.log(response, "User with ID of " + id + " was succesfully deleted.");
             });
         },

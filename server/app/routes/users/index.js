@@ -17,6 +17,18 @@ var isAdmin = function (req, res, next) {
     .exec().then(next, function(){res.status(403).end})
 };
 
+router.param('userid', function(req, res, next, userid) {
+    User.findById(userid).exec()
+        .then(function(user) {
+            if (!user) throw new Error("User doesn't exist");
+            else {
+                req.user = user;
+                next();
+            }
+        })
+        .then(null, next);
+});
+
 // //for admin to see all users
 router.get("/", isAdmin, function (req, res) {
     User.find(req.query).then(function (users) {
@@ -28,12 +40,7 @@ router.get("/", isAdmin, function (req, res) {
 });
 
 router.get("/:userid", ensureAuthenticated, function (req, res) {
-    User.findById(req.params.userid).then(function (user) {
-        res.send(user);
-    }, function (err) {
-        console.log(err);
-        res.status(401).end();
-    });
+    res.send(req.user);
 });
 
 router.post('/create', function (req, res, next) {
@@ -45,4 +52,11 @@ router.post('/create', function (req, res, next) {
     })
     .then(null, next);
 });
+
+router.delete("/:userid", function (req, res, next) {
+    req.user.remove().then(function () {
+        res.send(200)
+    }, next);
+})
+
 
