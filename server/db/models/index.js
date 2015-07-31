@@ -6,3 +6,4 @@ require("./product");
 require("./review");
 require("./category");
 require("./order");
+require("./coupon");

@@ -14,6 +14,7 @@ router.param("productId", function(req, res, next, productId) {
                 next();
             }
         }, function(err) {
+            console.log(err);
             res.send(404);
         })
         .then(null, next);
