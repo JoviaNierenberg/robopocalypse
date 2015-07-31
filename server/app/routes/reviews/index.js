@@ -6,7 +6,16 @@ module.exports = router;
 var Review = mongoose.model("Review");
 
 router.param('reviewId', function(req, res, next, reviewId) {
-    Review.findById(reviewId).exec()
+    Review.findById(reviewId)
+        .populate({
+            path: 'user',
+            select: 'name'
+        })
+        .populate({
+            path: 'product',
+            select: 'title'
+        })
+        .exec()
         .then(function(review) {
             if (!review) throw new Error("Review doesn't exist");
             else {
@@ -20,8 +29,18 @@ router.param('reviewId', function(req, res, next, reviewId) {
 //get all reviews
 router.get('/', function(req, res) {
     console.log("req.query: ", req.query)
-    Review.find(req.query).exec().then(function (reviews) {
-        res.json(reviews)
+    Review
+        .find(req.query)
+        .populate({
+            path: 'user',
+            select: 'name'
+        })
+        .populate({
+            path: 'product',
+            select: 'title'
+        })
+        .exec().then(function (reviews) {
+            res.json(reviews)
     })
 })
 

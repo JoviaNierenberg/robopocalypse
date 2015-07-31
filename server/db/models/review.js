@@ -33,8 +33,4 @@ var schema = new mongoose.Schema({
     // }
 });
 
-schema.virtual("reviewer_name").get(function(){
-    
-});
-
 mongoose.model('Review', schema);
