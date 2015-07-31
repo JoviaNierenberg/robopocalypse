@@ -9,7 +9,8 @@ app.config(function ($stateProvider) {
 app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams) {
   // returns all products
   Products.getOne($stateParams.id).then(function (product) {
-  	return $scope.singleProduct = product;
+  	$scope.singleProduct = product;
+    return product
     // gets all reviews for the product that has just been found
   }).then(function(product){
       Reviews.getReviews({product: product._id }).then(function(reviews){
