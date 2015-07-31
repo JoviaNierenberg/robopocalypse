@@ -57,11 +57,13 @@
             if(data.cart){
                 Cart.setCart(data.cart);
             }
+            console.log("successLogin");
             return data.user;
         }
 
         function onGuestSession(response){
             var data = response.data;
+            console.log("guest");
             Session.createGuest(data.id);
             if(data.cart){
                 Cart.setCart(data.cart);
@@ -92,6 +94,7 @@
             // If it returns a user, call onSuccessfulLogin with the response.
             // If it returns a 401 response, we catch it and instead resolve to null.
             return $http.get('/session').then(function (res) {
+                console.log(res.data);
                 if(res.data.user) {
                     onSuccessfulLogin(res);
                 }else {

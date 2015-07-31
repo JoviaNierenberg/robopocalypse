@@ -6,9 +6,7 @@ app.factory('Cart', function ($rootScope, $http) {
     };
 
     var updateCart = function () {
-        $http.put("/api/cart", cart).then(function (res) {
-            console.log(res.data);
-        });
+        $http.put("/api/cart", cart);
     };
 
     return {
