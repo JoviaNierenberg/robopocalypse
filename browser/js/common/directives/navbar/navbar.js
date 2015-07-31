@@ -13,9 +13,20 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
                     $state.go('home');
                 });
             };
+<<<<<<< HEAD
             var setUser = function() {
                 AuthService.getLoggedInUser().then(function(user) {
                     scope.user = user;
+=======
+            scope.viewUserPage = function () {
+                $state.go("user", {id: scope.user._id});
+            }
+            var setUser = function () {
+                AuthService.getLoggedInUser().then(function (user) {
+                    if(user){
+                        scope.user = user;
+                    }
+>>>>>>> 7ccc0a1806b4ce97c6c1c0e5ccc6e551a7d6b041
                 });
             };
             var removeUser = function() {

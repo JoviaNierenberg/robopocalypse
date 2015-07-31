@@ -1,11 +1,12 @@
-app.directive('adminDashboard', function(){
-  return {
-    restrict: 'E',
-    templateUrl: 'js/admin/dashboard.html',
-    scope: {
-      theProduct: '=product'
-    },
-    controller: function ($scope, Products, Categories, Users, Orders, $stateParams) {
+app.config(function ($stateProvider) {
+  $stateProvider.state("admin", {
+    url: "/admin",
+    templateUrl: "js/admin/dashboard.html"
+  })
+});
+
+
+app.controller('AdminCtrl', function ($scope, Products, Categories, Users, Orders, $stateParams){
       $scope.deleteProduct = function (product) {
         Products.deleteProduct(product._id);
       };
@@ -27,6 +28,6 @@ app.directive('adminDashboard', function(){
       // $scope.updateOrderStatus = function() {
       //   Orders.updateOrder(order);
       // };
-    }
+    
   };
 });

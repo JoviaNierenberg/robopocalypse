@@ -1,5 +1,9 @@
 app.controller('CartCtrl', function ($scope, Cart, $rootScope) {
   // returns all products
+  $scope.emptyCart = function () {
+    Cart.emptyCart();
+  };
+
 
   var updateCart = function(cart){
   	$scope.cart = cart

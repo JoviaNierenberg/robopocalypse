@@ -47,9 +47,9 @@ module.exports = function (app) {
     // logged in already.
     app.get('/session', function (req, res) {
         if (req.user) {
-            res.send({ user: _.omit(req.user.toJSON(), ['salt', 'password']) });
+            res.send({ user: _.omit(req.user.toJSON(), ['salt', 'password']), cart: req.session.cart });
         } else {
-            res.status(401).send('No authenticated user.');
+            res.send({ cart: req.session.cart });
         }
     });
 
@@ -64,7 +64,7 @@ module.exports = function (app) {
     // Simple /logout route.
     app.get('/logout', function (req, res) {
         req.logout();
-        res.status(200).end();
+        res.send({ cart: req.session.cart });
     });
 
     // Each strategy enabled gets registered.
