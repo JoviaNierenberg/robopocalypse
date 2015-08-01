@@ -16,4 +16,8 @@ app.controller("MerchantProductLineCtrl", function($scope, Products) {
     $scope.update = function() {
         Products.updateProduct($scope.theProduct._id, $scope.theProduct);
     };
+
+    $scope.theProduct.price = ($scope.theProduct.price/100).toFixed(2).replace(/./g, function(c, i, a) {
+        return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+    });
 });

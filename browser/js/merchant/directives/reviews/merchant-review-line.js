@@ -10,11 +10,5 @@ app.directive("merchantReviewLine", function () {
 });
 
 app.controller("MerchantReviewLineCtrl", function ($scope, Reviews){
-	$scope.delete = function () {
-		Reviews.deleteReview($scope.theReview._id);
-	}
-
-	$scope.update = function () {
-		Reviews.updateReview($scope.theReview._id, $scope.theReview);
-	}
+	$scope.theReview.user.full_name = $scope.theReview.user.name.first + " " + $scope.theReview.user.name.last
 });

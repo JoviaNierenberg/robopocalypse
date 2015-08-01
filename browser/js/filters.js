@@ -7,6 +7,8 @@ app.filter("shortdesc", function () {
 
 app.filter("getPrice", function () {
     return function(price) {
-        return (price/100).toFixed(2)
+        return (price/100).toFixed(2).replace(/./g, function(c, i, a) {
+	        return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+	    });
     };
 });
