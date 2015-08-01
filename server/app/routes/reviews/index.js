@@ -45,7 +45,7 @@ router.get('/', function(req, res) {
 })
 
 // add a reviews
-router.post('/', function(req, res) {
+router.post('/create', function(req, res) {
     Review.create(req.body)
         .then(function(review) {
             res.send(review);
