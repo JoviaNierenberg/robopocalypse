@@ -1,38 +1,40 @@
 <div class="col-md-12">
-	<div style="border: 1px solid #ccc; border-radius: 10px;">
-		<h3>Add a product</h3>
-		<form>
-			<img ng-src="{{newProduct.photo}}" style="width:80px"/>
-			<md-input-container class="lineItem" flex>
-				<label>Id (Automatically added)</label>
-				<input class="lineItem" disabled />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Title</label>
-				<input ng-model="newProduct.title" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Description</label>
-				<input ng-model="newProduct.description" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Price</label>
-				<input ng-model="newProduct.price" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Inventory</label>
-				<input ng-model="newProduct.inventory" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Category</label>
-				<select ng-model="newProduct.category">
-					<option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
-				</select>
-			</md-input-container>
-			<md-button ng-click="addProduct()">Add</md-button>
-		</form>    
-	</div>
-	<span>{{categories}}</span>
-	<hr>
+    <div style="border: 1px solid #ccc; border-radius: 10px;">
+        <h3>Add a product</h3>
+        <form>
+            <md-input-container class="lineItem" flex>
+                <label>Image URL</label>
+                <input class="lineItem" ng-model="newProduct.photo" />
+            </md-input-container>
+            <md-input-container class="lineItem" flex>
+                <label>Id (Automatically added)</label>
+                <input class="lineItem" disabled />
+            </md-input-container>
+            <md-input-container class="lineItem" flex>
+                <label>Title</label>
+                <input ng-model="newProduct.title" />
+            </md-input-container>
+            <md-input-container class="lineItem" flex>
+                <label>Description</label>
+                <input ng-model="newProduct.description" />
+            </md-input-container>
+            <md-input-container class="lineItem" flex>
+                <label>Price</label>
+                <input ng-model="newProduct.price" />
+            </md-input-container>
+            <md-input-container class="lineItem" flex>
+                <label>Inventory</label>
+                <input ng-model="newProduct.inventory" />
+            </md-input-container>
+            <md-input-container class="lineItem" flex>
+                <label>Category</label>
+                <select ng-model="newProduct.category">
+                    <option class="lineItem" ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
+                </select>
+            </md-input-container>
+            <md-button ng-click="addProduct()">Add</md-button>
+        </form>
+    </div>
+    </br>
     <admin-product-line ng-repeat="product in products" product="product"></admin-product-line>
 </div>

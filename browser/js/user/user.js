@@ -6,7 +6,7 @@ app.config(function ($stateProvider) {
 	});
 });
 
-app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders) {
+app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders, User) {
 	AuthService.getLoggedInUser().then(function (user) {
 		$scope.user = user;
 		Reviews.getReviews({user: user._id}).then(function (reviews) {
@@ -14,6 +14,9 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders) {
 		});
 		Orders.getOrdersByUser(user._id).then(function (orders) {
 			$scope.orders = orders;
-		}); 
+		});
 	});
+	$scope.updateProfile = function() {
+		User.updateUser($scope.user._id, $scope.user);
+	};
 });

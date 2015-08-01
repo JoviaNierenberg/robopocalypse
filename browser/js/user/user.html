@@ -1,12 +1,28 @@
 <div>
-	<h2>Hey {{user.full_name}}</h2>
-	<p>Orders</p>
-	<div ng-repeat="order in orders">
-		<p>{{order}}</p>
-	</div>
-	<p>Reviews</p>
-	<product-review ng-repeat="review in reviews"></product-review>
-<!-- 	<div ng-repeat="review in reviews">
-		<p>{{review}}</p>
-	</div> -->
+    <h2>Hey {{user.name.first}} {{user.name.last}}!</h2>
+    <img src="{{ user.photo }}" width="50" height="50">
+    <form>
+        <md-input-container class="lineItem" flex>
+            <label>Image URL</label>
+            <input ng-model="user.photo" class="lineItem" enabled>
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Email</label>
+            <input ng-model="user.email" class="lineItem" enabled>
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Password</label>
+            <input ng-model="user.password" class="lineItem" enabled>
+        </md-input-container>
+    </form>
+    <md-button ng-click="updateProfile()">Update Profile</md-button>
+    <p>Orders</p>
+    <div ng-repeat="order in orders">
+        <p>{{order}}</p>
+    </div>
+    <p>Reviews</p>
+    <product-review ng-repeat="review in reviews"></product-review>
+    <!--  <div ng-repeat="review in reviews">
+    <p>{{review}}</p>
+  </div> -->
 </div>
