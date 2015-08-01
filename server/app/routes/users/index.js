@@ -17,7 +17,7 @@ var isAdmin = function (req, res, next) {
     User.findById(req.session.passport.user)
     .exec()
     .then(function(user){
-        if(user.Roles.indexOf('Admin')!== -1){
+        if(user.roles.indexOf('Admin')!== -1){
             next();
         }
         else{

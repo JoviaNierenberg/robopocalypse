@@ -1,0 +1,13 @@
+<div>
+  <div class="col-lg-1 col-md-1 col-sm-1">
+    <p ng-click="show('products')">Products</p>
+    <p ng-click="show('orders')">Orders</p>
+    <p ng-click="show('reviews')">Reviews</p>
+  </div>
+  <div class="col-lg-11 col-md-11 col-sm-11">
+    <admin-products ng-show="'products' === activeTab"></admin-products>
+    <admin-orders ng-show="'orders' === activeTab"></admin-orders>
+    <admin-reviews ng-show="'reviews' === activeTab"></admin-reviews>
+  </div>
+
+</div>
