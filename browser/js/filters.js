@@ -1,6 +1,6 @@
 app.filter("shortdesc", function () {
     return function(description) {
-        if(description.length > 200) return description.slice(0, 200) + ".....";
+        if(description && description.length > 200) return description.slice(0, 200) + ".....";
         else return description;
     };
 });

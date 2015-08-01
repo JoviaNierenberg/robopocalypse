@@ -44,9 +44,9 @@
   </div>
   <div class="col-lg-11 col-md-11 col-sm-11">
     <admin-users ng-show="'users' === activeTab"></admin-users>
-    <admin-products ng-show="'products' === activeTab"></admin-products>
+    <admin-products ng-show="'products' === activeTab" categories="theCategories"></admin-products>
     <admin-orders ng-show="'orders' === activeTab"></admin-orders>
-    <admin-categories ng-show="'categories' === activeTab"></admin-categories>
+    <admin-categories ng-show="'categories' === activeTab" categories="theCategories"></admin-categories>
     <admin-reviews ng-show="'reviews' === activeTab"></admin-reviews>
   </div>
 

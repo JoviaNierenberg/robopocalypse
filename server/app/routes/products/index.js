@@ -34,8 +34,10 @@ router.get("/", function(req, res) {
 router.post("/", function(req, res) {
     Product.create(req.body)
         .then(function(product) {
+            console.log(product);
             res.status(201).json(product);
         }, function(err){
+            console.log(err);
             res.send(err)
         });
 });
