@@ -13,8 +13,8 @@ app.factory('Orders', function($http) {
       });
     },
     // get orders based on seller
-    getOrdersBySeller: function(sellerId) {
-      return $http.get('/api/orders/' + sellerId).then(function(response) {
+    getOrdersByMerchant: function(sellerId) {
+      return $http.get('/api/orders/', {params: {seller: sellerId}}).then(function(response) {
         return response.data;
       });
     }

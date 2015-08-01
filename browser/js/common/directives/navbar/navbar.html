@@ -12,6 +12,7 @@
         </md-input-container>
         <md-button class="nav-group nav-line" ng-show="!user" ui-sref="login">Login</md-button>
         <md-button class="nav-button" ui-sref="admin">Admin</md-button>
+        <md-button class="nav-button" ui-sref="merchant">Merchant</md-button>
         <div ng-show="user" class="welcome">
             <span ng-click="viewUserPage()">Welcome, {{ user.name.first }}!</span>
             <md-button class="nav-button" ng-click="logout()">Logout</md-button>

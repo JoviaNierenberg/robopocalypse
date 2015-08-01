@@ -38,6 +38,10 @@ var schema = new mongoose.Schema({
         ref: "User",
         required: true
     },
+    seller: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     billing: {
         type: String,
         required: true

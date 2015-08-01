@@ -1,17 +1,21 @@
 app.config(function ($stateProvider) {
-  $stateProvider.state("admin", {
-    url: "/admin",
-    templateUrl: "js/admin/dashboard.html",
+  $stateProvider.state("merchant", {
+    url: "/merchant/{id}",
+    templateUrl: "js/merchant/dashboard.html",
     data: {
             isMerchant: true,
             authenticate: true
         },
-    controller: "AdminCtrl"
+    controller: "MerchantCtrl"
   })
 });
 
 
-app.controller('AdminCtrl', function ($scope, Products, Categories, User, Orders){
+app.controller('MerchantCtrl', function ($scope, Products, Orders, AuthService){
+  AuthService.getLoggedInUser().then(function (user) {
+    $scope.merchant = user;
+  });
+
   $scope.deleteProduct = function (product) {
     Products.deleteProduct(product._id);
   };
@@ -24,13 +28,6 @@ app.controller('AdminCtrl', function ($scope, Products, Categories, User, Orders
   $scope.createProduct = function(product) {
     Products.createProduct(product);
   };
-  $scope.createCategory = function(category) {
-    Categories.createCategory(category);
-  };
-  $scope.deleteUser = function(user) {
-    User.deleteUser(user._id);
-  };
-
   $scope.show = function (what) {
     $scope.activeTab = what;
   };
