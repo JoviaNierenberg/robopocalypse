@@ -1,5 +1,5 @@
 <div>
-	<form name='reviewForm'>
+	<form>
 		<md-input-container class="lineItem" flex>
 			<label>Id</label>
 			<input ng-model="theReview._id" class="lineItem" disabled>
@@ -14,23 +14,12 @@
 		</md-input-container>
 		<md-input-container class="lineItem" flex>
 			<label>Text</label>
-			<input type="text"
-        ng-minlength="40"
-        ng-maxlength="200"
-        ng-model="theReview.text"
-        class="lineItem">
-    <div ng-messages="reviewForm.name.$error">
-        <p ng-message="minlength">Your name is too short.</p>
-        <p ng-message="maxlength">Your name is too long.</p>
-        <p ng-message="required">Your name is required.</p>
-    </div>
+			<input ng-model="theReview.text" class="lineItem" disabled>
 		</md-input-container>
 		<md-input-container class="lineItem" flex>
 			<label>Rating</label>
 			<input ng-model="theReview.rating" class="lineItem" disabled>
 		</md-input-container>
-		<md-button ng-click="update()">Update</md-button>
-		<md-button ng-click="delete()">Delete</md-button>
 	</form>
 	<hr>
 </div>

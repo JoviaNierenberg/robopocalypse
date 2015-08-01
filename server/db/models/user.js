@@ -38,11 +38,14 @@ var schema = new mongoose.Schema({
         }
     },
     photo: String,
-    Roles: [{
+    roles: [{
         type: String,
         enum: ['User', 'Admin', 'Merchant'],
         default: 'User'
-    }]
+    }],
+    storeName: String,
+    storeDesc: String,
+    storeURL: String
 
 });
 
