@@ -17,10 +17,4 @@ app.controller('LoginCtrl', function($scope, $window, AuthService, $state) {
             $scope.error = 'Invalid login credentials.';
         });
     };
-    $scope.googleAuth = function() {
-        $window.location.href = "/auth/google";
-    };
-    $scope.facebookAuth = function() {
-        $window.location.href = "/auth/facebook";
-    };
 });

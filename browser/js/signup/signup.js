@@ -15,12 +15,4 @@ app.controller('signupController', function($scope, $window, User, AuthService, 
             });
         });
     };
-    $scope.googleAuth = function() {
-        console.log("Authenticating with Google OAuth2");
-        $window.location.href = "/authentication/google";
-    };
-    $scope.facebookAuth = function() {
-        console.log("Authenticating with Facebook");
-        $window.location.href = "/authentication/facebook";
-    };
 });
