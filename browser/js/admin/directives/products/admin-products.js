@@ -11,7 +11,7 @@ app.directive('adminProducts', function() {
 
 app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
 
-	$scope.newProduct = {}
+	$scope.newProduct = {};
 
 	var getProducts = function () {
 		Products.getAll().then(function (products) {
