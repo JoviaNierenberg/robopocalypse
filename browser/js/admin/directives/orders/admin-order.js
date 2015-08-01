@@ -3,10 +3,8 @@ app.directive("adminOrders", function () {
 		restrict: "E",
 		templateUrl: "js/admin/directives/orders/admin-order.html",
 		controller: "AdminOrderCtrl"
-	}
+	};
 });
-
-
 
 app.controller("AdminOrderCtrl", function ($scope, Orders) {
 	Orders.getOrdersByUser().then(function (orders) {

@@ -1,5 +1,10 @@
-<div class="col-md-2">
-    <h2>Name: {{theCategory.name}}</h2>
-    <button ng-click="editCategory()">Edit</button>
-    <button ng-click="deleteCategory()">Delete</button>
+<div>
+    <form>
+        <md-input-container class="lineItem" flex>
+            <label>Name</label>
+            <input ng-model="theCategory.name" class="lineItem" enabled>
+        </md-input-container>
+        <md-button ng-click="editCategory()">Update</md-button>
+        <md-button ng-click="deleteCategory()">Delete</md-button>
+    </form>
 </div>

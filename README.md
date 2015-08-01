@@ -10,6 +10,12 @@
 
 ---
 
+<img alt="Robotocat" src="https://octodex.github.com/images/Robotocat.png" wdith="200" height="200">
+
+## Check out our robot store at [`http://robopocalypse.herokuapp.com`](http://robopocalypse.herokuapp.com).
+
+---
+
 ## Team Members
 
 > Some awesome people.
@@ -17,7 +23,6 @@
 [![Kevin Hoang](https://avatars0.githubusercontent.com/u/12387616?s=117)](https://github.com/unSAGEable) | [![Jovia Nierenberg](https://avatars2.githubusercontent.com/u/12420449?s=117)](http://sindresorhus.com) | [![Isaac Madwed](https://avatars0.githubusercontent.com/u/11039058?s=117)](https://github.com/madwed) | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?s=117)](https://github.com/fvcproductions)
 |:---:|:---:|:---:|:---:|
 [Kevin Hoang](http://addyosmani.com) | [Jovia Nierenberg](https://github.com/JoviaNierenberg) | [Isaac Madwed](https://github.com/madwed) | [FVCproductions](https://github.com/fvcproductions)
-
 
 ---
 
@@ -29,23 +34,11 @@
 
 ---
 
-## Product Item
-
-### Robots
-
----
-
 ## Instructor & Fellow
 
 [![Zeke Nierenberg](https://avatars0.githubusercontent.com/u/962281?s=117)](https://github.com/zekenie) | [![Ash Ryan](https://avatars0.githubusercontent.com/u/1370591?s=117)](http://github.com/ashryanbeats)
 |:---:|:---:|
 [Zeke Nierenberg](https://github.com/zekenie)| [Ash Ryan](https://github.com/ashryanbeats)
-
----
-
-## Logo
-
-<img alt="Robotocat" src="https://octodex.github.com/images/Robotocat.png" wdith="200" height="200">
 
 ---
 
