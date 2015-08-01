@@ -28,12 +28,16 @@
 				<label>Inventory</label>
 				<input ng-model="newProduct.inventory" />
 			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Category</label>
-				<select ng-model="newProduct.category">
-					<option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
-				</select>
-			</md-input-container>
+			<fieldset class="standard" flex>
+			<div layout="row" layout-wrap>
+			<label>Category</label>
+	          <div flex="50" ng-repeat="category in categories">
+	            <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
+	              {{ category.name }}
+	            </md-checkbox>
+	          </div>
+	        </div>
+	        </fieldset>
 			<md-button ng-click="addProduct()">Add</md-button>
 		</form>    
 	</div>

@@ -13,6 +13,15 @@ app.directive('merchantProducts', function() {
 app.controller('MerchantProductsCtrl', function ($scope, $rootScope, Products) {
 
 	$scope.newProduct = {}
+	$scope.newProduct.category = [];
+	$scope.toggle = function (item, list) {
+	  var idx = list.indexOf(item);
+	  if (idx > -1) list.splice(idx, 1);
+	  else list.push(item);
+	};
+	$scope.exists = function (item, list) {
+	  return list.indexOf(item) > -1;
+	};
 
 	var getProducts = function () {
 		Products.getAll({seller: $scope.merchant._id}).then(function (products) {
