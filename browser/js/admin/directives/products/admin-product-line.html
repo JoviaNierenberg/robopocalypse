@@ -1,27 +1,32 @@
 <div>
-    <form>
-        <img ng-src="{{theProduct.photo}}" style="width:80px" />
-        <md-input-container class="lineItem" flex>
-            <label>Id</label>
-            <input ng-model="theProduct._id" class="lineItem" disabled>
-        </md-input-container>
-        <md-input-container class="lineItem" flex>
-            <label>Title</label>
-            <input ng-model="theProduct.title" class="lineItem">
-        </md-input-container>
-        <md-input-container class="lineItem" flex>
-            <label>Description</label>
-            <input ng-model="theProduct.description" class="lineItem">
-        </md-input-container>
-        <md-input-container class="lineItem" flex>
-            <label>Price</label>
-            <input ng-model="theProduct.price" class="lineItem">
-        </md-input-container>
-        <md-input-container class="lineItem" flex>
-            <label>Inventory</label>
-            <input ng-model="theProduct.inventory" class="lineItem">
-        </md-input-container>
-        <md-button ng-click="update()">Update</md-button>
-        <md-button ng-click="delete()">Delete</md-button>
-    </form>
+	<form>
+		<img ng-src="{{theProduct.photo}}" style="width:80px"/>
+		<md-input-container class="lineItem" flex>
+			<label>Id</label>
+			<input ng-model="theProduct._id" disabled />
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Title</label>
+			<input ng-model="theProduct.title" />
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Description</label>
+			<input ng-model="theProduct.description" />
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Price</label>
+			<input ng-model="theProduct.price" />
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Inventory</label>
+			<input ng-model="theProduct.inventory" />
+		</md-input-container>
+		<md-input-container class="lineItem" flex>
+			<label>Category</label>
+			<input ng-model="theProduct.category" />
+		</md-input-container>
+		<md-button ng-click="update()">Update</md-button>
+    	<md-button ng-click="delete()">Delete</md-button>
+	</form>    
 </div>
+<hr>

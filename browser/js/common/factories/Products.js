@@ -9,7 +9,7 @@ app.factory("Products", function($http, $rootScope) {
     // creates a product using form data
     createProduct: function(data) {
       // is there an easier way to create a product using all the data inputted into the form?
-      return $http.post('/api/products/create', data).then(function(response) {
+      return $http.post('/api/products/', data).then(function(response) {
         return response.data;
       });
     },
