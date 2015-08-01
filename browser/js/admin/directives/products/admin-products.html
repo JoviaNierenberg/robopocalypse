@@ -25,11 +25,14 @@
 			</md-input-container>
 			<md-input-container class="lineItem" flex>
 				<label>Category</label>
-				<input ng-model="newProduct.category" />
+				<select ng-model="newProduct.category">
+					<option ng-repeat="category in categories" value="{{category._id}}">{{category.name}}</option>
+				</select>
 			</md-input-container>
 			<md-button ng-click="addProduct()">Add</md-button>
 		</form>    
 	</div>
+	<span>{{categories}}</span>
 	<hr>
     <admin-product-line ng-repeat="product in products" product="product"></admin-product-line>
 </div>

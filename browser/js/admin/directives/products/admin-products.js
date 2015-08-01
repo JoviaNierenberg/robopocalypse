@@ -2,7 +2,10 @@ app.directive('adminProducts', function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'js/admin/directives/products/admin-products.html',
-		controller: 'AdminProductsCtrl'
+		controller: 'AdminProductsCtrl',
+		scope: {
+			categories: "=categories"
+		}
 	};
 });
 
