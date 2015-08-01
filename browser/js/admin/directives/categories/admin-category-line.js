@@ -19,4 +19,7 @@ app.controller("AdminCategoryLineCtrl", function($scope, Categories) {
             $scope.singleCategory = response;
         });
     };
+    $scope.createCategory = function(catName) {
+
+    }
 });
