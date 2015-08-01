@@ -5,8 +5,11 @@ module.exports = [{
             first: "Billy",
             last: "Pilgrim"
         },
-        Roles: ["Admin"],
-        photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg"
+        roles: ["Merchant"],
+        photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg",
+        storeName: 'For World Domination',
+        storeDesc: 'Name of Store',
+        storeURL: 'FWD'
     },
 
     {
@@ -16,7 +19,7 @@ module.exports = [{
             first: "Elaine",
             last: "MacBook"
         },
-        Roles: ["Admin"],
+        roles: ["Admin"],
         photo: "http://www.fullstackacademy.com/img/team/omri_bernstein.jpg"
     },
 
@@ -27,7 +30,7 @@ module.exports = [{
             first: "Bilbo",
             last: "Bunny"
         },
-        Roles: ["Admin"],
+        roles: ["Admin"],
         photo: "http://www.fullstackacademy.com/img/team/scott_dalessandro.jpg"
     },
 
@@ -38,7 +41,11 @@ module.exports = [{
             first: "Sea",
             last: "Captainsailor"
         },
-        photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg"
+        roles: ["Merchant"],
+        photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg",
+        storeName: 'Silly Willy',
+        storeDesc: 'To provide the most useless robots to mankind and destroy the world through pollution',
+        storeURL: 'SillyWilly'
     },
 
     {

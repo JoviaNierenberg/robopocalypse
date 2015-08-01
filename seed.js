@@ -38,12 +38,18 @@ var seedCategories = function () {
 
 var seedProducts = function () {
     var products = require("./seeds/product");
-
     return Category.find().exec().then(function(categories){
-        products.forEach(function(product){
-            product.category = categories[Math.floor(Math.random() * categories.length)];
+        User.find({roles: {$all: 'Merchant'}}).exec().then(function(users){
+            var counter = 0;
+            products.forEach(function(product){
+                if(counter < 3){
+                    product.seller = users[Math.floor(Math.random() * users.length)]._id
+                    counter++
+                }
+                product.category = categories[Math.floor(Math.random() * categories.length)];
+            })
+            return Product.createAsync(products);
         })
-        return Product.createAsync(products);
     });
 };
 

@@ -6,7 +6,7 @@ function getPrice(num){
 }
 
 function setPrice(num){
-    return num*100;
+    return parseFloat(num.replace(/[^0-9-.]/g, '')) * 100;
 }
 
 var schema = new mongoose.Schema({
@@ -15,6 +15,10 @@ var schema = new mongoose.Schema({
         unique: true,
         required: true,
         trim: true
+    },
+    seller: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
     description: {
         type: String,
