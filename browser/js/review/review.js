@@ -3,7 +3,6 @@ app.config(function($stateProvider) {
     $stateProvider.state('reviewForm', {
         url: '/reviewForm',
         templateUrl: 'js/review/review.form.html'
-        // controller: 'ReviewFormCtrl'
     });
 });
 
