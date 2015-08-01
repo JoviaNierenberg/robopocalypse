@@ -6,7 +6,10 @@ module.exports = [{
             last: "Pilgrim"
         },
         roles: ["Merchant"],
-        photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg"
+        photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg",
+        storeName: 'For World Domination',
+        storeDesc: 'Name of Store',
+        storeURL: 'FWD'
     },
 
     {

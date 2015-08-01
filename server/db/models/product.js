@@ -6,7 +6,7 @@ function getPrice(num){
 }
 
 function setPrice(num){
-    return parseFloat(price.replace(/[^0-9-.]/g, '')) * 100;
+    return parseFloat(num.replace(/[^0-9-.]/g, '')) * 100;
 }
 
 var schema = new mongoose.Schema({

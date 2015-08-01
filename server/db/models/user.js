@@ -42,7 +42,10 @@ var schema = new mongoose.Schema({
         type: String,
         enum: ['User', 'Admin', 'Merchant'],
         default: 'User'
-    }]
+    }],
+    storeName: String,
+    storeDesc: String,
+    storeURL: String
 
 });
 
