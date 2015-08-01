@@ -9,7 +9,7 @@ app.directive('adminProducts', function() {
 	};
 });
 
-app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
+app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products, Stores) {
 
 	$scope.newProduct = {}
 
@@ -26,6 +26,12 @@ app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
 			getProducts();
 		});
 	};
+
+	$scope.loadStores = function(){
+		Stores.getAll().then(function(stores){
+			$scope.stores = stores
+		})
+	}
 
 	var unbind = $rootScope.$on("productUpdate", getProducts);
 	$scope.$on("$destroy", unbind);
