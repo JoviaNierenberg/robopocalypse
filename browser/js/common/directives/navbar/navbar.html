@@ -11,12 +11,12 @@
             <md-icon md-svg-icon="/images/r2d2.svg" aria-label="R2D2"></md-icon>
             <input class="md-primary" type="text" placeholder="Browse our products">
         </md-input-container>
-        <md-button class="nav-group nav-line" ng-show="!user" ui-sref="login">Login</md-button>
-        <md-button class="nav-button" ui-sref="admin">Admin</md-button>
-        <md-button class="nav-button" ui-sref="merchant">Merchant</md-button>
+        <md-button class="nav-group nav-line" ng-show="!user" ui-sref="login">Login</md-button>g
+        <md-button class="nav-button nav-line" ui-sref="admin">Admin</md-button>
+        <md-button class="nav-button nav-line" ui-sref="merchant">Merchant</md-button>
         <div ng-show="user" class="welcome">
             <span ng-click="viewUserPage()">Welcome, {{ user.name.first }}!</span>
-            <md-button class="nav-button" ng-click="logout()">Logout</md-button>
+            <md-button class="nav-group nav-line" ng-click="logout()">Logout</md-button>
         </div>
     </div>
 </md-toolbar>

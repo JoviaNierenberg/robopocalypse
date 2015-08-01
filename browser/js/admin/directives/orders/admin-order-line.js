@@ -6,9 +6,8 @@ app.directive("adminOrderLine", function () {
 		scope: {
 			theOrder: "=order"
 		}
-	}
+	};
 });
 
 app.controller("AdminOrderLineCtrl", function ($scope, Orders){
-	
 });

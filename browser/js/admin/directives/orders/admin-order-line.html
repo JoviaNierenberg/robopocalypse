@@ -1,3 +1,34 @@
 <div>
-	<p class="lineItem">{{theOrder}}</p>
+    <form>
+        <!--     <md-input-container class="lineItem" flex>
+      <label>Buyer</label>
+      <input ng-model="theOrder.buyer" class="lineItem" disabled>
+    </md-input-container> -->
+        <md-input-container class="lineItem" flex>
+            <label>Billing Address</label>
+            <input ng-model="theOrder.billing" class="lineItem">
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Shipping Address</label>
+            <input ng-model="theOrder.shipping" class="lineItem">
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Items</label>
+            <input ng-model="theOrder.items" class="lineItem">
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Subtotal</label>
+            <input ng-model="theOrder.subtotal" class="lineItem">
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Status</label>
+            <input ng-model="theOrder.status" class="lineItem">
+        </md-input-container>
+        <md-input-container class="lineItem" flex>
+            <label>Coupon</label>
+            <input ng-model="theOrder.coupon" class="lineItem">
+        </md-input-container>
+<!--         <md-button ng-click="update()">Update</md-button>
+        <md-button ng-click="delete()">Delete</md-button> -->
+    </form>
 </div>
