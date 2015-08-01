@@ -14,11 +14,11 @@ var ensureAuthenticated = function (req, res, next) {
 };
 
 var isAdmin = function (req, res, next) {
-    User.findById(req.session.passport.user._id)
+    User.findById(req.session.passport.user)
     .exec()
     .then(function(user){
-        if(user.role.indexOf('Admin')!== -1){
-            next
+        if(user.Roles.indexOf('Admin')!== -1){
+            next();
         }
         else{
             res.status(403).end

@@ -11,7 +11,7 @@ app.controller("AdminUserCtrl", function ($scope, $rootScope, User) {
 		User.getAll().then(function (users) {
 			$scope.users = users;
 		});
-	}
+	};
 
 	getUsers();
 	

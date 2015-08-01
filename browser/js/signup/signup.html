@@ -4,7 +4,7 @@
         <!-- first name -->
         <div class="form-group">
             <label>First Name</label>
-            <input type="text" name="firstName" class="form-control" required>
+            <input type="text" name="firstName" class="form-control" ng-model="credentials.name.first" required>
             <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
         </div>
 
