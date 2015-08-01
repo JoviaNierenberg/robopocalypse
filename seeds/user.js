@@ -42,7 +42,10 @@ module.exports = [{
             last: "Captainsailor"
         },
         roles: ["Merchant"],
-        photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg"
+        photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg",
+        storeName: 'Silly Willy',
+        storeDesc: 'To provide the most useless robots to mankind and destroy the world through pollution',
+        storeURL: 'SillyWilly'
     },
 
     {
