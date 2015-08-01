@@ -8,6 +8,8 @@ app.directive('adminProducts', function() {
 
 app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
 
+	$scope.newProduct = {}
+
 	var getProducts = function () {
 		Products.getAll().then(function (products) {
 			$scope.products = products;
@@ -15,6 +17,12 @@ app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
 	};
 
 	getProducts();
+
+	$scope.addProduct = function () {
+		Products.createProduct($scope.newProduct).then(function () {
+			getProducts();
+		});
+	};
 
 	var unbind = $rootScope.$on("productUpdate", getProducts);
 	$scope.$on("$destroy", unbind);
