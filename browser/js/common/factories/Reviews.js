@@ -8,6 +8,7 @@ app.factory('Reviews', function($http, $rootScope) {
         },
         // allows you to create a review using form data
         createReview: function(data) {
+            console.log("data: ", data)
             return $http.post('/api/reviews/create', data).then(function(review) {
                 return review.data;
             });

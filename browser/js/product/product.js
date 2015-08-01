@@ -6,8 +6,8 @@ app.config(function ($stateProvider) {
 	});
 });
 
-app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams) {
-  // returns all products
+app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams, AuthService) {
+  // returns product
   Products.getOne($stateParams.id).then(function (product) {
   	$scope.singleProduct = product;
     return product
@@ -19,5 +19,20 @@ app.controller('ProductCtrl', function ($scope, Products, Reviews, $stateParams)
   }).catch(function(error){
       console.log(error)
     })
+
+  // creates reviews
+  $scope.createReview = function(reviewData) {
+    reviewData.product = $scope.singleProduct._id
+    AuthService.getLoggedInUser().then(function(user){
+      reviewData.user = user._id
+      return reviewData
+    }).then(function(reviewData){
+      Reviews.createReview(reviewData)
+      console.log("reviewData: ", reviewData)
+    })
+    
+    
+    delete $scope.review
+  };
   
 });
