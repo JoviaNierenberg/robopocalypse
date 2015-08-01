@@ -5,7 +5,7 @@ module.exports = [{
             first: "Billy",
             last: "Pilgrim"
         },
-        roles: ["Admin"],
+        roles: ["Merchant"],
         photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg"
     },
 

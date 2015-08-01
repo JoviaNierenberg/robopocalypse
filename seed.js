@@ -40,10 +40,13 @@ var seedProducts = function () {
     var products = require("./seeds/product");
 
     return Category.find().exec().then(function(categories){
-        products.forEach(function(product){
-            product.category = categories[Math.floor(Math.random() * categories.length)];
+        User.find({roles: {$all: 'Merchant'}}).exec().then(function(users){
+            products.forEach(function(product){
+                product.seller = users[Math.floor(Math.random() * users.length)]._id
+                product.category = categories[Math.floor(Math.random() * categories.length)];
+            })
+            return Product.createAsync(products);
         })
-        return Product.createAsync(products);
     });
 };
 
