@@ -11,7 +11,7 @@
 	</div>
 	<div>
 		<p>{{cart.totalItems}} items</p>
-		<p>Total: ${{cart.subtotal}}</p>
+		<p>Total: ${{cart.subtotal | getPrice}}</p>
 	</div>
 	<hr>
 	<button ng-hide="checkout" ui-sref="checkout">Checkout</button>
