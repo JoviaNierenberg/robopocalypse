@@ -38,6 +38,7 @@ module.exports = [{
             first: "Sea",
             last: "Captainsailor"
         },
+        roles: ["Merchant"],
         photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg"
     },
 
