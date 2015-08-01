@@ -9,11 +9,14 @@ app.directive("merchantReviews", function () {
 
 
 app.controller("MerchantReviewCtrl", function ($scope, $rootScope, Reviews, Products) {
+	
+
 	var getReviews = function () {
 		Products.getAll({seller: $scope.merchant._id}).then(function(products){
+			$scope.reviews = [];
 			products.forEach(function(product){
 				Reviews.getReviews({product: product._id}).then(function (reviews) {
-					$scope.reviews.concat(reviews);
+					$scope.reviews = $scope.reviews.concat(reviews)
 				});
 			})
 		});
