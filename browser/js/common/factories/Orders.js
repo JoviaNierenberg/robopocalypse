@@ -7,8 +7,8 @@ app.factory('Orders', function($http) {
       });
     },
     // get orders based on user
-    getOrdersByUser: function(userId) {
-      return $http.get('/api/orders/', {params: {buyer: userId}}).then(function(response) {
+    getOrdersByUser: function(email) {
+      return $http.get('/api/orders/', {params: {buyer: email}}).then(function(response) {
         return response.data;
       });
     },

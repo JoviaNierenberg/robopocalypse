@@ -12,7 +12,7 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders, User)
 		Reviews.getReviews({user: user._id}).then(function (reviews) {
 			$scope.reviews = reviews;
 		});
-		Orders.getOrdersByUser(user._id).then(function (orders) {
+		Orders.getOrdersByUser(user.email).then(function (orders) {
 			$scope.orders = orders;
 		});
 	});
