@@ -26,7 +26,7 @@
 </div> -->
 <div class="col-sm-12 col-lg-12 col-md-12">
     <div class="thumbnail">
-        <a class="btn btn-primary" ng-click="add(theProduct)"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
+        <a class="btn btn-primary btn-standard pull-right" ng-click="add(theProduct)"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
         <img class="img-responsive" ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
         <div class="caption">
             <h4 class="pull-right">${{theProduct.price | getPrice}}</h4>

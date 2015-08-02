@@ -2,6 +2,8 @@ robot-logo {
     margin-top: 5px;
     margin-right: 20px;
     width: 40px;
+    margin-top: -15px;
+    margin-left: 10px;
 }
 
 .md-toolbar-tools {
@@ -37,14 +39,8 @@ nav.navbar.navbar-default {
     background-color: white;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        max-width: inherit;
-    }
-}
-
 .dropdown-menu>li>a {
-  color: white;
+    color: white;
 }
 
 .dropdown-menu>li>a:focus,
@@ -54,9 +50,27 @@ nav.navbar.navbar-default {
 }
 
 ul.dropdown-menu {
-  background-color: black;
+    background-color: black;
 }
 
 nav.navbar.navbar-default {
     margin-bottom: 0;
+}
+
+.dropdown-menu > li > a {
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+        color: grey;
+        background-color: transparent;
+    }
 }

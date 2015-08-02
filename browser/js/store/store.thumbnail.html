@@ -1,5 +1,5 @@
-<div class="product-thumbnail-card-container mdl-grid">
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+<div class="mdl-cell mdl-cell--6-col">
+    <div class="mdl-card mdl-shadow--2dp demo-card-wide">
         <img ng-src="{{theStore.photo}}" ui-sref="singleStore({url: '{{theStore.storeURL}}'})">
         <div class="mdl-card__title">
             <h1 class="mdl-button mdl-card__title-text"><a ui-sref="singleStore({url: theStore.storeURL })">{{theStore.storeName}}</a></h1>
@@ -9,5 +9,3 @@
         </div>
     </div>
 </div>
-</div>
-<br>

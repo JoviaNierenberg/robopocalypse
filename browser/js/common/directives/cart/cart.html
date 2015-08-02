@@ -1,20 +1,26 @@
 <div class="col-md-3">
-    <h3 class="lead">Shopping Cart</h3>
-    <hr>
-    <div ng-repeat="item in items">
-        <div class="cart-img">
-            <img class="img-responsive" ng-src="{{item.product.photo}}" />
+    <div class="mdl-card mdl-shadow--2dp cartCard">
+        <h3 class="lead"><a ui-sref="checkout"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></h3>
+        <hr>
+        <div ng-repeat="item in items">
+            <div class="thumbnail mdl-card">
+                <img ng-src="{{item.product.photo}}" />
+                <div class="caption">
+                    <p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price | getPrice}}</p>
+                </div>
+            </div>
         </div>
-        <div class="cart-detail">
-            <p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price | getPrice}}</p>
+        <div>
+            <p>{{cart.totalItems}} items</p>
+            <p>Total: ${{cart.subtotal | getPrice}}</p>
+        </div>
+        <hr>
+        <div class="col-md-6">
+            <button ng-hide="checkout" ui-sref="checkout" class="btn btn-primary btn-md btn-standard" type="submit"><i class="fa fa-credit-card"></i> Checkout</button>
+        </div>
+        <div class="col-md-6">
+            <button ng-hide="checkout" ng-click="emptyCart()" class="btn btn-primary btn-md btn-standard" type="submit"><i class="fa fa-times"></i> Clear Cart</button>
         </div>
     </div>
-    <div>
-        <p>{{cart.totalItems}} items</p>
-        <p>Total: ${{cart.subtotal | getPrice}}</p>
-    </div>
-    <hr>
-    <button ng-hide="checkout" ui-sref="checkout" class="btn btn-default" type="submit">Checkout</button>
-    <button ng-hide="checkout" ng-click="emptyCart()" class="btn btn-default" type="submit">Clear Cart</button>
 </div>
 <br>

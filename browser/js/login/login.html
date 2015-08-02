@@ -1,47 +1,39 @@
-<!-- <div class="container loginForm">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-3">
-            <form id="login-form" name="loginForm" ng-submit="loginForm.$valid; sendLogin(login)"> -->
-                <!-- <alert type="danger" ng-show="error">
-                    {{ error }}
-                </alert>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" ng-model="login.email" class="form-control" id="email" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" ng-model="login.password" class="form-control mdl-textfield__input" id="login-password" placeholder="Enter password">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                <br>
-                <a ui-sref="signup">Don't have an account? Sign up or be left behind in the Robopocalypse!</a>
-                <br>
-                <a ui-sref="forgotPassword">Forgot your password?</a>
-                <br>
+<div class="container noPadding">
+    <form class="form-signin" name="loginForm" ng-submit="loginForm.$valid; sendLogin(login)">
+        <alert type="danger" ng-show="error">
+            {{ error }}
+        </alert>
+        <!-- Title -->
+        <!-- <h2 class="form-signin-heading centerText">Welcome Back!</h2> -->
+        <h2 class="form-signin-heading centerText">Login</h2>
+        <!-- Email -->
+        <input type="email" id="email" class="form-control mdl-textfield__input" placeholder="email" ng-model="login.email" id="email" placeholder="email" required autofocus>
+        <!-- Password -->
+        <input type="password" placeholder="password" ng-model="login.password" class="form-control mdl-textfield__input" id="login-password" required autofocus>
+        <!-- Buttons -->
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit" ui-sref="signup"><i class="fa fa-external-link"></i> Sign Up</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-question-circle"></i> Forgot your password?</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <auth-button provider-name="Google"></auth-button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <auth-button provider-name="Twitter"></auth-button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <auth-button provider-name="Facebook"></auth-button>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
- -->
-
-    <div class="container">
-
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-    </div> <!-- /container -->

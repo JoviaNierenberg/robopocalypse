@@ -1,4 +1,8 @@
 <cart></cart>
-<div class="col-lg-6 col-md-6 col-sm-6">
-    <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
+<div class="col-md-9">
+    <div class="row">
+        <md-content class="md-padding">
+            <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
+        </md-content>
+    </div>
 </div>
