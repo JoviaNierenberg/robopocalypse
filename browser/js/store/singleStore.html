@@ -1,9 +1,4 @@
-<section>
-	<div class="col-lg-8">
-	    <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
-	</div>
-	<div class="col-lg-4 cart-container">
-	    <cart></cart>
-	</div>
-</section>
-
+<cart></cart>
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
+</div>

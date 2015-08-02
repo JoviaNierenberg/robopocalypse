@@ -1,7 +1,10 @@
 robot-logo {
-  display: block;
-  img {
     display: block;
-    width: 100%;
-  }
+    img {
+        display: block;
+        width: 130%;
+        max-width: 100px;
+        margin-top: -20px;
+        margin-left: 0px;
+    }
 }

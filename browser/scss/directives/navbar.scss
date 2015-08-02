@@ -4,43 +4,59 @@ robot-logo {
     width: 40px;
 }
 
-.welcome {
-    float: right;
-    margin-top: 12px;
-    span {
-        color: white;
-    }
-    a {
-        color: #85BAD0;
-        cursor: pointer;
-    }
+.md-toolbar-tools {
+    background-color: black;
 }
 
-.nav-group {
-    font-size: 16px;
-    margin: 20px 0;
-    padding: 3px 15px 3px 15px;
-    text-transform: none;
-    font-weight: 400;
-    min-width: 100px;
-    height: 100%;
+.navbar {
+    background-color: black;
 }
 
-.search-icon {
-    background-color: white;
+nav.navbar.navbar-default {
+    border-radius: 0;
+    border: none;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
     color: black;
+    background-color: white;
 }
 
-.nav-line {
-    line-height: 64px;
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+    color: black;
+    background-color: white;
 }
 
-.navbar-adds {
-    box-shadow: 0px 1px 1px #000;
-    position: fixed;
-    font-family: RobotHeader;
+@media (min-width: 1200px) {
+    .container {
+        max-width: inherit;
+    }
 }
 
-.logo-text {
-    font-family: RobotTitle;
+.dropdown-menu>li>a {
+  color: white;
+}
+
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    color: black;
+    background-color: white;
+}
+
+ul.dropdown-menu {
+  background-color: black;
+}
+
+nav.navbar.navbar-default {
+    margin-bottom: 0;
 }

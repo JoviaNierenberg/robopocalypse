@@ -1,14 +1,18 @@
-<section id="home">
-	<div class="col-lg-8">
-	    <product-thumbnail product="singleProduct"></product-thumbnail>
-	<div>
-		<h3>Reviews</h3>
-		<product-review ng-repeat="review in reviews"></product-review>
-		<review-form></review-form>
-	</div>
-	</div>
-	<div class="col-lg-4 cart-container">
-	    <cart></cart>
-	</div>
-</section>
-
+<cart></cart>
+<div class="col-md-9">
+    <div class="row">
+        <product-thumbnail product="singleProduct"></product-thumbnail>
+    </div>
+    <div class="row">
+        <div class="lass=" col-sm-12 col-lg-12 col-md-12 "">
+            <h3>Reviews</h3>
+            <product-review ng-repeat="review in reviews"></product-review>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-lg-12 col-md-12">
+            <h3>Add a Review</h3>
+            <review-form></review-form>
+        </div>
+    </div>
+</div>

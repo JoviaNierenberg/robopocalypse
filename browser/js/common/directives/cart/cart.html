@@ -1,19 +1,20 @@
-<div>
-	<h3>Shopping Cart</h3>
-	<hr>
-	<div ng-repeat="item in items">
-		<div class="cart-img">
-			<img class="img-responsive" ng-src="{{item.product.photo}}"/>
-		</div><!-- 
-	 --><div class="cart-detail">
-			<p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price | getPrice}}</p>
-		</div>
-	</div>
-	<div>
-		<p>{{cart.totalItems}} items</p>
-		<p>Total: ${{cart.subtotal | getPrice}}</p>
-	</div>
-	<hr>
-	<button ng-hide="checkout" ui-sref="checkout">Checkout</button>
-	<button ng-hide="checkout" ng-click="emptyCart()">Clear Cart</button>
+<div class="col-md-3">
+    <h3 class="lead">Shopping Cart</h3>
+    <hr>
+    <div ng-repeat="item in items">
+        <div class="cart-img">
+            <img class="img-responsive" ng-src="{{item.product.photo}}" />
+        </div>
+        <div class="cart-detail">
+            <p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price | getPrice}}</p>
+        </div>
+    </div>
+    <div>
+        <p>{{cart.totalItems}} items</p>
+        <p>Total: ${{cart.subtotal | getPrice}}</p>
+    </div>
+    <hr>
+    <button ng-hide="checkout" ui-sref="checkout" class="btn btn-default" type="submit">Checkout</button>
+    <button ng-hide="checkout" ng-click="emptyCart()" class="btn btn-default" type="submit">Clear Cart</button>
 </div>
+<br>

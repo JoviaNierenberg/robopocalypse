@@ -1,19 +1,15 @@
-<div ng-controller="CategoryCtrl" class="col-lg-8">
-    <md-content class="md-padding">
-    <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect>
-      <md-tab ng-repeat="tab in tabs | orderBy:'name'"
-              label="{{tab.name}}">
-        <div style="text-align: center;">
-          <div>
-          	<div ng-repeat="product in tab.content">
-          		<product-thumbnail product="product"></product-thumbnail>
-          	</div>
-          </div>
-        </div>
-      </md-tab>
-    </md-tabs>
-	</md-content>
-</div>
-<div class="col-lg-4 cart-container">
-    <cart></cart>
+<cart></cart>
+<div class="col-md-9">
+    <div class="row">
+        <md-content class="md-padding">
+            <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom md-autoselect>
+                <md-tab ng-repeat="tab in tabs | orderBy:'name'" label="{{tab.name}}" style="text-align: center;">
+                    <br>
+                        <div ng-repeat="product in tab.content">
+                            <product-thumbnail product="product"></product-thumbnail>
+                        </div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
 </div>
