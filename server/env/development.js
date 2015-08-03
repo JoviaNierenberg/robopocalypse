@@ -8,8 +8,8 @@ module.exports = {
     "callbackUrl": "http://192.168.0.3:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
-    "clientID": "INSERT_FACEBOOK_CLIENTID_HERE",
-    "clientSecret": "INSERT_FACEBOOK_CLIENT_SECRET_HERE",
+    "clientID": "871027879654745",
+    "clientSecret": "fe0a210fc85947dc0252f3c088e58f16",
     "callbackURL": "http://localhost:1337/auth/facebook/callback"
   },
   "GOOGLE": {

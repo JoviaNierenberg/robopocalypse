@@ -20,7 +20,26 @@
 
 body {
     background: white;
-    font-family: 'ProximaNova', sans-serif;
+    padding-top: 5%;
+    font-family: "ProximaNova";
+}
+
+.container {
+    padding: 1%;
+}
+
+.content {
+    margin-top: 3%;
+}
+
+.row {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 @mixin clearfix {
@@ -38,10 +57,6 @@ body {
 
 hr {
     border: 1px black groove;
-}
-
-.container {
-    padding: 1%;
 }
 
 md-content {
@@ -84,11 +99,6 @@ i.fa.fa-plus-circle.fa-2x {
     border-color: #42dca3;
 }
 
-.content {
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
 p {
     margin: 0;
 }
@@ -123,11 +133,16 @@ h2 {
     width: 100%;
 }
 
-/* Large desktops */
+// max 500px
+@media (max-width: 500px) {
+    .container {
+        width: 400px;
+    }
+}
 
-@media (min-width: 1900px) {
-    .content {
-        width: min-width;
+@media (min-width: 1500px) {
+    .col-md-9 {
+        margin-top: -1.5%;
     }
 }
 
@@ -137,28 +152,63 @@ h2 {
     .row.specialRow {
         margin-top: -3%;
     }
-    .col-sm-12.col-lg-12.col-md-12 {
-        margin-top: -3%;
+    .container {
+        width: 1400px;
     }
-    .content {
-        width: 1000px;
+    .mainContainer {
+        min-height: 70.5vh;
     }
 }
 
+@media (min-width: 1700px) {
+    .col-md-9 {
+        margin-top: -3.5%;
+    }
+    .container {
+        width: 1600px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .mainContainer {
+        min-height: 66.5vh;
+    }
+}
+
+
 /* Portrait tablets and small desktops */
 
-@media (min-width: 768px) and (max-width: 991px) {}
-
-
-/* Landscape phones and portrait tablets */
-
-@media (max-width: 767px) {}
-
-
-/* Portrait phones and smaller */
-
-@media (max-width: 480px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .content {
         margin-top: 20%;
     }
+}
+
+// /* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    .content {
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .specialRow {
+        margin-top: 15%;
+    }
+    .mainContainer {
+        min-height: 60.5vh;
+    }
+}
+
+@media (max-width: 1000px) {
+    .specialRow {
+        margin-top: 15%;
+    }
+    .mainContainer {
+        min-height: 60.5vh;
+    }
+}
+
+.thumbnail.mdl-card.mdl-shadow--3dp {
+    min-height: 400px;
 }
