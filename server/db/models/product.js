@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var searchPlugin = require("mongoose-search-plugin");
 
 function getPrice(num){
     return (num/100).toFixed(2);
@@ -55,5 +56,9 @@ schema.path('category').validate(function(value){
 schema.virtual('shortDesc').get(function() {
     return this.description.substring(0, 200);
 });
+
+schema.plugin(searchPlugin, {
+    fields: ["title", "description"]
+})
 
 mongoose.model('Product', schema);

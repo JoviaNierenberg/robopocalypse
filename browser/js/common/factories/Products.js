@@ -6,6 +6,11 @@ app.factory("Products", function($http, $rootScope) {
         return response.data;
       });
     },
+    search: function(searchString) {
+      return $http.get("/api/search/" + encodeURI(searchString)).then(function(response) {
+        return response.data;
+      });
+    },
     // creates a product using form data
     createProduct: function(data) {
       // is there an easier way to create a product using all the data inputted into the form?

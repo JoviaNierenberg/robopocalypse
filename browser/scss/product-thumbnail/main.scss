@@ -2,11 +2,15 @@
     height: auto;
 }
 
-.productThumb{
-    width: 25vw;
-    height: 25vw;
-    overflow: hidden;
+
+
+.thumbnail {
+    display: inline-block;
 }
+
+// .thumbnail img {
+//     width: 25%;
+// }
 
 .ratings {
     padding-right: 10px;
@@ -20,7 +24,7 @@
 
 .thumbnail.mdl-card {
     min-height: 100px;
-    width: auto;
+    width: 100%;
 }
 
 .mdl-card {
@@ -29,5 +33,40 @@
 
 h3.lead {
     text-align: center;
+}
+
+.rightCaption {
+    float: left;
+}
+
+.thumbnail.right-caption > img {
+    float: left;
+    margin-right: 5%;
+    width: 25%;
+}
+
+.thumbnail.right-caption {
+    float: left;
+}
+
+.thumbnail.right-caption > .caption {
+    padding: 4px;
+}
+
+.caption {
+    margin-top: 3%;
+}
+
+.thumbnail .caption.thumbCaption{
+    width: 80%;
+    display: inline-block;
+    padding: 20px;
+}
+
+.productThumb{
+    width: 20%;
+    height: 200px;
+    overflow: hidden;
+    display: inline-block;
 }
 

@@ -8,6 +8,7 @@ router.use("/orders", require("./orders"));
 router.use("/categories", require("./categories"));
 router.use("/reviews", require("./reviews"));
 router.use("/store", require("./store"));
+router.use("/search", require("./search"));
 
 router.put("/cart", function (req, res) {
 	req.session.cart = req.body;
