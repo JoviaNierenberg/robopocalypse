@@ -19,21 +19,11 @@
     <div class="col-sm-12 col-md-12 col-lg-12 marginTop marginBottom">
         <button ng-hide="checkout" ng-click="emptyCart()" class="btn btn-primary btn-lg btn-standard col-sm-12 col-md-12 col-lg-12 centerText " type="submit"><i class="fa fa-times"></i> empty cart</button>
     </div>
-    <hr ng-show="items">
-    <hr ng-show="items">
-    <div ng-repeat="item in items">
-        <div class="thumbnail mdl-card mdl-shadow--2dp" style="width:auto;min-height:0px;padding:5%">
-            <img ng-src="{{item.product.photo}}" />
-            <div class="caption" style="height:auto; text-align:center; padding:0;">
-                <h4><b>{{item.product.title}}</b></h4>
-                <p><b>Quantity</b> {{item.quantity}}</p>
-                <p><b>Price</b> ${{item.product.price | getPrice}}</p>
-            </div>
-        </div>
-    </div>
-    <!-- IDK how to make this not show when there are no items in the cart :( -->
-    <hr ng-show="items">
-    <hr ng-show="items">
+    <hr ng-show="items.length > 0">
+    <hr ng-show="items.length > 0">
+    <cart-item ng-repeat="item in items" product="item"></cart-item>
+    <hr ng-show="items.length > 0">
+    <hr ng-show="items.length > 0">
 </div>
 </div>
 <br>
