@@ -42,9 +42,9 @@ var schema = new mongoose.Schema({
             required: true
         }]
     },
-    photo: {
-        type: String,
-        default: "http://wiki.solid-run.com/images/7/75/No_image_available.png"
+    photos: {
+        type: [String],
+        default: ["http://wiki.solid-run.com/images/7/75/No_image_available.png"]
     }
 });
 
