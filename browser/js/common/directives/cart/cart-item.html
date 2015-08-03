@@ -1,0 +1,14 @@
+<div>
+    <div class="thumbnail mdl-card mdl-shadow--2dp" style="width:auto;min-height:0px;padding:5%">
+        <img ng-src="{{theItem.product.photo}}" />
+        <div class="caption" style="height:auto; text-align:center; padding:0;">
+            <h4><b>{{theItem.product.title}}</b></h4>
+            <p><b>Quantity</b> {{theItem.quantity}}</p>
+            <p><b>Price</b> ${{theItem.product.price | getPrice}}</p>
+            <button ng-click="removeItem()">Remove</button>
+            <select ng-model="selectedQuantity" ng-options="num for num in [] | range:1:100" ng-init="selectedQuantity = theItem.quantity" ng-change="updateItem(selectedQuantity)">
+            	<option value=""></option>
+        	</select>
+        </div>
+    </div>
+</div>
