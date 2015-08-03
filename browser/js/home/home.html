@@ -5,7 +5,7 @@
     </video>
 </div> -->
 <div id="home" ng-controller="HomeCtrl">
-    <cart></cart>
+    <cart ng-hide="cartIsEmpty()"></cart>
     <md-content class="md-padding">
         <!-- <p>sort by: <span ng-click="sortBy('title')">title</span> | <span ng-click="sortBy('price')">price</span> | <span ng-click="sortBy('inventory')">inventory</span> | <span ng-click="sortBy('category')">category</span></p> -->
         <div class="col-md-10">

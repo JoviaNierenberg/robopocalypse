@@ -21,6 +21,7 @@ app.controller("CheckoutCtrl", function($scope, Cart, AuthService) {
     $scope.cart = Cart.getCart();
 
     $scope.submitOrder = function() {
+    	if($scope.cart.totalItems === 0) return alert('no items selected')
     	var order = {}
     	order.buyer = $scope.user.email
     	order.billing = makeAddress($scope.billing)
@@ -34,6 +35,7 @@ app.controller("CheckoutCtrl", function($scope, Cart, AuthService) {
     	order.subtotal = $scope.cart.subtotal
     	if($scope.seller) order.seller = $scope.seller
         Cart.submitOrder(order);
+    	Cart.emptyCart();
     };
 
     this.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
