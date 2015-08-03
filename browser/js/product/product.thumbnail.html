@@ -1,42 +1,39 @@
-<!-- <div class="container-fluid row">
-    <div class="container-fluid col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <div style="margin-top:25px">
-            <img ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
-        </div>
-        <div class="container-fluid" style="float:left; clear:both">
-            <h3>${{theProduct.price}}</h3>
-            <h4><span style="color:red"><b>Only {{theProduct.inventory}} left</b></span></h4>
-        </div>
+<!-- <div class="col-sm-4 col-lg-4 col-md-4 mdl-card">
+<div class="thumbnail">
+    <img ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
+    <div class="caption">
+        <h4 class="pull-right"><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
     </div>
-    <div class="container-fluid">
-        <h2><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h2>
-        <p>{{theProduct.description}}</p>
-        <h3 ng-click="add(theProduct)">Add to Cart +</h3>
+    <div class="mdl-card__supporting-text">
+        {{theProduct.description | shortdesc}}
     </div>
-</div>
-<hr> -->
-<!-- <div class="container-fluid row">
-    <div class="container-fluid col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <div class="mdl-card mdl-shadow--2dp demo-card-wide">-->
-<div class="product-thumbnail-card-container mdl-grid">
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-        <img ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
-        <div class="mdl-card__title">
-            <h1 class="mdl-button mdl-card__title-text"><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h1>
+    <div class="mdl-card__actions mdl-card--border">
+        <h3>${{theProduct.price | getPrice}}</h3>
+        <p><span style="color:red"><b>ONLY {{theProduct.inventory}} LEFT</b></span></p>
+    </div>
+    <div class="caption">
+            <h4 class="pull-right">$24.99</h4>
+            <h4><a href="#">First Product</a>
+                                </h4>
+            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
         </div>
-        <div class="mdl-card__supporting-text">
-            {{theProduct.description | shortdesc}}
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-            <h3>${{theProduct.price | getPrice}}</h3>
-            <p><span style="color:red"><b>ONLY {{theProduct.inventory}} LEFT</b></span></p>
-        </div>
-        <div class="mdl-card__menu">
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                <i class="material-icons" ng-click="add(theProduct)">add</i>
-            </button>
-        </div>
+    <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons" ng-click="add(theProduct)">add</i>
+        </button>
     </div>
 </div>
+</div> -->
+<div class="col-sm-12 col-lg-12 col-md-12">
+    <div class="thumbnail">
+        <a class="btn btn-primary btn-standard pull-right" ng-click="add(theProduct)"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
+        <img class="img-responsive" ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
+        <div class="caption">
+            <h4 class="pull-right">${{theProduct.price | getPrice}}</h4>
+            <h4><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
+            <p>{{theProduct.description | shortdesc}}</p>
+            <p class="pull-right">10 reviews</p>
+            <p><b>Inventory</b>: {{theProduct.inventory}}</p>
+        </div>
+    </div>
 </div>
-<br>

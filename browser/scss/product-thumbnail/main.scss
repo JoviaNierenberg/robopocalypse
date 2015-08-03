@@ -1,31 +1,23 @@
-.product-thumbnail-card.mdl-card {
-    width: auto;
-}
-
-.product-thumbnail-card > .mdl-card__title {
-    color: #fff;
-}
-
-.product-thumbnail-card > .mdl-card__menu {
-    color: #fff;
-}
-
-.product-thumbnail-card > .mdl-card__media {
+.caption {
+    height: 130px;
     overflow: hidden;
-    background: transparent;
-}
-.product-thumbnail-card > .mdl-card__media img {
-    width: 100%;
 }
 
-h3.ng-binding {
-  padding: 16px;
+.caption h4 {
+    white-space: nowrap;
 }
 
-b.ng-binding {
-  padding: 16px
+.thumbnail img {
+    width: 25%;
 }
 
-a.ng-binding:hover {
-  text-decoration: none;
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
 }

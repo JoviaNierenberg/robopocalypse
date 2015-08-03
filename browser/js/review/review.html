@@ -1,10 +1,12 @@
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8">
-			<p>Stars: {{review.rating}}</p>
-			<p>Review: {{review.text}}</p>
-			<p>Author: {{review.user.name.first}} {{review.user.name.last}}</p>
-			<br>
-		</div>
-	</div>
+<div class="row">
+    <div class="col-md-12">
+        <p>Stars: {{review.rating}}</p>
+        <div ng-repeat="n in {{review.rating}} track by $index">
+            {{n}}
+        </div>
+        {{review.user.name.first}} {{review.user.name.last}}
+        <p>Review: {{review.text}}</p>
+        <p></p>
+        <br>
+    </div>
 </div>

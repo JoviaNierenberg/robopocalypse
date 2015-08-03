@@ -1,50 +1,58 @@
 @font-face {
-  font-family: RobotTitle;
-  src: url("/fonts/bionic-kid/BIONICKIDSLANTED3D.ttf");
-}
-@font-face {
-  font-family: RobotBody;
-  src: url("/fonts/disposabledroid-bb/DisposableDroidBB.ttf");
-}
-@font-face {
-  font-family: RobotHeader;
-  src: url("/fonts/freshbot/FRESHBOT.TTF");
+    font-family: RobotTitle;
+    src: url("/fonts/bionic-kid/BIONICKIDSLANTED3D.ttf");
 }
 
+@font-face {
+    font-family: RobotBody;
+    src: url("/fonts/disposabledroid-bb/DisposableDroidBB.ttf");
+}
+
+@font-face {
+    font-family: RobotHeader;
+    src: url("/fonts/freshbot/FRESHBOT.TTF");
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url("/fonts/proxima_nova/proxima_nova_reg-webfont.ttf");
+}
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background: white;
-  font-family: RobotBody;
+    background: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 @mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
-#main {
-  padding-top: 10%;
-  width: auto;
-  margin: 0 auto;
-  min-height: 90vh;
-}
+// #main {
+//     padding-top: 10%;
+//     width: auto;
+//     margin: 0 auto;
+//     min-height: 90vh;
+// }
 
 img {
-  width: 100%
+    width: 100%
 }
 
+@import "admin/main";
+@import "cart/main";
+@import "category/main";
 @import "directives/main";
 @import "home/main";
-@import "tutorial/main";
 @import "login/main";
 @import "product-thumbnail/main";
-@import "cart/main";
+@import "tutorial/main";
 @import "angular";
-@import "admin";
+@import "etalage";

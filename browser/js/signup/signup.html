@@ -1,77 +1,47 @@
-<div class="container">
-    <form ng-submit="createUser(credentials)">
-
-        <!-- first name -->
-        <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="firstName" class="form-control" ng-model="credentials.name.first" required>
-            <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
+<div class="container noPadding">
+    <form class="form-signin" name="registrationForm" ng-submit="createUser(credentials)">
+        <alert type="danger" ng-show="error">
+            {{ error }}
+        </alert>
+        <!-- Title -->
+        <h2 class="form-signin-heading centerText">Sign Up</h2>
+        <!-- First Name -->
+        <input type="text" placeholder="first name" name="firstName" class="form-control mdl-textfield__input" ng-model="credentials.name.first" required autofocus>
+        <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
+        <!-- Last Name -->
+        <input type="text" placeholder="last name" name="lastName" ng-model="credentials.name.last" class="form-control mdl-textfield__input" required autofocus>
+        <p ng-show="registrationForm.lastName.$invalid; registrationForm.$submitted" class="help-block">Your last name is required.</p>
+        <!-- Email -->
+        <input type="email" placeholder="email" name="email" class="form-control mdl-textfield__input" ng-model="credentials.email" required required autofocus>
+        <p ng-show="registrationForm.email.$invalid; registrationForm.$submitted" class="help-block">Enter a valid email.</p>
+        <!-- Password -->
+        <input type="password" placeholder="password" name="password" class="form-control mdl-textfield__input" ng-model="credentials.password" ng-minlength="8" required autofocus>
+        <p ng-show="registrationForm.password.$error.minlength; registrationForm.$submitted" class="help-block">Your password must be at least 8 characters.</p>
+        <p ng-show="registrationForm.password.$error.required; registrationForm.$submitted" class="help-block">Your password is required.</p>
+        <!-- Buttons -->
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit" ui-sref="signup"><i class="fa fa-external-link"></i> Sign Up</button>
+            </div>
         </div>
-
-        <!-- last name -->
-        <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="lastName" class="form-control" ng-model="credentials.name.last" required>
-            <p ng-show="registrationForm.lastName.$invalid; registrationForm.$submitted" class="help-block">Your last name is required.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-question-circle"></i> Forgot your password?</button>
+            </div>
         </div>
-
-        <!-- email -->
-        <div class="form-group" >
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" ng-model="credentials.email" required>
-            <p ng-show="registrationForm.email.$invalid; registrationForm.$submitted" class="help-block">Enter a valid email.</p>
+        <div class="row">
+            <div class="col-md-4">
+                <auth-button provider-name="Google"></auth-button>
+            </div>
+            <div class="col-md-4">
+                <auth-button provider-name="Twitter"></auth-button>
+            </div>
+            <div class="col-md-4">
+                <auth-button provider-name="Facebook"></auth-button>
+            </div>
         </div>
-
-        <!-- password -->
-        <div class="form-group" >
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" ng-model="credentials.password" ng-minlength="8" required>
-            <p ng-show="registrationForm.password.$error.minlength; registrationForm.$submitted" class="help-block">Your password must be at least 8 characters.</p>
-            <p ng-show="registrationForm.password.$error.required; registrationForm.$submitted" class="help-block">Your password is required.</p>
-        </div>
-
-        <input value="Create Account" type="submit" class="btn btn-default">
-
     </form>
-
-<!--     <form id="registration-form" name="registrationForm" ng-class="form-group" ng-controller="signupController" ng-submit="registrationForm.$valid; createUser()" novalidate>
-
-        first name
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.firstName.$invalid; registrationForm.$submitted }">
-            <label>First Name</label>
-            <input type="text" name="firstName" class="form-control" ng-model="SignupForm.firstName" required>
-            <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
-        </div>
-
-        last name
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.lastName.$invalid; registrationForm.$submitted }">
-            <label>Last Name</label>
-            <input type="text" name="lastName" class="form-control" ng-model="SignupForm.lastName" required>
-            <p ng-show="registrationForm.lastName.$invalid; registrationForm.$submitted" class="help-block">Your last name is required.</p>
-        </div>
-
-        email
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.email.$invalid; registrationForm.$submitted }">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" ng-model="SignupForm.email" required>
-            <p ng-show="registrationForm.email.$invalid; registrationForm.$submitted" class="help-block">Enter a valid email.</p>
-        </div>
-
-        password
-        <div class="form-group" ng-class="{ 'has-error' : registrationForm.password.$invalid; registrationForm.$submitted }">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" ng-model="SignupForm.password" ng-minlength="8" required>
-            <p ng-show="registrationForm.password.$error.minlength; registrationForm.$submitted" class="help-block">Your password must be at least 8 characters.</p>
-            <p ng-show="registrationForm.password.$error.required; registrationForm.$submitted" class="help-block">Your password is required.</p>
-        </div>
-
-        <input value="Create Account" type="submit" class="btn btn-default">
-
-    </form> -->
-
-<!--     <button  class= "btn btn-danger" ng-click="googleAuth()"><i class="fa fa-google fa-2x"></i>Login with Google</button>
-    <button  class= "btn btn-danger" ng-click="facebookAuth()"><i class="fa fa-facebook fa-2x"></i>Login with Facebook</button> -->
-    <p><auth-button provider-name="Google"></auth-button></p>
-    <p><auth-button provider-name="Twitter"></auth-button></p>
-    <p><auth-button provider-name="Facebook"></auth-button></p>
 </div>

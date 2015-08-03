@@ -1,8 +1,17 @@
-<section id="home">
-	<div class="col-lg-8">
-	    <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
-	</div>
-	<div class="col-lg-4 cart-container">
-	    <cart></cart>
-	</div>
-</section>
+<!-- <div>
+    <video preload="true" autoplay="" onended="this.play();" loop="">
+        <source src="videos/wc_spheres.mp4" type="video/mp4">
+        <source src="videos/wc_spheres.ogv" type="video/ogg">
+    </video>
+</div> -->
+<div id="home" ng-controller="HomeCtrl">
+    <cart></cart>
+    <md-content class="md-padding">
+        <!-- <p>sort by: <span ng-click="sortBy('title')">title</span> | <span ng-click="sortBy('price')">price</span> | <span ng-click="sortBy('inventory')">inventory</span> | <span ng-click="sortBy('category')">category</span></p> -->
+        <div class="col-md-9">
+            <div class="row">
+                <product-thumbnail ng-repeat="productEntry in products track by $index | orderBy: sortMethod" product="productEntry"></product-thumbnail>
+            </div>
+        </div>
+    </md-content>
+</div>
