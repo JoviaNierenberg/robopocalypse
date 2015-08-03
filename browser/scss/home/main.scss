@@ -123,11 +123,11 @@ h2 {
     width: 100%;
 }
 
-/* large desktops */
+/* Large desktops */
 
 @media (min-width: 1900px) {
     .content {
-        width: 1800px;
+        width: min-width;
     }
 }
 
