@@ -5,6 +5,8 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
         templateUrl: 'js/common/directives/navbar/navbar.html',
         link: function(scope) {
             scope.user = null;
+            scope.admin = null;
+            scope.merchant = null;
             scope.isLoggedIn = function() {
                 return AuthService.isAuthenticated();
             };
@@ -13,13 +15,21 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
                     $state.go('home');
                 });
             };
-            scope.viewUserPage = function () {
-                $state.go("user", {id: scope.user._id});
+            scope.viewUserPage = function() {
+                $state.go("user", {
+                    id: scope.user._id
+                });
             };
-            var setUser = function () {
-                AuthService.getLoggedInUser().then(function (user) {
-                    if(user){
+            var setUser = function() {
+                AuthService.getLoggedInUser().then(function(user) {
+                    if (user) {
                         scope.user = user;
+                        if (user.roles.indexOf("Admin") !== -1) {
+                            scope.admin = true;
+                        }
+                        if (user.roles.indexOf("Merchant") !== -1) {
+                            scope.merchant = true;
+                        }
                     }
                 });
             };

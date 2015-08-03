@@ -3,11 +3,21 @@
         <alert type="danger" ng-show="error">
             {{ error }}
         </alert>
+        <div class="row">
+            <md-content class="col-lg-6 col-md-12 col-sm-12">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>
+                            <h1>first name</h1></label>
+                        <input type="text" placeholder="first name" name="firstName" class="form-control mdl-textfield__input" ng-model="credentials.name.first" required autofocus>
+                    </md-input-container>
+                </div>
+            </md-content>
+        </div>
         <!-- Title -->
         <h2 class="form-signin-heading centerText">Sign Up</h2>
         <!-- First Name -->
         <input type="text" placeholder="first name" name="firstName" class="form-control mdl-textfield__input" ng-model="credentials.name.first" required autofocus>
-        <p ng-show="registrationForm.firstName.$invalid; registrationForm.$submitted" class="help-block">Your first name is required.</p>
         <!-- Last Name -->
         <input type="text" placeholder="last name" name="lastName" ng-model="credentials.name.last" class="form-control mdl-textfield__input" required autofocus>
         <p ng-show="registrationForm.lastName.$invalid; registrationForm.$submitted" class="help-block">Your last name is required.</p>
@@ -20,16 +30,11 @@
         <p ng-show="registrationForm.password.$error.required; registrationForm.$submitted" class="help-block">Your password is required.</p>
         <!-- Buttons -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit" ui-sref="signup"><i class="fa fa-external-link"></i> Sign Up</button>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
-                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-sign-in"></i> Login</button>
-            </div>
-            <div class="col-md-6">
-                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-question-circle"></i> Forgot your password?</button>
+                <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-sign-in"></i> Already have an account?</button>
             </div>
         </div>
         <div class="row">
