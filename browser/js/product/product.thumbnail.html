@@ -1,39 +1,18 @@
-<!-- <div class="col-sm-4 col-lg-4 col-md-4 mdl-card">
-<div class="thumbnail">
-    <img ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
-    <div class="caption">
-        <h4 class="pull-right"><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
-    </div>
-    <div class="mdl-card__supporting-text">
-        {{theProduct.description | shortdesc}}
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <h3>${{theProduct.price | getPrice}}</h3>
-        <p><span style="color:red"><b>ONLY {{theProduct.inventory}} LEFT</b></span></p>
-    </div>
-    <div class="caption">
-            <h4 class="pull-right">$24.99</h4>
-            <h4><a href="#">First Product</a>
-                                </h4>
-            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-        </div>
-    <div class="mdl-card__menu">
-        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <i class="material-icons" ng-click="add(theProduct)">add</i>
-        </button>
-    </div>
-</div>
-</div> -->
 <div class="col-sm-12 col-lg-12 col-md-12">
-    <div class="thumbnail" style="padding:5%">
-        <a class="btn btn-primary btn-lg btn-standard pull-right" ng-click="add(theProduct)"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
+    <div class="thumbnail right-caption" style="padding:2%; width: inherit">
         <img class="img-responsive" ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
-        <div class="caption marginTop">
+        <div class="caption">
             <h4 class="pull-right">${{theProduct.price | getPrice}}</h4>
-            <h4><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
-            <p class="marginTop">{{theProduct.description | shortdesc}}</p>
-            <p class="pull-right">10 reviews</p>
-            <p class="marginTop"><b>Inventory</b>: {{theProduct.inventory}}</p>
+            <h4 style="margin-top: 1%"><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
+            <p style="margin-top: 1%">{{theProduct.description | shortdesc}}</p>
+            <!-- <p class="pull-right">10 reviews</p> -->
+            <div ng-show="{{theProduct.inventory}} !== 0">
+                <p><b>Inventory</b>: {{theProduct.inventory}}</p>
+                <a class="btn btn-primary btn-lg btn-standard" ng-click="add(theProduct)" style="margin-top: 1%"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
+            </div>
+            <div ng-show="{{theProduct.inventory}} === 0">
+                <p><b>SOLD OUT</b></p>
+            </div>
         </div>
     </div>
 </div>
