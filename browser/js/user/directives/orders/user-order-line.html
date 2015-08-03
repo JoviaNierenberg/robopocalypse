@@ -1,0 +1,31 @@
+<div>
+
+        <p><label>Order:</label>
+        {{theOrder.date}}</p>
+
+        <p><label>Billing Address:</label>
+        {{theOrder.billing}}</p>
+
+        <p><label>Shipping Address:</label>
+        {{theOrder.shipping}}"</p>
+
+        <p><label>Items:</label>
+            <fieldset ng-repeat="item in theOrder.items">
+                <img ui-sref="singleProduct({id: item.product._id })" ng-src="{{item.product.photo}}" style="width:80px"/>
+                <a ui-sref="singleProduct({id: item.product._id })">{{item.product.title}}</a>
+                {{item.quantity}}
+                {{item.price}}
+                {{item.total}}
+            </fieldset>
+        </p>
+
+        <p><label>Subtotal:</label>
+        {{theOrder.subtotal}}</p>
+
+        <p><label>Status:</label>
+        {{theOrder.status}}</p>
+
+        <p><label>Coupon:</label>
+        {{theOrder.coupon}}</p>
+
+</div>

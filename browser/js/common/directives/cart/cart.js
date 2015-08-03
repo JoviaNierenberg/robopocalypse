@@ -1,5 +1,8 @@
 app.controller('CartCtrl', function($scope, Cart, $rootScope) {
     // returns all products
+    $scope.cartIsEmpty = function(){
+        return (Cart.getCart().totalItems === 0)
+    }
     $scope.emptyCart = function() {
         Cart.emptyCart();
     };

@@ -1,7 +1,7 @@
-app.directive("adminOrderLine", function () {
+app.directive("userOrderLine", function () {
 	return {
 		restrict: "E",
-		templateUrl: "js/admin/directives/orders/admin-order-line.html",
+		templateUrl: "js/user/directives/orders/user-order-line.html",
 		scope: {
 			theOrder: "=order"
 		}
