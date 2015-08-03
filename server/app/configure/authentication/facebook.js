@@ -15,22 +15,33 @@ module.exports = function(app) {
         callbackURL: facebookConfig.callbackURL
     };
 
+
     var verifyCallback = function(accessToken, refreshToken, profile, done) {
-        console.log("------------------PROFILE-------------------- ", profile)
+        var firstName = profile.displayName.split(" ")[0]
+        var lastName = profile.displayName.split(" ")[2] || profile.displayName.split(" ")[1]
+        var email = firstName + lastName + "@fakeemail.com" // email not sent through passport, so making fake email address
 
         UserModel.findOne({
                 'facebook.id': profile.id
             }).exec()
             .then(function(user) {
-
+                // login with facebook
                 if (user) {
-                    return user;
+                    user.facebook.id = profile.id;
+                    user.facebook.accessToken = accessToken;
+                    user.facebook.refreshToken = refreshToken;
+                    return user.save();
                 } else {
-                    return UserModel.create({
+                    // sign up with facebook
+                    return UserModel.create({ 
+                        name: { first:firstName, last: lastName},
+                        email: email,
                         facebook: {
-                            id: profile.id
+                            id: profile.id,
+                            accessToken: accessToken,
+                            refreshToken: refreshToken
                         }
-                    });
+                    })
                 }
 
             }).then(function(userToLogin) {
@@ -44,7 +55,7 @@ module.exports = function(app) {
 
     passport.use(new FacebookStrategy(facebookCredentials, verifyCallback));
 
-    app.get('/auth/facebook', passport.authenticate('facebook'));
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email']}));
 
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
