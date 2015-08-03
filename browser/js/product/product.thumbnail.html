@@ -27,7 +27,11 @@
 <div class="col-sm-12 col-lg-12 col-md-12">
     <div class="thumbnail" style="padding:5%">
         <a class="btn btn-primary btn-lg btn-standard pull-right" ng-click="add(theProduct)"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
-        <img class="img-responsive" ng-repeat="photo in theProduct.photos" ng-src="{{photo}}" ui-sref="singleProduct({id: theProduct._id })">
+        <ul rn-carousel rn-carousel-auto-slide rn-carousel-buffered rn-carousel-auto-slide rn-carousel-controls-allow-loop ui-sref="singleProduct({id: theProduct._id })" class="productThumb">
+            <li ng-repeat="photo in theProduct.photos">
+                <img class="img-responsive" ng-src="{{photo}}">
+            </li>
+        </ul>
         <div class="caption marginTop">
             <h4 class="pull-right">${{theProduct.price | getPrice}}</h4>
             <h4><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
