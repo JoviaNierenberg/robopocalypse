@@ -11,10 +11,6 @@ app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
     Products.getAll().then(function(data) {
         $scope.products = data;
     });
-
-    $scope.cartIsEmpty = function(){
-        return (Cart.getCart().totalItems === 0)
-    }
     // adds product to user's cart
     $scope.addToCart = function(product) {
         Cart.addToCart(product);

@@ -5,10 +5,13 @@ var Product = mongoose.model('Product');
 
 var itemize = function(items) {
     var dbItems = {};
+    var counter = 0;
     for (var item in items) {
-        console.log(item);
-        dbItems[items[item].product._id] = items[item].quantity;
-        dbItems.itemPrice = items[item].product.price
+        var addItem = {}
+        addItem.product = items[item].product._id
+        addItem.quantity = items[item].quantity;
+        addItem.price = items[item].product.price
+        dbItems[counter++] = addItem
     }
     return dbItems;
 };
@@ -70,7 +73,8 @@ var schema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Created', 'Processing', 'Cancelled', 'Complete']
+        enum: ['Created', 'Processing', 'Cancelled', 'Complete'],
+        default: 'Created'
     },
     coupon: {
         type: mongoose.Schema.Types.ObjectId,
