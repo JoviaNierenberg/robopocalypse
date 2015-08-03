@@ -34,7 +34,10 @@ module.exports = function(app) {
                 } else {
                     // sign up with facebook
                     return UserModel.create({ 
-                        name: { first:firstName, last: lastName},
+                        name: { 
+                            first: firstName, 
+                            last: lastName
+                        },
                         email: email,
                         facebook: {
                             id: profile.id,

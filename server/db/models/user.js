@@ -27,7 +27,9 @@ var schema = new mongoose.Schema({
         refreshToken: String
     },
     google: {
-        id: String
+        id: String,
+        accessToken: String,
+        refreshToken: String
     },
     name: {
         first: {
