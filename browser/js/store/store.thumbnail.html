@@ -5,7 +5,10 @@
         <h1 class="mdl-button mdl-card__title-text"><a ui-sref="singleStore({url: theStore.storeURL })">{{theStore.storeName}}</a></h1>
     </div>
     <div class="mdl-card__supporting-text">
-        {{theStore.storeDesc | shortdesc}}
+        <h2>{{theStore.storeDesc | shortdesc}}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <h3><small>{{theStore.name.first}} {{theStore.name.last}}</small></h3>
     </div>
 </div>
 </div>

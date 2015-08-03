@@ -9,5 +9,5 @@ app.directive("adminOrderLine", function () {
 	};
 });
 
-app.controller("AdminOrderLineCtrl", function ($scope, Orders){
-});
+// app.controller("AdminOrderLineCtrl", function ($scope, Orders){
+// });

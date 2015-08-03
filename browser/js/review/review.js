@@ -40,7 +40,7 @@ app.directive('starRating', function() {
             ratingValue: '=',
             max: '='
         },
-        link: function(scope, elem, attrs) {
+        link: function(scope) {
             scope.stars = [];
             for (var i = 0; i < scope.max; i++) {
                 scope.stars.push({

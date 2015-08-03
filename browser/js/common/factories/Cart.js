@@ -32,15 +32,25 @@ app.factory('Cart', function ($rootScope, $http) {
             $rootScope.$emit("cartChange", cart);
             updateCart();
         },
+        // sets the quantity of an item
+        setQuantity: function (item, quantity) {
+            var updateItem = cart.items[item.product.title]
+            // "remove" item from cart totals
+            cart.subtotal -= updateItem.product.price * updateItem.quantity;
+            cart.totalItems -= updateItem.quantity;
+            // "read" item to cart totals
+            cart.subtotal += updateItem.product.price * quantity;
+            cart.totalItems += quantity;
+            updateItem.quantity = quantity;
+            $rootScope.$emit("cartChange", cart);
+            updateCart();
+        },
         // removes an item from the cart
-        removeFromCart: function (product) {
-            if(cart.items[product.title].quantity === 1){
-                delete cart.items[product.title];
-            } else{
-                cart.items[product.title].quantity--;
-            }
-            cart.subtotal -= product.price;
-            cart.totalItems--;
+        removeFromCart: function (item) {
+            cart.subtotal -= item.product.price * item.quantity;
+            cart.totalItems -= item.quantity;
+            //ignore error below, this variable is a reference to an entry in the cart
+            delete cart.items[item.product.title];
             $rootScope.$emit("cartChange", cart);
             updateCart();
         },

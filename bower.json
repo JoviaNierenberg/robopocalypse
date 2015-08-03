@@ -27,7 +27,8 @@
     "angular-material": "~0.10.0",
     "bootstrap-material-design": "~0.3.0",
     "angular-bootstrap": "~0.13.1",
-    "bootstrap-social": "~4.9.1"
+    "bootstrap-social": "~4.9.1",
+    "normalize.css": "~3.0.3"
   },
   "devDependencies": {
     "html5shiv": "~3.7.3"

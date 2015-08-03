@@ -16,7 +16,7 @@ app.controller("AdminCategoryLineCtrl", function($scope, $rootScope, Categories)
         $rootScope.$emit("categoryUpdate");
     };
     $scope.editCategory = function() {
-        Categories.getOne($scope.theCategory.name).then(function(response) {
+        Categories.getOne($scope.theCategory.name).then(function() {
             // go to state where we edit category?
             $rootScope.$emit("categoryUpdate");
             // $scope.singleCategory = response; < not that
