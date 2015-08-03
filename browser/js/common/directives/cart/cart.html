@@ -1,26 +1,39 @@
-<div class="col-md-3">
-    <div class="mdl-card mdl-shadow--2dp cartCard">
-        <h3 class="lead"><a ui-sref="checkout"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></h3>
-        <hr>
-        <div ng-repeat="item in items">
-            <div class="thumbnail mdl-card">
-                <img ng-src="{{item.product.photo}}" />
-                <div class="caption">
-                    <p>{{item.product.title}} ({{item.quantity}}) @ ${{item.product.price | getPrice}}</p>
-                </div>
+<div class="col-md-2 textCenter">
+    <div>
+        <a ui-sref="checkout">
+            <i class="fa fa-shopping-cart fa-3x"></i>
+            <h3>CART</h3>
+        </a>
+    </div>
+    <hr>
+    <hr>
+    <div class="centerText">
+        <h2><b>Total</b></h2>
+        <h4>{{cart.totalItems}} items</h4>
+        <h4>${{cart.subtotal | getPrice}}</h4>
+    </div>
+    <hr>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <button ng-hide="checkout" ui-sref="checkout" class="btn btn-primary btn-lg btn-standard col-sm-12 col-md-12 col-lg-12 centerText" type="submit"><i class="fa fa-credit-card"></i> check out</button>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 marginTop marginBottom">
+        <button ng-hide="checkout" ng-click="emptyCart()" class="btn btn-primary btn-lg btn-standard col-sm-12 col-md-12 col-lg-12 centerText " type="submit"><i class="fa fa-times"></i> empty cart</button>
+    </div>
+    <hr ng-show="items">
+    <hr ng-show="items">
+    <div ng-repeat="item in items">
+        <div class="thumbnail mdl-card mdl-shadow--2dp" style="width:auto;min-height:0px;padding:5%">
+            <img ng-src="{{item.product.photo}}" />
+            <div class="caption" style="height:auto; text-align:center; padding:0;">
+                <h4><b>{{item.product.title}}</b></h4>
+                <p><b>Quantity</b> {{item.quantity}}</p>
+                <p><b>Price</b> ${{item.product.price | getPrice}}</p>
             </div>
         </div>
-        <div>
-            <p>{{cart.totalItems}} items</p>
-            <p>Total: ${{cart.subtotal | getPrice}}</p>
-        </div>
-        <hr>
-        <div class="col-md-6">
-            <button ng-hide="checkout" ui-sref="checkout" class="btn btn-primary btn-md btn-standard" type="submit"><i class="fa fa-credit-card"></i> Checkout</button>
-        </div>
-        <div class="col-md-6">
-            <button ng-hide="checkout" ng-click="emptyCart()" class="btn btn-primary btn-md btn-standard" type="submit"><i class="fa fa-times"></i> Clear Cart</button>
-        </div>
     </div>
+    <!-- IDK how to make this not show when there are no items in the cart :( -->
+    <hr ng-show="items">
+    <hr ng-show="items">
+</div>
 </div>
 <br>

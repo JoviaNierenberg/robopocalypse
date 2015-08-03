@@ -1,16 +1,34 @@
-<div class="container noPadding">
+<div class="container noPadding centerText">
     <form class="form-signin" name="loginForm" ng-submit="loginForm.$valid; sendLogin(login)">
         <alert type="danger" ng-show="error">
             {{ error }}
         </alert>
         <!-- Title -->
         <!-- <h2 class="form-signin-heading centerText">Welcome Back!</h2> -->
-        <h2 class="form-signin-heading centerText">Login</h2>
-        <!-- Email -->
-        <input type="email" id="email" class="form-control mdl-textfield__input" placeholder="email" ng-model="login.email" id="email" placeholder="email" required autofocus>
-        <!-- Password -->
-        <input type="password" placeholder="password" ng-model="login.password" class="form-control mdl-textfield__input" id="login-password" required autofocus>
-        <!-- Buttons -->
+        <h1 class="form-signin-heading centerText">Login</h2>
+        <div class="row">
+            <!-- Email -->
+            <md-content class="col-lg-6 col-md-12 col-sm-12">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>
+                            <h1>email</h1></label>
+                        <input type="email" id="email" class="form-control" placeholder="email" ng-model="login.email" id="email" required>
+                    </md-input-container>
+                </div>
+            </md-content>
+            <!-- Password -->
+            <md-content class="col-lg-6 col-md-12 col-sm-12">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>
+                            <h1>password</h1></label>
+                        <input type="password" placeholder="password" ng-model="login.password" class="form-control mdl-textfield__input" id="login-password" required>
+                    </md-input-container>
+                </div>
+            </md-content>
+            <!-- Buttons -->
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <button class="btn btn-lg btn-primary btn-block btn-standard" type="submit"><i class="fa fa-sign-in"></i> Login</button>
