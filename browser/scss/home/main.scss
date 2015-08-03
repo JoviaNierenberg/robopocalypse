@@ -146,6 +146,7 @@ h2 {
     }
 }
 
+
 /* Landscape tablets and medium desktops */
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -210,5 +211,17 @@ h2 {
 }
 
 .thumbnail.mdl-card.mdl-shadow--3dp {
-    min-height: 400px;
+    min-height: 450px;
+}
+
+.notLineItem {
+    display: flex;
+}
+
+.embed-responsive.embed-responsive-16by9 {
+    margin-left: -1%;
+    margin-right: 1%;
+}
+.btn {
+    cursor: pointer;
 }
