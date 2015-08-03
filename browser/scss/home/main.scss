@@ -134,7 +134,6 @@ h2 {
 }
 
 // max 500px
-
 @media (max-width: 500px) {
     .container {
         width: 400px;
@@ -144,6 +143,14 @@ h2 {
 @media (min-width: 1500px) {
     .col-md-9 {
         margin-top: -1.5%;
+    }
+}
+
+/* Landscape tablets and medium desktops */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .row.specialRow {
+        margin-top: -3%;
     }
     .container {
         width: 1400px;
@@ -155,7 +162,7 @@ h2 {
 
 @media (min-width: 1700px) {
     .col-md-9 {
-        margin-top: -1.5%;
+        margin-top: -3.5%;
     }
     .container {
         width: 1600px;
@@ -169,6 +176,20 @@ h2 {
 }
 
 
+/* Portrait tablets and small desktops */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .content {
+        margin-top: 20%;
+    }
+}
+
+// /* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    .content {
+        margin-top: 20%;
+    }
+}
 
 @media (max-width: 1000px) {
     .specialRow {
@@ -178,6 +199,7 @@ h2 {
         min-height: 60.5vh;
     }
 }
+
 @media (max-width: 1000px) {
     .specialRow {
         margin-top: 15%;
@@ -185,4 +207,8 @@ h2 {
     .mainContainer {
         min-height: 60.5vh;
     }
+}
+
+.thumbnail.mdl-card.mdl-shadow--3dp {
+    min-height: 400px;
 }

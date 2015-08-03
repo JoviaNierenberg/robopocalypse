@@ -16,19 +16,31 @@ module.exports = function(app) {
     };
 
     var verifyCallback = function(accessToken, refreshToken, profile, done) {
+        console.log("------------------GOOGLE PROFILE-------------------- ", profile)
 
         UserModel.findOne({
                 'google.id': profile.id
             }).exec()
             .then(function(user) {
-
+                // login with google
                 if (user) {
-                    return user;
+                    user.google.id = profile.id;
+                    user.google.accessToken = accessToken;
+                    user.google.refreshToken = refreshToken;
+                    return user.save();
                 } else {
+                    // sign up with google
                     return UserModel.create({
+                        name: { 
+                            first: profile.name.givenName, 
+                            last: profile.name.familyName
+                        },
+                        email: profile._json.email,
                         google: {
-                            id: profile.id
-                        }
+                            id: profile.id,
+                            accessToken: accessToken,
+                            refreshToken: refreshToken
+                        }                    
                     });
                 }
 
