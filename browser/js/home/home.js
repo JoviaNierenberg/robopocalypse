@@ -7,7 +7,6 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
-    var sortMethod = "title";
     // returns all products
     Products.getAll().then(function(data) {
         $scope.products = data;
