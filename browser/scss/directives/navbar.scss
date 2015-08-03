@@ -29,14 +29,12 @@ nav.navbar.navbar-default {
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
-    color: black;
-    background-color: white;
+    color: #42dca3;
 }
 
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
-    color: black;
-    background-color: white;
+    color: #42dca3;
 }
 
 .dropdown-menu>li>a {
@@ -45,8 +43,7 @@ nav.navbar.navbar-default {
 
 .dropdown-menu>li>a:focus,
 .dropdown-menu>li>a:hover {
-    color: black;
-    background-color: white;
+    color: #42dca3;
 }
 
 ul.dropdown-menu {
@@ -70,7 +67,17 @@ nav.navbar.navbar-default {
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
-        color: grey;
-        background-color: transparent;
+        color: #42dca3;
     }
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+    color: #42dca3;
+    background-color: transparent;
 }

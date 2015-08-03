@@ -1,12 +1,12 @@
-<div class="row">
-    <div class="col-md-12">
-        <p>Stars: {{review.rating}}</p>
-        <div ng-repeat="n in {{review.rating}} track by $index">
-            {{n}}
-        </div>
-        {{review.user.name.first}} {{review.user.name.last}}
-        <p>Review: {{review.text}}</p>
-        <p></p>
-        <br>
-    </div>
+<div class="col-sm-12 col-md-12 col-lg-12 marginTop">
+    <label>{{review.user.name.first}} {{review.user.name.last}}</label>
+        <p ng-app="starApp" class="pull-right">
+            <div ng-controller="StarCtrl" class="pull-right">
+                <span ng-repeat="rating in ratings">
+                    <div star-rating rating-value="review.rating" max="rating.max" ></div>
+                </span>
+            </div>
+        </p>
+    <img data-ng-repeat="i in review.ratings" style="border:1px solid black;width:30px;height:30px;" />
+    <p class="marginTop autofocus">{{review.text}}</p>
 </div>

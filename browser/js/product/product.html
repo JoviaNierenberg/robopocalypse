@@ -1,18 +1,23 @@
 <cart></cart>
-<div class="col-md-9">
+<div class="col-md-10">
     <div class="row">
         <product-thumbnail product="singleProduct"></product-thumbnail>
     </div>
     <div class="row">
-        <div class="lass=" col-sm-12 col-lg-12 col-md-12 "">
-            <h3>Reviews</h3>
-            <product-review ng-repeat="review in reviews"></product-review>
+        <div class="col-sm-12 col-lg-6 col-md-6">
+            <div class="thumbnail mdl-card mdl-shadow--3dp" style="padding:10%; width:auto">
+                <div class="textCenter">
+                    <h1><i class="fa fa-weixin fa-2x"></i> Reviews</h1>
+                </div>
+                <product-review ng-repeat="review in reviews"></product-review>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-lg-12 col-md-12">
-            <h3>Add a Review</h3>
-            <review-form></review-form>
+        <div class="col-sm-12 col-lg-6 col-md-6">
+            <div class="thumbnail mdl-card mdl-shadow--3dp" style="padding:5%; width:auto">
+                <div class="textCenter">
+                    <h1><i class="fa fa-plus-circle fa-2x"></i> Add a Review</h1></div>
+                <review-form class="marginTop"></review-form>
+            </div>
         </div>
     </div>
 </div>

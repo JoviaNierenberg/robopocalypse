@@ -15,14 +15,13 @@ app.controller("AdminCategoryLineCtrl", function($scope, $rootScope, Categories)
         Categories.deleteCategory($scope.theCategory.name);
         $rootScope.$emit("categoryUpdate");
     };
-    $scope.editCategory = function(catName) {
+    $scope.editCategory = function() {
         Categories.getOne($scope.theCategory.name).then(function(response) {
             // go to state where we edit category?
             $rootScope.$emit("categoryUpdate");
             // $scope.singleCategory = response; < not that
         });
     };
-    $scope.createCategory = function(catName) {
-
-    }
+    // $scope.createCategory = function(cat) {
+    // }
 });
