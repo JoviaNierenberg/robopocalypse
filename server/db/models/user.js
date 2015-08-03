@@ -5,12 +5,12 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
     email: {
         type: String,
-        required: true,
-        unique: true
+        // required: true,
+        // unique: true
     },
     password: {
-        type: String,
-        required: true
+        type: String
+        // required: true
     },
     salt: {
         type: String
@@ -22,7 +22,9 @@ var schema = new mongoose.Schema({
         tokenSecret: String
     },
     facebook: {
-        id: String
+        id: String,
+        accessToken: String,
+        refreshToken: String
     },
     google: {
         id: String

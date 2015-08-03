@@ -37,6 +37,7 @@ module.exports = function (app) {
     };
 
     var verifyCallback = function (token, tokenSecret, profile, done) {
+        console.log("------------------TWITTER PROFILE-------------------- ", profile)
 
         UserModel.findOne({'twitter.id': profile.id}).exec()
             .then(function (user) {
