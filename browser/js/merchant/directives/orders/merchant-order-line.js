@@ -9,6 +9,6 @@ app.directive("merchantOrderLine", function () {
 	}
 });
 
-app.controller("MerchantOrderLineCtrl", function ($scope, Orders){
+// app.controller("MerchantOrderLineCtrl", function ($scope, Orders){
 	
-});
+// });
