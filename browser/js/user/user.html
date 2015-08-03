@@ -74,9 +74,10 @@
                 <div class="thumbnail mdl-card mdl-shadow--3dp" style="padding:5%;">
                     <div class="centerText">
                         <h1><i class="fa fa-cart-arrow-down fa-2x"></i></i> Orders</h1></div>
-                    <div ng-repeat="order in orders">
-                        <p>{{order}}</p>
-                    </div>
+                    <fieldset ng-repeat="order in orders">
+                        <user-order-line order="order">
+                        </user-order-line>
+                    </fieldset>
                 </div>
             </div>
         </div>
