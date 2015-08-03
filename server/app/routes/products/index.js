@@ -28,7 +28,7 @@ router.get("/", function(req, res) {
     }, function(err){
         res.send(err)
     })
-})
+});
 
 // add a products
 router.post("/", function(req, res) {

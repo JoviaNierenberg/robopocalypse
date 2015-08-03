@@ -8,9 +8,15 @@ app.config(function ($stateProvider) {
 
 app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
     // returns all products
-    Products.getAll().then(function(data) {
+    var assignData = function (data) {
         $scope.products = data;
-    });
+    }
+
+    if($scope.search) {
+        Products.search($scope.search).then(assignData)
+    }else {
+        Products.getAll().then(assignData);
+    }
     // adds product to user's cart
     $scope.addToCart = function(product) {
         Cart.addToCart(product);
@@ -22,6 +28,18 @@ app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
         } else {
             $scope.sortMethod = chosenMethod;
         }
-        console.log($scope.sortMethod);
     };
 });
+
+app.directive("homePage", function () {
+    return {
+        templateUrl: "js/home/home.html",
+        controller: "HomeCtrl",
+        scope: {
+            search: "=search"
+        }
+    }
+})
+
+
+

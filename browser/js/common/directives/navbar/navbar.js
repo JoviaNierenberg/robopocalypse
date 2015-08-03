@@ -20,6 +20,13 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
                     id: scope.user._id
                 });
             };
+
+            scope.search = function () {
+                $state.go("search", {
+                    terms: scope.searchString
+                });
+            };
+
             var setUser = function() {
                 AuthService.getLoggedInUser().then(function(user) {
                     if (user) {

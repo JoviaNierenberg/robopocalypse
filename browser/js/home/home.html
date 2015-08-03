@@ -1,8 +1,8 @@
-<div id="home" ng-controller="HomeCtrl">
+<div id="home">
     <cart></cart>
     <div class="col-md-9">
+        <h3 ng-show="search">Search: {{search}}</h3>
         <div class="row content">
-            <!-- ng-show="{{theProduct.inventory}} !== 0"-->
             <product-thumbnail ng-repeat="productEntry in products track by $index | orderBy: sortMethod" product="productEntry"></product-thumbnail>
         </div>
     </div>
