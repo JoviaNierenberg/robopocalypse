@@ -24,10 +24,10 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
                 AuthService.getLoggedInUser().then(function(user) {
                     if (user) {
                         scope.user = user;
-                        if (user.roles.indexOf(admin) !== -1) {
+                        if (user.roles.indexOf("Admin") !== -1) {
                             scope.admin = true;
                         }
-                        if (user.roles.indexOf(merchant) !== -1) {
+                        if (user.roles.indexOf("Merchant") !== -1) {
                             scope.merchant = true;
                         }
                     }
