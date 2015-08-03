@@ -19,5 +19,5 @@ router.put("/cart", function (req, res) {
 // Make sure this is after all of
 // the registered routes!
 router.use(function (req, res) {
-    res.status(404).end();
+    res.sendStatus(404).end();
 });

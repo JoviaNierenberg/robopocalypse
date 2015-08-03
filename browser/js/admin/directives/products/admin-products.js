@@ -9,9 +9,18 @@ app.directive('adminProducts', function() {
 	};
 });
 
-app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
+app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products, Stores) {
 
-	$scope.newProduct = {};
+	$scope.newProduct = {}
+	$scope.newProduct.category = [];
+	$scope.toggle = function (item, list) {
+	  var idx = list.indexOf(item);
+	  if (idx > -1) list.splice(idx, 1);
+	  else list.push(item);
+	};
+	$scope.exists = function (item, list) {
+	  return list.indexOf(item) > -1;
+	};
 
 	var getProducts = function () {
 		Products.getAll().then(function (products) {
@@ -26,6 +35,13 @@ app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products) {
 			getProducts();
 		});
 	};
+
+	$scope.loadStores = function(){
+		Stores.getAll().then(function(stores){
+			$scope.stores = stores
+		})
+	}
+
 
 	var unbind = $rootScope.$on("productUpdate", getProducts);
 	$scope.$on("$destroy", unbind);

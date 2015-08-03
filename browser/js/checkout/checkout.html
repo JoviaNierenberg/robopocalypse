@@ -1,81 +1,120 @@
-
-<md-content class="col-lg-6 col-md-6 col-sm-12" layout-padding>
-	<h3>Billing Address</h3>
-	<form name="orderForm">
-		<div layout layout-sm="column">
-			<md-input-container flex>
-				<label>First name</label>
-				<input ng-model="user.firstName">
-			</md-input-container>
-			<md-input-container flex>
-				<label>Last Name</label>
-				<input ng-model="theMax">
-			</md-input-container>
-		</div>
-		<md-input-container flex>
-			<label>Address</label>
-			<input ng-model="user.address">
-		</md-input-container>
-		<md-input-container md-no-float>
-			<input ng-model="user.address2" placeholder="Address 2">
-		</md-input-container>
-		<div layout layout-sm="column">
-			<md-input-container flex>
-				<label>City</label>
-				<input ng-model="user.city">
-			</md-input-container>
-			<md-input-container flex>
-				<label>State</label>
-				<input ng-model="user.state">
-			</md-input-container>
-			<md-input-container flex>
-				<label>Postal Code</label>
-				<input ng-model="user.postalCode">
-			</md-input-container>
-		</div>
-	</form>
-</md-content>
-
-<md-content class="col-lg-6 col-md-6 col-sm-12" layout-padding>
-	<h3>Shipping Address</h3>
-	<form name="orderForm">
-		<div layout layout-sm="column">
-			<md-input-container flex>
-				<label>First name</label>
-				<input ng-model="user.firstName">
-			</md-input-container>
-			<md-input-container flex>
-				<label>Last Name</label>
-				<input ng-model="theMax">
-			</md-input-container>
-		</div>
-		<md-input-container flex>
-			<label>Address</label>
-			<input ng-model="user.address">
-		</md-input-container>
-		<md-input-container md-no-float>
-			<input ng-model="user.address2" placeholder="Address 2">
-		</md-input-container>
-		<div layout layout-sm="column">
-			<md-input-container flex>
-				<label>City</label>
-				<input ng-model="user.city">
-			</md-input-container>
-			<md-input-container flex>
-				<label>State</label>
-				<input ng-model="user.state">
-			</md-input-container>
-			<md-input-container flex>
-				<label>Postal Code</label>
-				<input ng-model="user.postalCode">
-			</md-input-container>
-		</div>
-	</form>
-</md-content>
-
-<md-content class="col-lg-12 col-md-12 col-sm-12">
-	<h3>Your Order</h3>
-	<order-item></order-item>
-</md-content>
-
-<button ng-click="submitOrder()">Submit Order</button>
+<div class="container">
+    <div class="row">
+        <md-content class="col-lg-6 col-md-6 col-sm-12">
+            <h3>Billing Address</h3>
+            <form name="orderForm marginTop">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>First name</label>
+                        <input type="text" ng-model="user.firstName" required autofocus>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Last Name</label>
+                        <input type="text" ng-model="user.lastName" required autofocus>
+                    </md-input-container>
+                </div>
+                <md-input-container flex>
+                    <label>Address</label>
+                    <input type="text" ng-model="user.address" required autofocus>
+                </md-input-container>
+                <!-- <md-input-container md-no-float>
+                    <input type="text" ng-model="user.address2" placeholder="Address 2" required autofocus>
+                </md-input-container> -->
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>City</label>
+                        <input type="text" ng-model="user.city" required autofocus>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <md-select placeholder="State" ng-model="user.state">
+                            <md-option ng-repeat="state in checkout.states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Postal Code</label>
+                        <input type="number" ng-model="user.postalCode" required autofocus>
+                    </md-input-container>
+                </div>
+            </form>
+        </md-content>
+        <md-content class="col-lg-6 col-md-6 col-sm-12">
+            <h3>Shipping Address</h3>
+            <form name="orderForm marginTop">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>First name</label>
+                        <input type="text" ng-model="user.firstName" required autofocus>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Last Name</label>
+                        <input type="text" ng-model="theMax" required autofocus>
+                    </md-input-container>
+                </div>
+                <md-input-container flex>
+                    <label>Address</label>
+                    <input type="text" ng-model="user.address" required autofocus>
+                </md-input-container>
+                <!-- <md-input-container md-no-float>
+                    <input type="text" ng-model="user.address2" placeholder="Address 2" required autofocus>
+                </md-input-container> -->
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>City</label>
+                        <input type="text" ng-model="user.city" required autofocus>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <md-select placeholder="State" ng-model="user.state">
+                            <md-option ng-repeat="state in checkout.states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Postal Code</label>
+                        <input type="number" ng-model="user.postalCode" required autofocus>
+                    </md-input-container>
+                </div>
+            </form>
+        </md-content>
+        <md-content class="col-lg-6 col-md-6 col-sm-12">
+            <h3 class="marginBottom">Your Current Order</h3>
+            <!-- <order-item></order-item> -->
+            <!-- Need to fix cart in order to just display items -->
+            <cart></cart>
+        </md-content>
+        <md-content class="col-lg-6 col-md-6 col-sm-12">
+            <h3>Credit Card</h3>
+            <form name="orderForm marginTop">
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>Card Number</label>
+                        <input type="number" ng-model="user.cardNumber" required autofocus>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>CCV</label>
+                        <input type="number" ng-model="user.ccv" required autofocus>
+                    </md-input-container>
+                </div>
+                <md-input-container flex>
+                    <label>First Name</label>
+                    <input type="text" ng-model="user.firstName" required autofocus>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Last Name</label>
+                    <input type="text" ng-model="user.lastName" required autofocus>
+                </md-input-container>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>Expiration Month</label>
+                        <input type="number" ng-model="user.cardExpMonth" required autofocus>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Expiration Year</label>
+                        <input type="number" ng-model="user.cardExpYear" required autofocus>
+                    </md-input-container>
+                </div>
+            </form>
+        </md-content>
+        <div class="textCenter">
+        <button ng-click="submitOrder()" class="btn btn-primary btn-lg btn-standard col-lg-12 col-md-12 col-sm-12 textCenter marginTop"><i class="fa fa-credit-card"></i> Submit Order</button>
+        </div>
+    </div>
+</div>

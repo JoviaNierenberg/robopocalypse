@@ -49,8 +49,8 @@ var schema = new mongoose.Schema({
 });
 
 schema.path('category').validate(function(value){
-    return (value.length !== 0)
-}, 'No category added')
+    return (value.length !== 0);
+}, 'No category added');
 
 schema.virtual('shortDesc').get(function() {
     return this.description.substring(0, 200);

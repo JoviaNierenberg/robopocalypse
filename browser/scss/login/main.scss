@@ -1,7 +1,103 @@
-.loginForm {
-  width: 100%;
-  margin: 0 auto;
+body {
+    font-family: ProximaNova;
 }
-.col-md-8.col-md-offset-3 {
-  margin-top: 5%;
+
+.form-signin {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5%;
+    font-size: 20px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+.centerText {
+    text-align: center;
+}
+
+button.btn.btn-lg.btn-primary.btn-block {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.btn-primary {
+    color: black;
+    background-color: white;
+    border-color: black;
+    border: 3px solid black;
+}
+
+.btn-primary:active:hover {
+    color: black;
+    background-color: #42dca3;
+    border-color: #42dca3;
+}
+
+.btn-standard:hover {
+    color: black;
+    background-color: #42dca3;
+    border-color: #42dca3;
+}
+
+.btn-social {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+@media (max-width: 767px) {
+    button.btn.btn-lg.btn-primary.btn-block.btn-standard {
+        text-align: left;
+    }
+}
+
+.navbar-toggle:hover {
+    background-color: white;
+}
+
+.navbar-toggle {
+    background-color: black;
+    background-image: none;
+    border: 1px groove white;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
+    }
 }

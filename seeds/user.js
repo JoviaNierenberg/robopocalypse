@@ -8,7 +8,7 @@ module.exports = [{
         roles: ["Merchant"],
         photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg",
         storeName: 'For World Domination',
-        storeDesc: 'Name of Store',
+        storeDesc: 'I want to dominate the world as I dominate the pixel.',
         storeURL: 'FWD'
     },
 
@@ -44,7 +44,7 @@ module.exports = [{
         roles: ["Merchant"],
         photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg",
         storeName: 'Silly Willy',
-        storeDesc: 'To provide the most useless robots to mankind and destroy the world through pollution',
+        storeDesc: 'To destoy the world with non eco-friendly robots.',
         storeURL: 'SillyWilly'
     },
 
