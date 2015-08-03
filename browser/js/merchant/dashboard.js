@@ -11,23 +11,19 @@ app.config(function ($stateProvider) {
 });
 
 
-app.controller('MerchantCtrl', function ($scope, Products, Orders, AuthService){
+app.controller('MerchantCtrl', function ($scope, Orders, AuthService, Categories){
   AuthService.getLoggedInUser().then(function (user) {
     $scope.merchant = user;
   });
 
-  $scope.deleteProduct = function (product) {
-    Products.deleteProduct(product._id);
-  };
-  $scope.getProducts = function() {
-    Products.getAll();
-  };
-  $scope.updateProduct = function(product) {
-    Products.updateProduct(product);
-  };
-  $scope.createProduct = function(product) {
-    Products.createProduct(product);
-  };
+  var getCategories = function () {
+    Categories.getAll().then(function(categories) {
+      $scope.theCategories = categories;
+    });
+  }
+
+  getCategories();
+
   $scope.show = function (what) {
     $scope.activeTab = what;
   };

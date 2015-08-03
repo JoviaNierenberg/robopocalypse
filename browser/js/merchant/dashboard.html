@@ -5,7 +5,7 @@
     <p ng-click="show('reviews')">My Reviews</p>
   </div>
   <div class="col-lg-11 col-md-11 col-sm-11">
-    <merchant-products ng-show="'products' === activeTab"></merchant-products>
+    <merchant-products ng-show="'products' === activeTab" categories="theCategories" merchant='merchant'></merchant-products>
     <merchant-orders ng-show="'orders' === activeTab"></merchant-orders>
     <merchant-reviews ng-show="'reviews' === activeTab"></merchant-reviews>
   </div>

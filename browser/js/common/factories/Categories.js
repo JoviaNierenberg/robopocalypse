@@ -17,7 +17,7 @@ app.factory('Categories', function($http) {
         deleteCategory: function(catName) {
             return $http.delete('api/categories', {
                 name: catName
-            }).then(function(response) {
+            }).then(function() {
                 console.log("Category succesfully deleted.");
             });
         },
