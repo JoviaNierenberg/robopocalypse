@@ -13,7 +13,6 @@ app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
     });
 
     $scope.cartIsEmpty = function(){
-        console.log(Cart.getCart().totalItems)
         return (Cart.getCart().totalItems === 0)
     }
     // adds product to user's cart
