@@ -1,4 +1,5 @@
 'use strict';
+
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
@@ -15,6 +16,7 @@ module.exports = function(app) {
     };
 
     var verifyCallback = function(accessToken, refreshToken, profile, done) {
+        console.log("------------------PROFILE-------------------- ", profile)
 
         UserModel.findOne({
                 'facebook.id': profile.id
