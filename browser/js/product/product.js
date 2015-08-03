@@ -28,9 +28,9 @@ app.controller('ProductCtrl', function($scope, Products, Reviews, $stateParams, 
         AuthService.getLoggedInUser().then(function(user) {
             reviewData.user = user._id
             return reviewData
-        }).then(function(reviewData) {
-            Reviews.createReview(reviewData)
-            console.log("reviewData: ", reviewData)
+        }).then(function(newReview) {
+            Reviews.createReview(newReview)
+            console.log("newReview: ", newReview)
         })
         delete $scope.review
     };

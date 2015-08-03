@@ -9,6 +9,6 @@ app.directive("merchantReviewLine", function () {
 	}
 });
 
-app.controller("MerchantReviewLineCtrl", function ($scope, Reviews){
+app.controller("MerchantReviewLineCtrl", function ($scope){
 	$scope.theReview.user.full_name = $scope.theReview.user.name.first + " " + $scope.theReview.user.name.last
 });
