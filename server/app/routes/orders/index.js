@@ -37,7 +37,6 @@ router.get('/:orderId', function(req, res) {
 
 // add order
 router.post('/', function(req, res) {
-    req.body.buyer = req.session.passport.user
 	Order.create(req.body)
     .then(function (order){
         res.json(order)

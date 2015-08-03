@@ -1,9 +1,14 @@
 <div>
+    <fieldset>
     <form>
-        <!--     <md-input-container class="lineItem" flex>
+                    <md-input-container class="lineItem" flex>
+      <label>Date</label>
+      <input ng-model="theOrder.date" class="lineItem" disabled>
+    </md-input-container>
+            <md-input-container class="lineItem" flex>
       <label>Buyer</label>
       <input ng-model="theOrder.buyer" class="lineItem" disabled>
-    </md-input-container> -->
+    </md-input-container>
         <md-input-container class="lineItem" flex>
             <label>Billing Address</label>
             <input ng-model="theOrder.billing" class="lineItem">
@@ -12,10 +17,27 @@
             <label>Shipping Address</label>
             <input ng-model="theOrder.shipping" class="lineItem">
         </md-input-container>
-        <md-input-container class="lineItem" flex>
-            <label>Items</label>
-            <input ng-model="theOrder.items" class="lineItem">
-        </md-input-container>
+        <p><label>Items:</label>
+            <fieldset ng-repeat="item in theOrder.items">
+                <img ui-sref="singleProduct({id: theProduct._id })" ng-src="{{item.product.photo}}" style="width:80px"/>
+                <md-input-container class="lineItem" flex>
+                    <label>Product</label>
+                    <input ng-model="item.product.title" class="lineItem">
+                </md-input-container>
+                <md-input-container class="lineItem" flex>
+                    <label>Quantity</label>
+                    <input ng-model="item.quantity" class="lineItem">
+                </md-input-container>
+                <md-input-container class="lineItem" flex>
+                    <label>Price</label>
+                    <input ng-model="item.price" class="lineItem">
+                </md-input-container>
+                <md-input-container class="lineItem" flex>
+                    <label>Total</label>
+                    <input ng-model="item.total" class="lineItem">
+                </md-input-container>
+            </fieldset>
+        </p>
         <md-input-container class="lineItem" flex>
             <label>Subtotal</label>
             <input ng-model="theOrder.subtotal" class="lineItem">
@@ -28,7 +50,8 @@
             <label>Coupon</label>
             <input ng-model="theOrder.coupon" class="lineItem">
         </md-input-container>
-<!--         <md-button ng-click="update()">Update</md-button>
-        <md-button ng-click="delete()">Delete</md-button> -->
+        <md-button ng-click="update()">Update</md-button>
+        <md-button ng-click="delete()">Delete</md-button>
     </form>
+    </fieldset>
 </div>

@@ -5,9 +5,13 @@ var Product = mongoose.model('Product');
 
 var itemize = function(items) {
     var dbItems = {};
+    var counter = 0;
     for (var item in items) {
-        console.log(item);
-        dbItems[items[item].product._id] = items[item].quantity;
+        var addItem = {}
+        addItem.product = items[item].product._id
+        addItem.quantity = items[item].quantity;
+        addItem.price = items[item].product.price
+        dbItems[counter++] = addItem
     }
     return dbItems;
 };
@@ -33,14 +37,18 @@ function setPrice(num){
 }
 
 var schema = new mongoose.Schema({
+    //using email so guests can make orders as well
     buyer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        type: String,
         required: true
     },
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    date:{
+        type: Date,
+        default: Date.now
     },
     billing: {
         type: String,
@@ -65,7 +73,8 @@ var schema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Created', 'In Progress', 'Complete']
+        enum: ['Created', 'Processing', 'Cancelled', 'Complete'],
+        default: 'Created'
     },
     coupon: {
         type: mongoose.Schema.Types.ObjectId,
