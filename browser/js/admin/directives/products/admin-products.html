@@ -2,7 +2,11 @@
 	<div style="border: 1px solid #ccc; border-radius: 10px;">
 		<h3>Add a product</h3>
 		<form>
-			<img ng-src="{{newProduct.photo}}" style="width:80px"/>
+			
+			<div id="productImages">
+				<input class="lineItem" ng-model="addingImage" />
+				<md-button class="md-primary md-raised" ng-click="addImage()">Add Photo</md-button>
+			</div>
 			<md-input-container class="lineItem" flex>
 				<label>Id (Automatically added)</label>
 				<input class="lineItem" disabled />
@@ -11,11 +15,6 @@
 				<label>Title</label>
 				<input ng-model="newProduct.title" />
 			</md-input-container>
-				<label>Sold by User</label>
-				<md-select ng-model="theProduct.seller" md-on-open="loadStores()" style="min-width: 200px;">
-			      <md-select-label>{{ store ? store.storeName : 'Select User Store' }}</md-select-label>
-			      <md-option ng-value="store" ng-repeat="store in stores">{{store.storeName}}</md-option>
-			    </md-select>
 			<md-input-container class="lineItem" flex>
 				<label>Description</label>
 				<input ng-model="newProduct.description" />
@@ -28,10 +27,16 @@
 				<label>Inventory</label>
 				<input ng-model="newProduct.inventory" />
 			</md-input-container>
+			<md-input-container>
+				<md-select ng-model="theProduct.seller" md-on-open="loadStores()" style="min-width: 200px;">
+			      <md-select-label>{{ theProduct.seller ? theProduct.seller.storeName : 'Select User Store' }}</md-select-label>
+			      <md-option ng-value="store" ng-repeat="store in stores">{{store.storeName}}</md-option>
+			    </md-select>
+			</md-input-container>
 			<fieldset class="standard" flex>
+			<label>Categories</label>
 			<div layout="row" layout-wrap>
-			<label>Category</label>
-	          <div flex="50" ng-repeat="category in categories">
+	          <div flex="18" ng-repeat="category in categories">
 	            <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
 	              {{ category.name }}
 	            </md-checkbox>

@@ -1,6 +1,6 @@
 <div>
 	<form>
-        <img ng-repeat="photo in theProduct.photos" style="width:auto; height:80px;" ng-src="{{photo}}">
+        <img ng-repeat="photo in theProduct.photos track by $index" style="width:auto; height:80px;" ng-src="{{photo}}">
         </ul>
 		<md-input-container class="lineItem" flex>
 			<label>Id</label>
