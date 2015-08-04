@@ -10,12 +10,15 @@ function setPrice(num){
     return parseFloat(num.replace(/[^0-9-.]/g, '')) * 100;
 }
 
-function unique(arr){
+function uniqueAndOne(arr){
     var strainedArr = [];
     for(var i in arr){
         if(strainedArr.indexOf(arr[i]) === -1) {
             strainedArr.push(arr[i]);
         }
+    }
+    if(strainedArr.length === 0){
+        strainedArr.push("http://wiki.solid-run.com/images/7/75/No_image_available.png");
     }
     return strainedArr;
 }
@@ -55,7 +58,7 @@ var schema = new mongoose.Schema({
     },
     photos: {
         type: [String],
-        set: unique,
+        set: uniqueAndOne,
         default: ["http://wiki.solid-run.com/images/7/75/No_image_available.png"]
     }
 });
