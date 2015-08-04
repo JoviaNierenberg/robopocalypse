@@ -1,4 +1,4 @@
-app.factory('Orders', function($http) {
+app.factory('Orders', function($http, Emails) {
   return {
     // get orders by order id
     getOrdersById: function(id) {
@@ -17,6 +17,29 @@ app.factory('Orders', function($http) {
       return $http.get('/api/orders/', {params: {seller: sellerId}}).then(function(response) {
         return response.data;
       });
-    }
+    },
+    updateOrder: function(order) {
+      return $http.put('/api/orders/'+order._id, order).then(function(response) {
+        switch(response.data.status){
+          case 'Processing':
+            Emails.sendOrderShipped(response.data).then(function(){
+              return response.data
+            })
+            break;
+          case 'Cancelled':
+            Emails.sendOrderCancelled(response.data).then(function(){
+              return response.data
+            })
+            break;
+          case 'Complete':
+            Emails.sendOrderCompleted(response.data).then(function(){
+              return response.data
+            })
+            break;
+          default:
+            return response.data;
+        }
+      });
+    },
   };
 });
