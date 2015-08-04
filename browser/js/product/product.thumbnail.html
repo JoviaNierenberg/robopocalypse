@@ -1,16 +1,20 @@
 <div class="col-sm-12 col-lg-12 col-md-12">
     <div class="thumbnail right-caption" style="padding:2%; width: inherit">
-        <img class="img-responsive" ng-src="{{theProduct.photo}}" ui-sref="singleProduct({id: theProduct._id })">
-        <div class="caption">
+        <ul rn-carousel rn-carousel-auto-slide rn-carousel-buffered rn-carousel-auto-slide rn-carousel-controls-allow-loop ui-sref="singleProduct({id: theProduct._id })" class="productThumb img-responsive">
+            <li ng-repeat="photo in theProduct.photos">
+                <img class="img-responsive" ng-src="{{photo}}">
+            </li>
+        </ul><!-- 
+         --><div class="caption thumbCaption">
             <h4 class="pull-right">${{theProduct.price | getPrice}}</h4>
             <h4 style="margin-top: 1%"><a ui-sref="singleProduct({id: theProduct._id })">{{theProduct.title}}</a></h4>
             <p style="margin-top: 1%">{{theProduct.description | shortdesc}}</p>
             <!-- <p class="pull-right">10 reviews</p> -->
-            <div ng-show="{{theProduct.inventory}} !== 0">
+            <div ng-show="theProduct.inventory !== 0">
                 <p><b>Inventory</b>: {{theProduct.inventory}}</p>
-                <a class="btn btn-primary btn-lg btn-standard" ng-click="add(theProduct)" style="margin-top: 1%"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
+                <a class="btn btn-primary btn-lg btn-standard" ng-click="add()" style="margin-top: 1%"><i class="fa fa-cart-plus"></i> ADD TO CART</a>
             </div>
-            <div ng-show="{{theProduct.inventory}} === 0">
+            <div ng-show="theProduct.inventory === 0">
                 <p><b>SOLD OUT</b></p>
             </div>
         </div>

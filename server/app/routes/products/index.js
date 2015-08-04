@@ -23,7 +23,12 @@ router.param("productId", function(req, res, next, productId) {
 //get all products
 router.get("/", function(req, res) {
     if(req.query.category) req.query.category = JSON.parse(req.query.category)
-    Product.find(req.query).exec().then(function (products) {
+    Product.find(req.query)
+        .populate({
+            path: 'seller',
+            select: 'storeName'
+        })
+        .exec().then(function (products) {
         res.json(products)
     }, function(err){
         res.send(err)
@@ -34,7 +39,6 @@ router.get("/", function(req, res) {
 router.post("/", function(req, res) {
     Product.create(req.body)
         .then(function(product) {
-            console.log(product);
             res.status(201).json(product);
         }, function(err){
             console.log(err);

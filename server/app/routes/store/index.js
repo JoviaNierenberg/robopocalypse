@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 module.exports = router;
 var Product = mongoose.model("Product");
 var User = mongoose.model("User");
+var _ = require("lodash");
 
 router.param("storeURL", function(req, res, next, storeURL) {
     User.findOne({storeURL: storeURL}).exec()
@@ -24,6 +25,9 @@ router.param("storeURL", function(req, res, next, storeURL) {
 //get all stores
 router.get("/", function(req, res) {
     User.find({storeURL: {$exists: true}}).exec().then(function (users) {
+        users = users.map(function (user) {
+            return _.omit(user.toJSON(), ['salt', 'password']);
+        });
         res.json(users)
     }, function(err){
         res.send(err)

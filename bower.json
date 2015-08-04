@@ -28,7 +28,8 @@
     "bootstrap-material-design": "~0.3.0",
     "angular-bootstrap": "~0.13.1",
     "bootstrap-social": "~4.9.1",
-    "normalize.css": "~3.0.3"
+    "normalize.css": "~3.0.3",
+    "angular-carousel": "~0.3.12"
   },
   "devDependencies": {
     "html5shiv": "~3.7.3"
