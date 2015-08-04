@@ -2,10 +2,10 @@ module.exports = {
   "DATABASE_URI": "mongodb://localhost:27017/robopocalypse",
   "SESSION_SECRET": "The Hawk is mad.",
   "TWITTER": {
-    "consumerKey": "XkWiZuh27Y0yLnFKmVQmXdSMU",
-    "consumerSecret": "50wVndKTDFFhuw8lOjScx7dGUKrqoUQn2Gw7mVHi9PqxVkPP9Y",
+    "consumerKey": "OAMQD9MGsYOfCmGtOtka2inBQ",
+    "consumerSecret": "7wSKRw9ebWzhlI1cuDjLOymcPi4GMFMbGkpR9hNS9TuA0zYOU9",
     // twitter doesn't like localhost callback url, unfortunately, so I replaced with my IP
-    "callbackUrl": "http://192.168.0.3:1337/auth/twitter/callback"
+    "callbackUrl": "http://192.168.1.213:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
     "clientID": "871027879654745",

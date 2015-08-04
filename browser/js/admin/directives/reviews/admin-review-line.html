@@ -1,31 +1,31 @@
-<div class="mdl-card mdl-shadow--3dp centerText" style="padding:1%; width:100%; margin-bottom: 3%">
+<div class="mdl-card mdl-shadow--3dp centerText marginBottom" style="padding:3%;">
     <form name='reviewForm'>
         <div class="row">
-            <md-input-container flex>
+            <md-input-container flex class="lineItem">
                 <label>ID</label>
                 <input ng-model="theReview._id" disabled>
             </md-input-container>
         </div>
         <div class="row">
-            <md-input-container flex>
+            <md-input-container flex class="lineItem">
                 <label>User</label>
                 <input ng-model="theReview.user" disabled>
             </md-input-container>
         </div>
         <div class="row">
-            <md-input-container flex>
+            <md-input-container flex class="lineItem">
                 <label>Product</label>
                 <input ng-model="theReview.product" disabled>
             </md-input-container>
         </div>
         <div class="row">
-            <md-input-container flex>
-                <label>Text</label>
-                <input type="text" ng-model="theReview.text">
+            <md-input-container flex class="lineItem">
+                <label>Rating</label>
+                <textarea type="text" ng-model="theReview.text"></textarea>
             </md-input-container>
         </div>
         <div class="row">
-            <md-input-container flex>
+            <md-input-container flex class="lineItem">
                 <label>Rating</label>
                 <input ng-model="theReview.rating" disabled>
             </md-input-container>
