@@ -26,23 +26,16 @@ router.param('orderId', function(req, res, next, orderId) {
 // >> fixed
 router.get('/', function(req, res) {
     if(req.query.seller){
-        Order.find({sellers:{$all: req.query.seller}})
-            .exec().then(function(orders) {
-            res.json(orders)
-        });
+        Order.findFullOrders({sellers:{$all: req.query.seller}})
+            .then(function(orders) {
+                res.json(orders)
+            });
     }else{
-        Order.find(req.query)
-            // .populate({
-            //     path: 'user',
-            //     select: 'name'
-            // })
-            // .populate({
-            //     path: 'product',
-            //     select: 'title'
-            // })
-            .exec().then(function(orders) {
-            res.json(orders)
-        });
+        console.log(Order.findFullOrders);
+        Order.findFullOrders(req.query)
+            .then(function(orders) {
+                res.json(orders)
+            });
     }
 });
 

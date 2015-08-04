@@ -4,9 +4,11 @@ app.directive("userOrderLine", function () {
 		templateUrl: "js/user/directives/orders/user-order-line.html",
 		scope: {
 			theOrder: "=order"
-		}
+		},
+		controller: "UserOrderLineCtrl"
 	};
 });
 
-// app.controller("AdminOrderLineCtrl", function ($scope, Orders){
-// });
+app.controller("UserOrderLineCtrl", function ($scope){
+	$scope.theOrder.date = new Date(Date.parse($scope.theOrder.date)).toLocaleString();
+});

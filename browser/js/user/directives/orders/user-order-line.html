@@ -10,17 +10,17 @@
         {{theOrder.shipping}}"</p>
 
         <p><label>Items:</label>
-            <fieldset ng-repeat="item in theOrder.items">
-                <img ui-sref="singleProduct({id: item.product._id })" ng-src="{{item.product.photo}}" style="width:80px"/>
-                <a ui-sref="singleProduct({id: item.product._id })">{{item.product.title}}</a>
-                {{item.quantity}}
-                {{item.price}}
-                {{item.total}}
+            <fieldset ng-repeat="product in theOrder.items.products track by $index">
+                <img ui-sref="singleProduct({id: product._id })" ng-src="{{product.photos[0]}}" style="width:80px"/>
+                <a ui-sref="singleProduct({id: product._id })">{{product.title}}</a>
+                Quantity: {{theOrder.items.quantities[$index]}}
+                Price: {{theOrder.items.prices[$index] | getPrice}}
+                <!-- {{item.total}} -->
             </fieldset>
         </p>
 
         <p><label>Subtotal:</label>
-        {{theOrder.subtotal}}</p>
+        {{theOrder.subtotal | getPrice}}</p>
 
         <p><label>Status:</label>
         {{theOrder.status}}</p>
