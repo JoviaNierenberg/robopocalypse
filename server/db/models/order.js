@@ -1,11 +1,28 @@
 "use strict";
 var mongoose = require("mongoose");
-
-var Product = mongoose.model('Product');
+var Promise = require('bluebird');
+var Product = Promise.promisifyAll(mongoose.model('Product'));
 
 var itemize = function(items) {
     var dbItems = {};
     var counter = 0;
+
+    Promise.each(Object.keys(items), function(item){
+        return Product.findOneAsync({'_id': items[item].product._id})
+            .then(function(product){
+                // do stuff with 'doc' here.  
+                product.inventory -= items[item].quantity
+                product.save().then(function(){
+                    var addItem = {}
+                    addItem.product = items[item].product._id
+                    addItem.quantity = items[item].quantity;
+                    addItem.price = items[item].product.price
+                    dbItems[counter++] = addItem
+                })
+            })
+    })
+
+
     for (var item in items) {
         var addItem = {}
         addItem.product = items[item].product._id
@@ -13,20 +30,21 @@ var itemize = function(items) {
         addItem.price = items[item].product.price
         dbItems[counter++] = addItem
     }
+    
     return dbItems;
 };
 
-var cartize = function(items) {
-    var dbItems = {};
-    for (var item in items) {
-        Product.findById(item).exec().then(function(product) {
-            var input = {};
-            input[product] = items[item];
-            dbItems[product.title] = input;
-        });
-    }
-    return dbItems;
-};
+// var cartize = function(items) {
+//     var dbItems = {};
+//     for (var item in items) {
+//         Product.findById(item).exec().then(function(product) {
+//             var input = {};
+//             input[product] = items[item];
+//             dbItems[product.title] = input;
+//         });
+//     }
+//     return dbItems;
+// };
 
 function getPrice(num){
     return (num/100).toFixed(2);
@@ -62,7 +80,7 @@ var schema = new mongoose.Schema({
     items: {
         type: Object,
         required: true,
-        get: cartize,
+        // get: cartize,
         set: itemize
     },
     subtotal: {
