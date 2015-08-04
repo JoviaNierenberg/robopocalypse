@@ -25,18 +25,25 @@ router.param('orderId', function(req, res, next, orderId) {
 // get all orders
 // >> fixed
 router.get('/', function(req, res) {
-    Order.find(req.query)
-        // .populate({
-        //     path: 'user',
-        //     select: 'name'
-        // })
-        // .populate({
-        //     path: 'product',
-        //     select: 'title'
-        // })
-        .exec().then(function(orders) {
-        res.json(orders)
-    });
+    if(req.query.seller){
+        Order.find({sellers:{$all: req.query.seller}})
+            .exec().then(function(orders) {
+            res.json(orders)
+        });
+    }else{
+        Order.find(req.query)
+            // .populate({
+            //     path: 'user',
+            //     select: 'name'
+            // })
+            // .populate({
+            //     path: 'product',
+            //     select: 'title'
+            // })
+            .exec().then(function(orders) {
+            res.json(orders)
+        });
+    }
 });
 
 //get a single orders
