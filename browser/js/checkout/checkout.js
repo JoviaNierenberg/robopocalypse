@@ -19,6 +19,7 @@ app.controller("CheckoutCtrl", function($scope, Cart, AuthService, Util) {
 
     $scope.useBilling = true
     $scope.cart = Cart.getCart();
+    this.states = Util.stateAbbrevs();
 
     $scope.submitOrder = function() {
     	if($scope.cart.totalItems === 0) return alert('no items selected')
@@ -37,8 +38,5 @@ app.controller("CheckoutCtrl", function($scope, Cart, AuthService, Util) {
         Cart.submitOrder(order);
     	Cart.emptyCart();
     };
-
-    this.states = Util.stateAbbrevs();
-
 
 });
