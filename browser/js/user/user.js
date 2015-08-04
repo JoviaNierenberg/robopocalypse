@@ -21,6 +21,7 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders, User,
 						order.items[item].product = product
 						order.items[item].total = makeCurrency(order.items[item].quantity * order.items[item].price)
 						order.items[item].price = makeCurrency(order.items[item].price)
+						order.date = new Date(Date.parse(order.date)).toLocaleString();
 					})
 				}
 			})
