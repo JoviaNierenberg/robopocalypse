@@ -2,18 +2,26 @@
 var router = require("express").Router();
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
+var Promise = require("bluebird");
 var _ = require("lodash");
+var path = require("path");
+var fs = require("fs");
+var ejs = require("ejs");
+var mandrill = require("..sendEmail/mandrill.js");
+var promiseRead = Promise.promisifyAll(fs.readFile);
 
 module.exports = router;
 
 router.get("/", function(req, res, next) {
 	User.findOne(req.query).exec()
 		.then(function(user){
-			//send email with link
-			//email link will send them to a form which will allow them to reset their pass at the address below vvv
-			//alternatively we could reset their pass for them and send them an email with the new pass, but I want to use
-			//a link to a form bc I think it's cooler
-			res.json(user.reset_link); //not this (send in email)
+			req.query.user = user.full_name;
+			req.query.link = user.reset_link;
+			return promiseRead(path.join(__dirname, "../sendEmail/emails/passwordReset.ejs"), 'utf8');
+		}).then(function (template){
+			var emailText = ejs.render(template, req.query)
+			mandrill.sendEmail(req.query.user , req.query.email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', 'Reset Your Password', emailText);
+			res.end()
 		}, next);
 });
 
