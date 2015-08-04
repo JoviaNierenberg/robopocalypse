@@ -82,13 +82,15 @@ schema.virtual("full_name").get(function() {
 });
 
 schema.virtual("reset_link").get(function() {
-    var link = "http://localhost/reset/key/?email" + encodeURI(this.email) + "&expirationTime=" + (Date.now() + 48 * 60 * 60) + "&token=" + encryptPassword(this.password, this.salt);
+    //api/reset/key
+    var link = "http://localhost:1337/passReset?email=" + encodeURI(this.email) + "&expirationTime=" + (Date.now() + 48 * 60 * 60 * 1000) + "&token=" + encryptPassword(this.password, this.salt);
     return link;
 });
 
 schema.statics.resetPass = function (query) {
-    this.find({email: query.email}).exec().then(function(user){
-        if(Date.now() < query.expirationTime && encryptPassword(user.password, user.salt)) {
+    return this.findOne({email: query.email}).exec().then(function(user){
+        console.log(Date.now() < query.expirationTime && encryptPassword(user.password, user.salt) === query.token);
+        if(Date.now() < query.expirationTime && encryptPassword(user.password, user.salt) === query.token){
             user.password = query.newPassword;
             return user.save();
         }
