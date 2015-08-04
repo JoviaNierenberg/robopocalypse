@@ -62,10 +62,10 @@ app.factory('Cart', function ($rootScope, $http) {
             $rootScope.$emit("cartChange", cart);
             updateCart();
         },
-        submitOrder: function (order) {
+        submitOrder: function (order, userId) {
             $http.post("/api/orders/", order).then(function (res) {
-                console.log(res.data)
-                // $state.go("confirmation");
+                alert('Your order has been created. A confirmation has been sent. If you are a user, you can view it in your profile.')
+                $state.go("home");
             });
         }
     };
