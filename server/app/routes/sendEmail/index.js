@@ -15,13 +15,6 @@ module.exports = router;
 // 	res.end()
 // });
 
-// router.post("/passwordReset", function (req, res, next) {
-// 	var emailTemplate = fs.readFileSync('../views/emails/passwordReset.ejs', 'utf8')
-// 	var email = ejs.render(emailTemplate, req.body)
-// 	mandrill.sendEmail(to_name, to_email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', 'Reset Your Password', email)
-// 	res.end()
-// });
-
 router.post("/orderCreated", function (req, res, next) {
 	var emailTemplate = fs.readFileSync(__dirname + '/emails/orderCreated.ejs', 'utf8')
 	var email = ejs.render(emailTemplate, req.body)
