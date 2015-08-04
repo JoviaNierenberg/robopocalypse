@@ -2,13 +2,15 @@
     height: auto;
 }
 
+
+
 .thumbnail {
     display: inline-block;
 }
 
-.thumbnail img {
-    width: 25%;
-}
+// .thumbnail img {
+//     width: 25%;
+// }
 
 .ratings {
     padding-right: 10px;
@@ -54,3 +56,17 @@ h3.lead {
 .caption {
     margin-top: 3%;
 }
+
+.thumbnail .caption.thumbCaption{
+    width: 80%;
+    display: inline-block;
+    padding: 20px;
+}
+
+.productThumb{
+    width: 20%;
+    height: 200px;
+    overflow: hidden;
+    display: inline-block;
+}
+

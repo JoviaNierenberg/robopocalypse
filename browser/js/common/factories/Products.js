@@ -33,8 +33,8 @@ app.factory("Products", function($http, $rootScope) {
     },
     // updates product using form data
     // is there an easier way to update a product using all the data inputted into the form?
-    updateProduct: function(id, data) {
-      return $http.put('/api/products/' + id, data).then(function(response) {
+    updateProduct: function(data) {
+      return $http.put('/api/products/' + data._id, data).then(function(response) {
         return response.data;
       });
     }
