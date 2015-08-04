@@ -26,7 +26,7 @@ module.exports = function (app) {
             twitter: {
                 id: profile.id,
                 // username: profile.username,
-                token: oauth_token,
+                token: token,
                 tokenSecret: tokenSecret
             }
         });
@@ -34,9 +34,9 @@ module.exports = function (app) {
 
     var updateUserCredentials = function (user, token, tokenSecret, profile) {
 
-        user.twitter.token = oauth_token;
+        user.twitter.token = token;
         user.twitter.tokenSecret = tokenSecret;
-        user.twitter.username = profile.username;
+        user.twitter.id = profile.id;
 
         return user.save();
 
