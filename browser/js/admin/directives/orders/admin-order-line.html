@@ -42,16 +42,19 @@
             <label>Subtotal</label>
             <input ng-model="theOrder.subtotal" class="lineItem">
         </md-input-container>
-        <md-input-container class="lineItem" flex>
+<!--         <md-input-container class="lineItem" flex>
             <label>Status</label>
             <input ng-model="theOrder.status" class="lineItem">
-        </md-input-container>
+        </md-input-container> -->
+        <md-select placeholder="Status" ng-model="theOrder.status">
+            <md-option ng-repeat="status in allStatus" value="{{status}}">{{status}}</md-option>
+        </md-select>
         <md-input-container class="lineItem" flex>
             <label>Coupon</label>
             <input ng-model="theOrder.coupon" class="lineItem">
         </md-input-container>
         <md-button ng-click="update()">Update</md-button>
-        <md-button ng-click="delete()">Delete</md-button>
+        <!-- <md-button ng-click="delete()">Delete</md-button> -->
     </form>
     </fieldset>
 </div>
