@@ -22,7 +22,7 @@ module.exports = function (app) {
                 first: profile.displayName.split(" ")[0], 
                 last: profile.displayName.split(" ")[2] || profile.displayName.split(" ")[1] || "madeUpLastName"
             },
-            email: email,
+            email: profile.username + "@faketwitteremail.com",
             twitter: {
                 id: profile.id,
                 // username: profile.username,
