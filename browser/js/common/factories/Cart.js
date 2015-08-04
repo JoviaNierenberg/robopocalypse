@@ -1,4 +1,4 @@
-app.factory('Cart', function ($rootScope, $http) {
+app.factory('Cart', function ($rootScope, $http, $state, Emails) {
     var cart = {
         items: {},
         subtotal: 0,
@@ -62,8 +62,9 @@ app.factory('Cart', function ($rootScope, $http) {
             $rootScope.$emit("cartChange", cart);
             updateCart();
         },
-        submitOrder: function (order, userId) {
+        submitOrder: function (order) {
             $http.post("/api/orders/", order).then(function (res) {
+                Emails.sendOrderCreated(res.data);
                 alert('Your order has been created. A confirmation has been sent. If you are a user, you can view it in your profile.')
                 $state.go("home");
             });

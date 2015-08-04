@@ -3,29 +3,29 @@
 app.factory('Emails', function($http, $rootScope) {
     return {
         // returns all users
-        sendUserConfirmation: function() {
-        	return $http.get('/api/send/userConfirmation');
+        sendUserConfirmation: function(data) {
+        	return $http.post('/api/send/userConfirmation', data);
         },
-        sendPasswordReset: function(){
-        	return $http.get('/api/send/passwordReset');
+        sendPasswordReset: function(data){
+        	return $http.post('/api/send/passwordReset', data);
         },
-        sendOrderCreated: function(){
-        	return $http.get('/api/send/orderCreated');
+        sendOrderCreated: function(data){
+        	return $http.post('/api/send/orderCreated', data);
         },
-        sendOrderShipped: function(){
-        	return $http.get('/api/send/orderShipped');
+        sendOrderShipped: function(data){
+        	return $http.post('/api/send/orderShipped', data);
         },
-        sendOrderCancelled: function(){
-        	return $http.get('/api/send/orderCancelled');
+        sendOrderCancelled: function(data){
+        	return $http.post('/api/send/orderCancelled', data);
         },
-        sendOrderCompleted: function(){
-        	return $http.get('/api/send/orderCompleted');
+        sendOrderCompleted: function(data){
+        	return $http.post('/api/send/orderCompleted', data);
         },
-        sendMerchantAccepted: function(){
-        	return $http.get('/api/send/merchantAccepted');
+        sendMerchantAccepted: function(data){
+        	return $http.post('/api/send/merchantAccepted', data);
         },
-        sendMerchantOrder: function(){
-        	return $http.get('/api/send/merchantOrder');
+        sendMerchantOrder: function(data){
+        	return $http.post('/api/send/merchantOrder', data);
         }
     };
 });
