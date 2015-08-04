@@ -5,7 +5,8 @@ app.directive('adminProductLine', function() {
         controller: "AdminProductLineCtrl",
         scope: {
             theProduct: '=product',
-            categories: "=categories"
+            categories: "=categories",
+            stores: "=stores"
         },
     };
 });

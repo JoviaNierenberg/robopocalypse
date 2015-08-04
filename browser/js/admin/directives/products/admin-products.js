@@ -42,17 +42,15 @@ app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products, Stor
 
 	getProducts();
 
+	Stores.getAll().then(function(stores){
+		$scope.stores = stores
+	});
+
 	$scope.addProduct = function () {
 		Products.createProduct($scope.newProduct).then(function () {
 			getProducts();
 		});
 	};
-
-	$scope.loadStores = function(){
-		Stores.getAll().then(function(stores){
-			$scope.stores = stores
-		})
-	}
 
 
 	var unbind = $rootScope.$on("productUpdate", getProducts);

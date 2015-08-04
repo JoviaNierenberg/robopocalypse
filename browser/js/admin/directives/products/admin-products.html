@@ -28,8 +28,7 @@
 				<input ng-model="newProduct.inventory" />
 			</md-input-container>
 			<md-input-container>
-				<md-select ng-model="theProduct.seller" md-on-open="loadStores()" style="min-width: 200px;">
-			      <md-select-label>{{ theProduct.seller ? theProduct.seller.storeName : 'Select User Store' }}</md-select-label>
+				<md-select ng-model="newProduct.seller" placeholder="{{newProduct.seller ? newProduct.seller.storeName : 'Select User Store'}}" style="min-width: 200px;">
 			      <md-option ng-value="store" ng-repeat="store in stores">{{store.storeName}}</md-option>
 			    </md-select>
 			</md-input-container>
@@ -47,5 +46,5 @@
 		</form>    
 	</div>
 	<hr>
-    <admin-product-line ng-repeat="product in products" product="product" categories="categories"></admin-product-line>
+    <admin-product-line ng-repeat="product in products" product="product" categories="categories" stores="stores"></admin-product-line>
 </div>
