@@ -7,7 +7,7 @@ var _ = require("lodash");
 var path = require("path");
 var fs = require("fs");
 var ejs = require("ejs");
-var mandrill = require("..sendEmail/mandrill.js");
+var mandrill = require("../sendEmail/mandrill.js");
 var promiseRead = Promise.promisifyAll(fs.readFile);
 
 module.exports = router;
