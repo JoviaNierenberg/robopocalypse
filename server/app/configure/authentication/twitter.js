@@ -17,10 +17,15 @@ module.exports = function (app) {
 
     var createNewUser = function (token, tokenSecret, profile) {
         return UserModel.create({
+            name: { 
+                first: firstName, 
+                last: lastName
+            },
+            email: email,
             twitter: {
                 id: profile.id,
-                username: profile.username,
-                token: token,
+                // username: profile.username,
+                token: oauth_token,
                 tokenSecret: tokenSecret
             }
         });
@@ -28,7 +33,7 @@ module.exports = function (app) {
 
     var updateUserCredentials = function (user, token, tokenSecret, profile) {
 
-        user.twitter.token = token;
+        user.twitter.token = oauth_token;
         user.twitter.tokenSecret = tokenSecret;
         user.twitter.username = profile.username;
 
@@ -39,7 +44,8 @@ module.exports = function (app) {
     var verifyCallback = function (token, tokenSecret, profile, done) {
         console.log("------------------TWITTER PROFILE-------------------- ", profile)
 
-        UserModel.findOne({'twitter.id': profile.id}).exec()
+        UserModel.findOne({'twitter.id': profile.id})
+            .exec()
             .then(function (user) {
                 if (user) { // If a user with this twitter id already exists.
                     return updateUserCredentials(user, token, tokenSecret, profile);

@@ -5,7 +5,7 @@
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",
-    "postinstall": "./node_modules/bower/bin/bower install && gulp build"
+    "postinstall": "./node_modules/bower/bin/bower install && gulp build && node seed"
   },
   "dependencies": {
     "angular": "^1.4.0",
