@@ -22,7 +22,7 @@ app.controller("AdminOrderCtrl", function ($scope, Orders, Products) {
 					order.items[item].product = product
 					order.items[item].total = makeCurrency(order.items[item].quantity * order.items[item].price)
 					order.items[item].price = makeCurrency(order.items[item].price)
-					order.subtotal = makeCurrency(order.subtotal)
+					order.subtotal = makeCurrency(order.subtotal/100)
 					order.date = new Date(Date.parse(order.date)).toLocaleString();
 				})
 			}

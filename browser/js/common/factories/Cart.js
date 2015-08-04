@@ -2,7 +2,8 @@ app.factory('Cart', function ($rootScope, $http, $state, Emails) {
     var cart = {
         items: {},
         subtotal: 0,
-        totalItems: 0
+        totalItems: 0,
+        sellers: []
     };
 
     var updateCart = function () {
@@ -23,6 +24,7 @@ app.factory('Cart', function ($rootScope, $http, $state, Emails) {
         addToCart: function (product) {
             if(cart.items[product.title] === undefined){
                 cart.items[product.title] = {product: product, quantity: 1};
+                cart.sellers.push(product.seller)
             }
             else{
                 cart.items[product.title].quantity++;
@@ -49,6 +51,9 @@ app.factory('Cart', function ($rootScope, $http, $state, Emails) {
         removeFromCart: function (item) {
             cart.subtotal -= item.product.price * item.quantity;
             cart.totalItems -= item.quantity;
+
+            var index = cart.sellers.indexOf(item.product.seller)
+            if(index > -1) cart.sellers.splice(index, 1)
             //ignore error below, this variable is a reference to an entry in the cart
             delete cart.items[item.product.title];
             $rootScope.$emit("cartChange", cart);
@@ -59,6 +64,7 @@ app.factory('Cart', function ($rootScope, $http, $state, Emails) {
             cart.items = {};
             cart.subtotal = 0;
             cart.totalItems = 0;
+            cart.sellers = [];
             $rootScope.$emit("cartChange", cart);
             updateCart();
         },

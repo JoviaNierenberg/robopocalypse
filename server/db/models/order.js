@@ -12,16 +12,12 @@ var itemize = function(items) {
             .then(function(product){
                 // do stuff with 'doc' here.  
                 product.inventory -= items[item].quantity
-                product.save().then(function(){
-                    var addItem = {}
-                    addItem.product = items[item].product._id
-                    addItem.quantity = items[item].quantity;
-                    addItem.price = items[item].product.price
-                    dbItems[counter++] = addItem
-                })
+                return product
+            })
+            .then(function(product){
+                product.save()
             })
     })
-
 
     for (var item in items) {
         var addItem = {}
@@ -30,21 +26,20 @@ var itemize = function(items) {
         addItem.price = items[item].product.price
         dbItems[counter++] = addItem
     }
-    
     return dbItems;
 };
 
-// var cartize = function(items) {
-//     var dbItems = {};
-//     for (var item in items) {
-//         Product.findById(item).exec().then(function(product) {
-//             var input = {};
-//             input[product] = items[item];
-//             dbItems[product.title] = input;
-//         });
-//     }
-//     return dbItems;
-// };
+var cartize = function(items) {
+    var dbItems = {};
+    for (var item in items) {
+        Product.findById(item).exec().then(function(product) {
+            var input = {};
+            input[product] = items[item];
+            dbItems[product.title] = input;
+        });
+    }
+    return dbItems;
+};
 
 function getPrice(num){
     return (num/100).toFixed(2);
@@ -60,10 +55,10 @@ var schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    seller: {
+    sellers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
-    },
+    }],
     date:{
         type: Date,
         default: Date.now
@@ -80,7 +75,7 @@ var schema = new mongoose.Schema({
     items: {
         type: Object,
         required: true,
-        // get: cartize,
+        get: cartize,
         set: itemize
     },
     subtotal: {

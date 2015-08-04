@@ -33,7 +33,9 @@ app.controller("CheckoutCtrl", function($scope, Cart, AuthService) {
     	}
     	order.items = $scope.cart.items
     	order.subtotal = $scope.cart.subtotal
-    	if($scope.seller) order.seller = $scope.seller
+        order.sellers = $scope.cart.sellers.filter(function(value, index, self) { 
+                            return (self.indexOf(value) === index && value);
+                        })
         Cart.submitOrder(order);
     	Cart.emptyCart();
     };
