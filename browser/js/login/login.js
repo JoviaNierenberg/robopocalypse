@@ -20,7 +20,7 @@ app.controller('LoginCtrl', function($scope, $window, AuthService, $state, $http
 
     $scope.forgot = function (login) {
         $http.get("/api/reset", {params: login}).then(function (res) {
-            console.log(res);
+            $state.go("home");
         });
     }
 });
