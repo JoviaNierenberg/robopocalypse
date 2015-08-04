@@ -88,9 +88,7 @@ var schema = new mongoose.Schema({
     },
     subtotal: {
         type: Number,
-        required: true,
-        get: getPrice,
-        set: setPrice
+        required: true
     },
     status: {
         type: String,

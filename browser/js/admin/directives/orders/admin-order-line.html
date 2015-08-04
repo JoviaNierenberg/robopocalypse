@@ -18,29 +18,29 @@
             <input ng-model="theOrder.shipping" class="lineItem">
         </md-input-container>
         <p><label>Items:</label>
-            <fieldset ng-repeat="item in theOrder.items">
-                <img ui-sref="singleProduct({id: theProduct._id })" ng-src="{{item.product.photo}}" style="width:80px"/>
+            <fieldset ng-repeat="product in theOrder.items.products track by $index">
+                <img ui-sref="singleProduct({id: product._id })" ng-src="{{product.photos[0]}}" style="width:80px"/>
                 <md-input-container class="lineItem" flex>
                     <label>Product</label>
-                    <input ng-model="item.product.title" class="lineItem">
+                    <input ng-model="product.title" class="lineItem">
                 </md-input-container>
                 <md-input-container class="lineItem" flex>
                     <label>Quantity</label>
-                    <input ng-model="item.quantity" class="lineItem">
+                    <input ng-model="theOrder.items.quantities[$index]" class="lineItem">
                 </md-input-container>
                 <md-input-container class="lineItem" flex>
                     <label>Price</label>
-                    <input ng-model="item.price" class="lineItem">
+                    <input ng-model="theOrder.items.prices[$index] | getPrice" class="lineItem">
                 </md-input-container>
-                <md-input-container class="lineItem" flex>
+<!--                 <md-input-container class="lineItem" flex>
                     <label>Total</label>
                     <input ng-model="item.total" class="lineItem">
-                </md-input-container>
+                </md-input-container> -->
             </fieldset>
         </p>
         <md-input-container class="lineItem" flex>
             <label>Subtotal</label>
-            <input ng-model="theOrder.subtotal" class="lineItem">
+            <input ng-model="theOrder.subtotal | getPrice" class="lineItem">
         </md-input-container>
 <!--         <md-input-container class="lineItem" flex>
             <label>Status</label>

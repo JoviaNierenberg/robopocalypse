@@ -19,21 +19,8 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders, User)
 			$scope.reviews = reviews;
 		});
 		Orders.getOrdersByUser(user.email).then(function (orders) {
-			console.log(orders);
 			$scope.orders = orders
 		});
-		// }).then(function(){
-		// 	$scope.orders.forEach(function(order){
-		// 		for (var item in order.items){
-		// 			Products.getOne(order.items[item].product).then(function(product){
-		// 				order.items[item].product = product
-		// 				order.items[item].total = makeCurrency(order.items[item].quantity * order.items[item].price)
-		// 				order.items[item].price = makeCurrency(order.items[item].price)
-		// 				order.date = new Date(Date.parse(order.date)).toLocaleString();
-		// 			})
-		// 		}
-		// 	})
-		// })
 	});
 	$scope.updateProfile = function() {
 		User.updateUser($scope.user._id, $scope.user);
