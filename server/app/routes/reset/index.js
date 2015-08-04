@@ -19,9 +19,9 @@ router.get("/", function(req, res, next) {
 		}, next);
 });
 
-router.get("/key", function(req, res, next) {
+router.put("/key", function(req, res, next) {
 	User.resetPass(req.query).then(function(user){
 		res.json(_.omit(user.toJSON(), ['salt', 'password']));
 	}, next);
-})
+});
 
