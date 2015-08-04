@@ -27,11 +27,18 @@ app.controller('ProductCtrl', function($scope, Products, Reviews, $stateParams, 
         reviewData.product = $scope.singleProduct._id
         AuthService.getLoggedInUser().then(function(user) {
             reviewData.user = user._id
-            return reviewData
-        }).then(function(newReview) {
-            Reviews.createReview(newReview)
-            console.log("newReview: ", newReview)
+            return Reviews.createReview(reviewData)
+        }).then(function(createdReview){
+            $scope.reviews.push(createdReview)
         })
         delete $scope.review
     };
+
+    // checks if user is logged in so that review form is only shown when user is logged in
+    AuthService.getLoggedInUser().then(function(user) {
+        if (!user) $scope.thereIsALoggedInUser = false
+        else $scope.thereIsALoggedInUser = true
+        return user
+    })
+
 });
