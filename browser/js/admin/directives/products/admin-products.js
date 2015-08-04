@@ -39,7 +39,6 @@ app.controller('AdminProductsCtrl', function ($scope, $rootScope, Products, Stor
 			$scope.products = products;
 		});
 	};
-
 	getProducts();
 
 	Stores.getAll().then(function(stores){
