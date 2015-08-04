@@ -10,6 +10,16 @@ function setPrice(num){
     return parseFloat(num.replace(/[^0-9-.]/g, '')) * 100;
 }
 
+function unique(arr){
+    var strainedArr = [];
+    for(var i in arr){
+        if(strainedArr.indexOf(arr[i]) === -1) {
+            strainedArr.push(arr[i]);
+        }
+    }
+    return strainedArr;
+}
+
 var schema = new mongoose.Schema({
     title: {
         type: String,
@@ -45,6 +55,7 @@ var schema = new mongoose.Schema({
     },
     photos: {
         type: [String],
+        set: unique,
         default: ["http://wiki.solid-run.com/images/7/75/No_image_available.png"]
     }
 });

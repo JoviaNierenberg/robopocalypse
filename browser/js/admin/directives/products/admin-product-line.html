@@ -1,7 +1,9 @@
 <div>
 	<form>
-        <img ng-repeat="photo in theProduct.photos track by $index" style="width:auto; height:80px;" ng-src="{{photo}}">
-        </ul>
+		<div ng-repeat="photo in theProduct.photos track by $index">
+        	<img style="width:auto; height:80px;" ng-src="{{photo}}">
+        	<md-button ng-click="removeImg($index)">X</md-button>
+        </div>
 		<md-input-container class="lineItem" flex>
 			<label>Id</label>
 			<input ng-model="theProduct._id" disabled />
