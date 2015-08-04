@@ -1,4 +1,19 @@
 <div class="col-md-12">
-    <admin-category-line ng-repeat="category in categories" category="category" class="col-lg-3 col-md-3 col-sm-4"></admin-category-line>
-    <md-button ng-click="addCategory()">Add</md-button>
+    <div class="row">
+        <admin-category-line ng-repeat="category in categories" category="category" class="col-md-4 marginTop"></admin-category-line>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 marginTop">
+            <div class="row">
+                <md-input-container flex>
+                    <label>
+                        <h3>Name of New Category</h3></label>
+                    <input ng-model="theCategory.name" enabled>
+                </md-input-container>
+            </div>
+            <div class="row">
+                <a class="btn btn-lg btn-primary btn-block btn-standard" ng-click="addCategory()">ADD A NEW CATEGORY</a>
+            </div>
+        </div>
+    </div>
 </div>

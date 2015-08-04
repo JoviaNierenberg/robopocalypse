@@ -1,10 +1,18 @@
-<div>
+<div class="mdl-card mdl-shadow--3dp centerText marginBottom" style="padding:3%;">
     <form>
-        <md-input-container class="lineItem" flex>
-            <label>Name</label>
-            <input ng-model="theCategory.name" class="lineItem" enabled>
-        </md-input-container>
-        <md-button ng-click="editCategory()">Update</md-button>
-        <md-button ng-click="deleteCategory()">Delete</md-button>
+        <div class="row">
+            <md-input-container flex class="lineItem">
+                <label>Name</label>
+                <input ng-model="theCategory.name" enabled>
+            </md-input-container>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <md-button ng-click="editCategory()"><i class="fa fa-pencil"></i> Update</md-button>
+            </div>
+            <div class="col-md-6">
+                <md-button ng-click="deleteCategory()"><i class="fa fa-times"></i> Delete</md-button>
+            </div>
+        </div>
     </form>
 </div>

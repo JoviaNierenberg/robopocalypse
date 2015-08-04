@@ -16,10 +16,16 @@ module.exports = function (app) {
     };
 
     var createNewUser = function (token, tokenSecret, profile) {
+        console.log("------------- profile -------------", profile)
         return UserModel.create({
+            name: { 
+                first: profile.displayName.split(" ")[0], 
+                last: profile.displayName.split(" ")[2] || profile.displayName.split(" ")[1] || "madeUpLastName"
+            },
+            email: profile.username + "@faketwitteremail.com",
             twitter: {
                 id: profile.id,
-                username: profile.username,
+                // username: profile.username,
                 token: token,
                 tokenSecret: tokenSecret
             }
@@ -30,7 +36,7 @@ module.exports = function (app) {
 
         user.twitter.token = token;
         user.twitter.tokenSecret = tokenSecret;
-        user.twitter.username = profile.username;
+        user.twitter.id = profile.id;
 
         return user.save();
 
@@ -39,7 +45,8 @@ module.exports = function (app) {
     var verifyCallback = function (token, tokenSecret, profile, done) {
         console.log("------------------TWITTER PROFILE-------------------- ", profile)
 
-        UserModel.findOne({'twitter.id': profile.id}).exec()
+        UserModel.findOne({'twitter.id': profile.id})
+            .exec()
             .then(function (user) {
                 if (user) { // If a user with this twitter id already exists.
                     return updateUserCredentials(user, token, tokenSecret, profile);
@@ -65,4 +72,4 @@ module.exports = function (app) {
             res.redirect('/');
         });
 
-};
+}; 

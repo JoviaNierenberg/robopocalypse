@@ -1,17 +1,21 @@
 .lineItem{
-	display: inline-block;
+ display: inline-block;
 }
 
-.adminProductThumb{
-	width: auto;
-	height: 80px;
+.adminProductThumb {
+    width: auto;
+    height: 80px;
 }
 
-.newProduct{
-	border: 1px solid #ccc; 
-	border-radius: 10px;
+.newProduct {
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
-.sellerSelect{
-	min-width: 200px;
+.sellerSelect {
+    min-width: 200px;
+}
+
+md-checkbox.md-checked .md-icon {
+    background-color: #42dca3;
 }

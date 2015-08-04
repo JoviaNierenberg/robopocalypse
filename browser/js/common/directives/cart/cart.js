@@ -31,3 +31,4 @@ app.directive('cart', function() {
         controller: 'CartCtrl'
     };
 });
+ 
