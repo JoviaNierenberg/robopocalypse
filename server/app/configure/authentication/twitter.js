@@ -16,6 +16,7 @@ module.exports = function (app) {
     };
 
     var createNewUser = function (token, tokenSecret, profile) {
+        console.log("------------- profile -------------", profile)
         return UserModel.create({
             name: { 
                 first: firstName, 
