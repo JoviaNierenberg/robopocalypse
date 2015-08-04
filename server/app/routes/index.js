@@ -10,6 +10,7 @@ router.use("/reviews", require("./reviews"));
 router.use("/store", require("./store"));
 router.use("/search", require("./search"));
 router.use("/reset", require("./reset"));
+router.use("/send", require("./sendEmail"));
 
 router.put("/cart", function (req, res) {
 	req.session.cart = req.body;

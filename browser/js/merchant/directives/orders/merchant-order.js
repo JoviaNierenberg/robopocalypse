@@ -19,6 +19,7 @@ app.controller("MerchantOrderCtrl", function ($scope, Orders) {
 						order.items[item].total = makeCurrency(order.items[item].quantity * order.items[item].price)
 						order.items[item].price = makeCurrency(order.items[item].price)
 						order.subtotal = makeCurrency(order.subtotal)
+						order.date = new Date(Date.parse(order.date)).toLocaleString();
 					})
 				}
 			})
