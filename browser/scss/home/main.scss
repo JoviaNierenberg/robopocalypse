@@ -32,11 +32,6 @@ body {
     margin-top: 3%;
 }
 
-.row {
-    margin-right: auto;
-    margin-left: auto;
-}
-
 html {
     position: relative;
     min-height: 100%;
@@ -121,7 +116,8 @@ h2 {
 }
 
 .btn-primary:focus {
-    color: #42dca3;
+    color: black;
+    background-color: #42dca3;
     border-color: #42dca3;
 }
 
@@ -133,28 +129,17 @@ h2 {
     width: 100%;
 }
 
-// max 500px
-@media (max-width: 500px) {
-    .container {
-        width: 400px;
-    }
-}
-
 @media (min-width: 1500px) {
     .col-md-9 {
         margin-top: -1.5%;
     }
 }
 
-
 /* Landscape tablets and medium desktops */
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .row.specialRow {
         margin-top: -3%;
-    }
-    .container {
-        width: 1400px;
     }
     .mainContainer {
         min-height: 70.5vh;
@@ -198,6 +183,7 @@ h2 {
     }
     .mainContainer {
         min-height: 60.5vh;
+        margin-top: 10%;
     }
 }
 
@@ -222,10 +208,48 @@ h2 {
     margin-left: -1%;
     margin-right: 1%;
 }
+
 .btn {
     cursor: pointer;
 }
 
-.nullText{
+.nullText {
     color: #9900FF;
+}
+
+.mdl-navigation__link {
+    margin: 3%;
+}
+
+i.mdl-color-text--blue-grey-400.material-icons {
+    vertical-align: middle;
+}
+
+.marginAuto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+button.md-button.md-default-theme {
+    color: white;
+    background-color: black;
+}
+
+.md-button:not([disabled]):hover {
+    color: black;
+}
+
+h3 {
+    margin: 0;
 }
