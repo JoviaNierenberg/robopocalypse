@@ -19,8 +19,8 @@ module.exports = function (app) {
         console.log("------------- profile -------------", profile)
         return UserModel.create({
             name: { 
-                first: firstName, 
-                last: lastName
+                first: profile.displayName.split(" ")[0], 
+                last: profile.displayName.split(" ")[2] || profile.displayName.split(" ")[1] || "madeUpLastName"
             },
             email: email,
             twitter: {
