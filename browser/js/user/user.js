@@ -6,6 +6,12 @@ app.config(function ($stateProvider) {
 	});
 });
 
+function makeCurrency(val){
+	return "$"+(val/100).toFixed(2).replace(/./g, function(c, i, a) {
+		return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+	});
+}
+
 app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders, User, Products) {
 	AuthService.getLoggedInUser().then(function (user) {
 		$scope.user = user;
@@ -31,10 +37,6 @@ app.controller("UserCtrl", function ($scope, AuthService, Reviews, Orders, User,
 		User.updateUser($scope.user._id, $scope.user);
 	};
 
-	function makeCurrency(val){
-		return "$"+(val/100).toFixed(2).replace(/./g, function(c, i, a) {
-	        return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
-	    });
-	}
+	
 
 });

@@ -6,7 +6,7 @@ app.config(function($stateProvider) {
     });
 });
 
-app.controller('LoginCtrl', function($scope, $window, AuthService, $state) {
+app.controller('LoginCtrl', function($scope, $window, AuthService, $state, $http) {
     $scope.login = {};
     $scope.error = null;
     $scope.sendLogin = function(loginInfo) {
@@ -17,4 +17,10 @@ app.controller('LoginCtrl', function($scope, $window, AuthService, $state) {
             $scope.error = 'Invalid login credentials.';
         });
     };
+
+    $scope.forgot = function (login) {
+        $http.get("/api/reset", {params: login}).then(function (res) {
+            console.log(res);
+        });
+    }
 });
