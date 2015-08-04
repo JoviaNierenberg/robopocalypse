@@ -1,8 +1,11 @@
 <div class="col-md-12">
 	<div class="newProduct">
 		<h3>Add a product</h3>
-		<form>
-			<img ng-src="{{newProduct.photo}}" class="adminProductThumb" />
+		<form>			
+			<div id="productImages">
+				<input class="lineItem adminProductThumb" ng-model="addingImage" />
+				<md-button class="md-primary md-raised" ng-click="addImage()">Add Photo</md-button>
+			</div>
 			<md-input-container class="lineItem" flex>
 				<label>Id (Automatically added)</label>
 				<input class="lineItem" disabled />
@@ -11,11 +14,6 @@
 				<label>Title</label>
 				<input ng-model="newProduct.title" />
 			</md-input-container>
-				<label>Sold by User</label>
-				<md-select ng-model="theProduct.seller" md-on-open="loadStores()" style="min-width: 200px;">
-			      <md-select-label>{{ store ? store.storeName : 'Select User Store' }}</md-select-label>
-			      <md-option ng-value="store" ng-repeat="store in stores">{{store.storeName}}</md-option>
-			    </md-select>
 			<md-input-container class="lineItem" flex>
 				<label>Description</label>
 				<input ng-model="newProduct.description" />
@@ -28,10 +26,15 @@
 				<label>Inventory</label>
 				<input ng-model="newProduct.inventory" />
 			</md-input-container>
+			<md-input-container>
+				<md-select ng-model="newProduct.seller" placeholder="{{newProduct.seller ? newProduct.seller.storeName : 'Select User Store'}}" style="min-width: 200px;">
+			      <md-option ng-value="store" ng-repeat="store in stores">{{store.storeName}}</md-option>
+			    </md-select>
+			</md-input-container>
 			<fieldset class="standard" flex>
+			<label>Categories</label>
 			<div layout="row" layout-wrap>
-			<label>Category</label>
-	          <div flex="50" ng-repeat="category in categories">
+	          <div flex="18" ng-repeat="category in categories">
 	            <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
 	              {{ category.name }}
 	            </md-checkbox>
@@ -42,5 +45,5 @@
 		</form>    
 	</div>
 	<hr>
-    <admin-product-line ng-repeat="product in products" product="product"></admin-product-line>
+    <admin-product-line ng-repeat="product in products" product="product" categories="categories" stores="stores"></admin-product-line>
 </div>

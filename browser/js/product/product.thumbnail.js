@@ -6,8 +6,8 @@ app.directive('productThumbnail', function(){
 			theProduct: '=product'
 		},
 		controller: function ($scope, Cart) {
-			$scope.add = function (product) {
-				Cart.addToCart(product);
+			$scope.add = function () {
+				Cart.addToCart($scope.theProduct);
 			};
 		}
 	};
