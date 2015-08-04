@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row marginAuto">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="thumbnail mdl-card mdl-shadow--3dp right-caption" style="padding:2%; width: 100%">
             <div class="col-sm-12 col-lg-6 col-md-6">
@@ -38,7 +38,7 @@
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row marginAuto">
     <div class="col-sm-12 col-lg-6 col-md-6">
         <div class="thumbnail mdl-card mdl-shadow--3dp" style="padding:10%;">
             <div class="centerText">
@@ -50,11 +50,12 @@
     <div class="col-sm-12 col-lg-6 col-md-6">
         <div class="thumbnail mdl-card mdl-shadow--3dp" style="padding:5%;">
             <div class="centerText">
-                <h1><i class="fa fa-cart-arrow-down fa-2x"></i></i> Orders</h1></div>
-                <fieldset ng-repeat="order in orders">
-                    <user-order-line order="order">
-                    </user-order-line>
-                </fieldset>
+                <h1><i class="fa fa-cart-arrow-down fa-2x"></i></i> Orders</h1>
+            </div>
+            <fieldset ng-repeat="order in orders">
+                <user-order-line order="order">
+                </user-order-line>
+            </fieldset>
         </div>
     </div>
 </div>
