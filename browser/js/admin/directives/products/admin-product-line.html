@@ -28,6 +28,13 @@
 			<label>Category</label>
 			<input ng-model="theProduct.category" />
 		</md-input-container>
+		<div layout="row" layout-wrap>
+	          <div flex="18" ng-repeat="category in categories">
+	            <md-checkbox ng-checked="exists(category._id, theProduct.category)" ng-click="toggle(category._id, theProduct.category)">
+	              {{ category.name }}
+	            </md-checkbox>
+	          </div>
+	        </div>
 		<md-button ng-click="update()">Update</md-button>
     	<md-button ng-click="delete()">Delete</md-button>
 	</form>    
