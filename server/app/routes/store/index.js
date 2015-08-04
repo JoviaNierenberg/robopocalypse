@@ -5,6 +5,11 @@ var mongoose = require("mongoose");
 module.exports = router;
 var Product = mongoose.model("Product");
 var User = mongoose.model("User");
+var Promise = require("bluebird");
+var fs = Promise.promisifyAll(require("fs"));
+var path = require("path");
+var ejs = require("ejs");
+var sass = Promise.promisifyAll(require("node-sass"));
 var _ = require("lodash");
 
 router.param("storeURL", function(req, res, next, storeURL) {
@@ -54,6 +59,18 @@ router.put('/:storeURL', function(req, res, next) {
             res.json(store);
         })
         .then(null, next);
+});
+
+router.post("/customTheme/:storeURL", function(req, res, next) {
+    req.body.storeURL = req.params.storeURL;
+    fs.readFileAsync(path.join(__dirname, "./scssTemplate.ejs"), "utf8").then(function(template){
+        var customScss = ejs.render(template, req.body);
+        return sass.renderAsync({data: customScss});
+    }).then(function (renderedcss) {
+        return fs.writeFileAsync(path.join(__dirname, "../../../../browser/custom/", req.params.storeURL + ".css"), renderedcss.css, {encoding: "utf8"});
+    }).then(function () {
+        res.sendStatus(200);
+    }, next);
 });
 
 // delete store

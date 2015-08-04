@@ -66,6 +66,7 @@ router.put('/:orderId', function(req, res, next) {
     for(var key in req.body){
         req.order[key] = req.body[key];
     }
+    console.log(req.order)
     req.order.save()
         .then(function(order) {
             res.json(order);

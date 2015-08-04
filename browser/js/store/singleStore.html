@@ -1,8 +1,10 @@
-<cart></cart>
-<div class="col-md-9">
-    <div class="row">
-        <md-content class="md-padding">
-            <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
-        </md-content>
-    </div>
+<div id="{{slug}}">
+	<cart></cart>
+	<div class="col-md-9">
+	    <div class="row">
+	        <md-content class="md-padding">
+	            <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>
+	        </md-content>
+	    </div>
+	</div>
 </div>

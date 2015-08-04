@@ -4,9 +4,15 @@ app.directive("adminOrderLine", function () {
 		templateUrl: "js/admin/directives/orders/admin-order-line.html",
 		scope: {
 			theOrder: "=order"
-		}
+		},
+		controller: 'AdminOrderLineCtrl'
 	};
 });
 
-// app.controller("AdminOrderLineCtrl", function ($scope, Orders){
-// });
+app.controller("AdminOrderLineCtrl", function ($scope, Orders){
+	$scope.allStatus = ['Created', 'Processing', 'Cancelled', 'Complete']
+
+	$scope.update = function(){
+		Orders.updateOrder($scope.theOrder)
+	}
+});
