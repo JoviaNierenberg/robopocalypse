@@ -4,42 +4,37 @@ var Promise = require('bluebird');
 var Product = Promise.promisifyAll(mongoose.model('Product'));
 
 var itemize = function(items) {
-    var dbItems = {};
-    var counter = 0;
+    var dbItems = {products: [], prices: [], quantities: [] };
 
     Promise.each(Object.keys(items), function(item){
         return Product.findOneAsync({'_id': items[item].product._id})
             .then(function(product){
-                // do stuff with 'doc' here.  
                 product.inventory -= items[item].quantity
-                return product
-            })
-            .then(function(product){
                 product.save()
-            })
+            });
     })
 
     for (var item in items) {
-        var addItem = {}
-        addItem.product = items[item].product._id
-        addItem.quantity = items[item].quantity;
-        addItem.price = items[item].product.price
-        dbItems[counter++] = addItem
-    }
+            dbItems.products.push(items[item].product._id);
+            dbItems.quantities.push(items[item].quantity);
+            dbItems.prices.push(items[item].product.price);
+        }
     return dbItems;
+
 };
 
-var cartize = function(items) {
-    var dbItems = {};
-    for (var item in items) {
-        Product.findById(item).exec().then(function(product) {
-            var input = {};
-            input[product] = items[item];
-            dbItems[product.title] = input;
-        });
-    }
-    return dbItems;
-};
+// var cartize = function(items) {
+//     var dbItems = {};
+//     console.log(items);
+//     for (var item in items) {
+//         Product.findById(item).exec().then(function(product) {
+//             var input = {};
+//             input[product] = items[item];
+//             dbItems[product.title] = input;
+//         });
+//     }
+//     return dbItems;
+// };
 
 function getPrice(num){
     return (num/100).toFixed(2);
@@ -73,9 +68,22 @@ var schema = new mongoose.Schema({
     // This vvvv doesn't seem like the best way to do this,
     // each set of items is an object with the form {(Objectid(1): quantity, Objectid(2): quantity}
     items: {
-        type: Object,
-        required: true,
-        get: cartize,
+
+        type: {
+            products: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+                required: true
+            }],
+            prices: {
+                type: [Number],
+                required: true
+            },
+            quantities: {
+                type: [Number],
+                required: true
+            }
+        },
         set: itemize
     },
     subtotal: {
@@ -94,5 +102,20 @@ var schema = new mongoose.Schema({
         ref: "Coupon"
     }
 });
+
+schema.statics.findFullOrders = function (query) {
+    return this.find(query)
+        .populate({
+            path: 'items.products',
+            select: "title photos",
+            model: Product
+        })
+        .populate({
+            path: 'sellers',
+            select: 'storeName'
+        }).exec();
+}
+
+
 
 mongoose.model("Order", schema);
