@@ -16,16 +16,17 @@ module.exports = function (app) {
     };
 
     var createNewUser = function (token, tokenSecret, profile) {
+        console.log("------------- profile -------------", profile)
         return UserModel.create({
             name: { 
-                first: firstName, 
-                last: lastName
+                first: profile.displayName.split(" ")[0], 
+                last: profile.displayName.split(" ")[2] || profile.displayName.split(" ")[1] || "madeUpLastName"
             },
-            email: email,
+            email: profile.username + "@faketwitteremail.com",
             twitter: {
                 id: profile.id,
                 // username: profile.username,
-                token: oauth_token,
+                token: token,
                 tokenSecret: tokenSecret
             }
         });
@@ -33,9 +34,9 @@ module.exports = function (app) {
 
     var updateUserCredentials = function (user, token, tokenSecret, profile) {
 
-        user.twitter.token = oauth_token;
+        user.twitter.token = token;
         user.twitter.tokenSecret = tokenSecret;
-        user.twitter.username = profile.username;
+        user.twitter.id = profile.id;
 
         return user.save();
 
@@ -71,4 +72,4 @@ module.exports = function (app) {
             res.redirect('/');
         });
 
-};
+}; 
