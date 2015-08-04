@@ -20,7 +20,6 @@ app.controller("AdminProductLineCtrl", function($scope, Products) {
     };
     $scope.removeImg = function(index){
         $scope.theProduct.photos.splice(index, 1);
-        // Products.updateProduct($scope.theProduct);
     }
 
 
