@@ -81,6 +81,23 @@ schema.virtual("full_name").get(function() {
     return this.name.first + " " + this.name.last;
 });
 
+schema.virtual("reset_link").get(function() {
+    //api/reset/key
+    var link = "http://localhost:1337/passReset?email=" + encodeURI(this.email) + "&expirationTime=" + (Date.now() + 48 * 60 * 60 * 1000) + "&token=" + encryptPassword(this.password, this.salt);
+    return link;
+});
+
+schema.statics.resetPass = function (query) {
+    return this.findOne({email: query.email}).exec().then(function(user){
+        console.log(Date.now() < query.expirationTime && encryptPassword(user.password, user.salt) === query.token);
+        if(Date.now() < query.expirationTime && encryptPassword(user.password, user.salt) === query.token){
+            user.password = query.newPassword;
+            return user.save();
+        }
+        throw new Error("Invalid reset attempt!!!");
+    });
+}
+
 schema.statics.generateSalt = generateSalt;
 schema.statics.encryptPassword = encryptPassword;
 

@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Emails', function($http, $rootScope) {
+app.factory('Emails', function($http) {
     return {
         // returns all users
         sendUserConfirmation: function(data) {

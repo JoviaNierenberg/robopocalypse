@@ -25,7 +25,16 @@ router.param('orderId', function(req, res, next, orderId) {
 // get all orders
 // >> fixed
 router.get('/', function(req, res) {
-    Order.find(req.query).exec().then(function(orders) {
+    Order.find(req.query)
+        // .populate({
+        //     path: 'user',
+        //     select: 'name'
+        // })
+        // .populate({
+        //     path: 'product',
+        //     select: 'title'
+        // })
+        .exec().then(function(orders) {
         res.json(orders)
     });
 });
