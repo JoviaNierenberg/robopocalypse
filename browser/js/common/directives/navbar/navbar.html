@@ -71,6 +71,9 @@
                         </div>
                     </div>
                 </form>
+                <li ng-if="user && !merchant && !admin">
+                    <a ui-sref="requestStore"><i class="fa fa-sign-out"></i>Become a Merchant</a>
+                </li>
             </ul>
         </div>
     </div>

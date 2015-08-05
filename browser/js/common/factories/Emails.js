@@ -27,6 +27,9 @@ app.factory('Emails', function($http) {
         },
         sendMerchantOrder: function(data){
         	return $http.post('/api/send/merchantOrder', data).then(responseData);
+        },
+        sendMerchantRequest: function(data){
+            return $http.post('/api/send/merchantRequest', data).then(responseData);
         }
     };
 });
