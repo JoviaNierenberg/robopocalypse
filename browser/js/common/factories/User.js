@@ -4,8 +4,8 @@ app.factory('User', function($http, $rootScope, Emails) {
     var responseData = function(response){ return response.data; };
     return {
         // returns all users
-        getAll: function() {
-            return $http.get('/api/users/').then(responseData);
+        getAll: function(query) {
+            return $http.get('/api/users/', {params:query}).then(responseData);
         },
         // get single user
         getOne: function(id) {

@@ -41,7 +41,7 @@ router.get("/", function(req, res) {
 
 // get single store
 router.get("/:storeURL", function(req, res) {
-    console.log(req.store)
+
     Product.find({seller: req.store._id}).exec().then(function (products) {
         res.json(products)
     }, function(err){
