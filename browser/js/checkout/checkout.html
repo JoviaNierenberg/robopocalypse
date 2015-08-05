@@ -87,7 +87,17 @@
             <h3 class="marginBottom">Your Current Order</h3>
             <!-- <order-item></order-item> -->
             <!-- Need to fix cart in order to just display items -->
-            <cart></cart>
+            <div ng-repeat="item in cart.items">
+			    <div class="thumbnail mdl-card mdl-shadow--2dp" style="min-height:0px;padding:10%;margin-bottom:0;">
+			        <img class="checkoutImg" ng-src="{{item.product.photos[0]}}" /><!-- 
+			         --><div class="caption checkoutCaption" >
+			            <h3><b>{{item.product.title}}</b></h3>
+			            <p class="checkoutText"><b>Quantity</b> {{item.quantity}}</p>
+			            <p class="checkoutText"><b>Price</b> ${{item.product.price | getPrice}}</p>
+			        </div>
+			    </div>
+			</div>
+			<h3>Total: {{cart.subtotal | getPrice}}</h3>
         </md-content>
         <md-content class="col-lg-6 col-md-6 col-sm-12">
             <h3>Credit Card</h3>
