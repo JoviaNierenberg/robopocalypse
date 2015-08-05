@@ -3,6 +3,7 @@
     <div class="col-md-9">
         <h3 ng-show="search">Search: {{search}}</h3>
         <div class="row content">
+        	<h4 ng-show="noContent"><span class="nullText">Null</span> Product Result</h4>
             <product-thumbnail ng-repeat="productEntry in products track by $index | orderBy: sortMethod" ng-hide="productEntry.seller || productEntry.inventory === 0"product="productEntry"></product-thumbnail>
         </div>
     </div>
