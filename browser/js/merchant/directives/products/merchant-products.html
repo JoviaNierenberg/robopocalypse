@@ -1,42 +1,81 @@
-<div class="col-md-12">
-	<div style="border: 1px solid #ccc; border-radius: 10px;">
-		<h3>Add a product</h3>
-		<form>
-			<img ng-src="{{newProduct.photo}}" style="width:80px"/>
-			<md-input-container class="lineItem" flex>
-				<label>Id (Automatically added)</label>
-				<input class="lineItem" disabled />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Title</label>
-				<input ng-model="newProduct.title" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Description</label>
-				<input ng-model="newProduct.description" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Price</label>
-				<input ng-model="newProduct.price" />
-			</md-input-container>
-			<md-input-container class="lineItem" flex>
-				<label>Inventory</label>
-				<input ng-model="newProduct.inventory" />
-			</md-input-container>
-			<fieldset class="standard" flex>
-			<div layout="row" layout-wrap>
-			<label>Category</label>
-	          <div flex="50" ng-repeat="category in categories">
-	            <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
-	              {{ category.name }}
-	            </md-checkbox>
-	          </div>
-	        </div>
-	        </fieldset>
-			<md-button ng-click="addProduct()">Add</md-button>
-		</form>    
-	</div>
-	<hr>
-
-    <merchant-product-line ng-repeat="product in products" product="product"></merchant-product-line>
+<div class="centerText">
+    <div class="row">
+        <div class="mdl-card mdl-shadow--3dp centerText" style="padding:1%; width:inherit; margin-bottom: 1%">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 marginTop marginBottom">
+                    <a ng-click="showAddProduct = showAddProduct ? false : true"><h3>Add a product</h3></a>
+                </div>
+            </div>
+            <div class="row" ng-show="showAddProduct">
+                <form>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem" flex>
+                                <label>Image URL</label>
+                                <input class="lineItem adminProductThumb" ng-model="addingImage" />
+                            </md-input-container>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <a class="btn btn-primary btn-md btn-standard" ng-click="addImage()">ADD ANOTHER PHOTO</a>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem" flex>
+                                <label>ID (automatically added)</label>
+                                <input class="lineItem" disabled />
+                            </md-input-container>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem" flex>
+                                <label>Title</label>
+                                <input ng-model="newProduct.title" />
+                            </md-input-container>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <a class="btn btn-primary btn-lg btn-standard" ng-click="addProduct()">ADD THIS PRODUCT</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem" flex>
+                                <label>Description</label>
+                                <input ng-model="newProduct.description" />
+                            </md-input-container>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem" flex>
+                                <label>Price</label>
+                                <input ng-model="newProduct.price" />
+                            </md-input-container>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem" flex>
+                                <label>Inventory</label>
+                                <input ng-model="newProduct.inventory" />
+                            </md-input-container>
+                        </div>
+                        <div class="row marginTop marginBottom">
+                            <md-input-container class="lineItem">
+                                <md-select ng-model="newProduct.seller" placeholder="{{newProduct.seller ? newProduct.seller.storeName : 'What store does it belong to?'}}" style="min-width: 200px;">
+                                    <md-option ng-value="store" ng-repeat="store in stores">{{store.storeName}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row marginTop marginBottom">
+                        <fieldset class="standard">
+                            <label>Categories</label>
+                            <div layout="row" layout-wrap>
+                                <div ng-repeat="category in categories">
+                                    <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
+                                        {{ category.name }}
+                                    </md-checkbox>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <merchant-product-line ng-repeat="product in products" product="product" categories="categories" stores="stores"></merchant-product-line>
+    </div>
 </div>
