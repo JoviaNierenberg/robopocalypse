@@ -24,7 +24,7 @@ body {
     font-family: "ProximaNova";
 }
 
-.nullMessage{
+.nullMessage {
     margin-left: 3%;
 }
 
@@ -135,9 +135,9 @@ h2 {
 
 //This is replacing the @media below, those are extremely broken and overlap
 .mainContainer {
-        min-height: 60.5vh;
-        margin-top: 3vh;
-    }
+    min-height: 60.5vh;
+    margin-top: 3vh;
+}
 
 @media (min-width: 1500px) {
     .col-md-9 {
@@ -228,7 +228,7 @@ h2 {
 }
 
 .nullText {
-    color: #9900FF;
+    color: black;
 }
 
 .mdl-navigation__link {
@@ -261,4 +261,20 @@ button.md-button.md-default-theme {
 
 h3 {
     margin: 0;
+}
+
+a:hover,
+.btn:hover {
+    cursor: url(http://ani.cursors-4u.net/toons/too-12/too1138.cur), progress !important;
+}
+
+md-input-container textarea.md-input {
+    min-height: 100px;
+}
+
+.mdl-card.mdl-shadow--3dp.centerText.marginBottom.reviewDisplay {
+    width: 100%;
+}
+.mdl-card.mdl-shadow--3dp.centerText.marginBottom {
+    width: 100%;
 }
