@@ -1,51 +1,79 @@
-<div>
+<div class="marginTop">
     <fieldset>
         <form>
-            <md-input-container class="lineItem" flex>
-                <label>Date</label>
-                <input ng-model="theOrder.date" class="lineItem" disabled>
-            </md-input-container>
-            <md-input-container class="lineItem" flex>
-                <label>Buyer</label>
-                <input ng-model="theOrder.buyer" class="lineItem" disabled>
-            </md-input-container>
-            <md-input-container class="lineItem" flex>
-                <label>Billing Address</label>
-                <input ng-model="theOrder.billing" class="lineItem">
-            </md-input-container>
-            <md-input-container class="lineItem" flex>
-                <label>Shipping Address</label>
-                <input ng-model="theOrder.shipping" class="lineItem">
-            </md-input-container>
-            <p><label>Items:</label>
-                <fieldset ng-repeat="product in theOrder.items.products track by $index">
-                    <img ui-sref="singleProduct({id: product._id })" ng-src="{{product.photos[0]}}" style="width:80px"/>
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
                     <md-input-container class="lineItem" flex>
-                        <label>Product</label>
-                        <input ng-model="product.title" class="lineItem">
+                        <label>Date</label>
+                        <input ng-model="theOrder.date" class="lineItem" disabled>
                     </md-input-container>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
                     <md-input-container class="lineItem" flex>
-                        <label>Quantity</label>
-                        <input ng-model="theOrder.items.quantities[$index]" class="lineItem">
+                        <label>Buyer</label>
+                        <input ng-model="theOrder.buyer" class="lineItem" disabled>
                     </md-input-container>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
                     <md-input-container class="lineItem" flex>
-                        <label>Price Per:</label>
-                        <input ng-model="theOrder.items.prices[$index]" class="lineItem" transform-model>
+                        <label>Billing Address</label>
+                        <input ng-model="theOrder.billing" class="lineItem">
                     </md-input-container>
-                </fieldset>
-            </p>
-            <md-input-container class="lineItem" flex>
-                <label>Subtotal</label>
-                <input ng-model="theOrder.subtotal" class="lineItem" transform-model>
-            </md-input-container>
-            <md-select placeholder="Status" ng-model="theOrder.status">
-                <md-option ng-repeat="status in allStatus" value="{{status}}">{{status}}</md-option>
-            </md-select>
-            <md-input-container class="lineItem" flex>
-                <label>Coupon</label>
-                <input ng-model="theOrder.coupon" class="lineItem">
-            </md-input-container>
-            <md-button ng-click="update()"><i class="fa fa-pencil"></i> Update</md-button>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <md-input-container class="lineItem" flex>
+                        <label>Shipping Address</label>
+                        <input ng-model="theOrder.shipping" class="lineItem">
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <fieldset ng-repeat="product in theOrder.items.products track by $index" class="row">
+                        <div class="col-sm-12 md-1 lg-1">
+                            <img ui-sref="singleProduct({id: product._id })" ng-src="{{product.photos[0]}}" style="width:80px" />
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-input-container class="lineItem" flex>
+                                <label>Product</label>
+                                <input ng-model="product.title" class="lineItem">
+                            </md-input-container>
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-input-container class="lineItem" flex>
+                                <label>Quantity</label>
+                                <input ng-model="theOrder.items.quantities[$index]" class="lineItem">
+                            </md-input-container>
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-input-container class="lineItem" flex>
+                                <label>Price Per Item</label>
+                                <input ng-model="theOrder.items.prices[$index]" class="lineItem" transform-model>
+                            </md-input-container>
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-input-container class="lineItem" flex>
+                                <label>Subtotal</label>
+                                <input ng-model="theOrder.subtotal" class="lineItem" transform-model>
+                            </md-input-container>
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-select placeholder="Status" ng-model="theOrder.status">
+                                <md-option ng-repeat="status in allStatus" value="{{status}}">{{status}}</md-option>
+                            </md-select>
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-input-container class="lineItem" flex>
+                                <label>Coupon</label>
+                                <input ng-model="theOrder.coupon" class="lineItem">
+                            </md-input-container>
+                        </div>
+                        <div class="col-sm-12 md-1 lg-1">
+                            <md-button ng-click="update()"><i class="fa fa-pencil"></i> Update</md-button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
         </form>
     </fieldset>
 </div>
