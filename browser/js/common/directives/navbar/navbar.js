@@ -12,6 +12,9 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
             };
             scope.logout = function() {
                 AuthService.logout().then(function() {
+                    scope.user = null;
+                    scope.admin = null;
+                    scope.merchant = null;
                     $state.go('home');
                 });
             };
