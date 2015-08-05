@@ -14,6 +14,7 @@ app.controller("AdminOrderLineCtrl", function ($scope, Orders){
 	$scope.theOrder.date = new Date(Date.parse($scope.theOrder.date)).toLocaleString();
 
 	$scope.update = function(){
+		
 		Orders.updateOrder($scope.theOrder)
 	}
 });
