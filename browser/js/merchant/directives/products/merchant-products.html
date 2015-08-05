@@ -60,19 +60,20 @@
                                 </md-select>
                             </md-input-container>
                         </div>
-                    </div>
-                    <div class="row marginTop marginBottom">
-                        <fieldset class="standard">
-                            <label>Categories</label>
-                            <div layout="row" layout-wrap>
-                                <div ng-repeat="category in categories">
-                                    <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
-                                        {{ category.name }}
-                                    </md-checkbox>
+                        <div class="row marginTop marginBottom">
+                            <fieldset class="standard">
+                                <label>Categories</label>
+                                <div layout="row" layout-wrap>
+                                    <div ng-repeat="category in categories">
+                                        <md-checkbox ng-checked="exists(category._id, newProduct.category)" ng-click="toggle(category._id, newProduct.category)">
+                                            {{ category.name }}
+                                        </md-checkbox>
+                                    </div>
                                 </div>
-                            </div>
-                        </fieldset>
+                            </fieldset>
+                        </div>
                     </div>
+                    
                 </form>
             </div>
         </div>

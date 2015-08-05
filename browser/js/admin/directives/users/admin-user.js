@@ -9,7 +9,6 @@ app.directive("adminUsers", function () {
 app.controller("AdminUserCtrl", function ($scope, $rootScope, User) {
 	var getUsers = function () {
 		User.getAll().then(function (users) {
-			console.log(users);
 			$scope.users = users;
 		});
 	};

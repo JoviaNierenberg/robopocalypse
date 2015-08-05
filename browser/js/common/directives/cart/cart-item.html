@@ -6,7 +6,7 @@
             <h5><b>{{theItem.product.title}}</b></h4>
             <p class="cartText"><b>Quantity</b> {{theItem.quantity}}</p>
             <p class="cartText"><b>Price</b> ${{theItem.product.price | getPrice}}</p>
-            <select ng-model="selectedQuantity" ng-options="num for num in [] | range:1:100" ng-init="selectedQuantity = theItem.quantity" ng-change="updateItem(selectedQuantity)">
+            <select ng-model="selectedQuantity" ng-options="num for num in [] | range:1:{{theItem.product.inventory + 1}}" ng-init="selectedQuantity = theItem.quantity" ng-change="updateItem(selectedQuantity)">
                 <option value=""></option>
             </select>
         </div>

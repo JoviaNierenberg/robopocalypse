@@ -18,7 +18,7 @@ app.controller('MerchantCtrl', function ($scope, Orders, AuthService, Categories
 
   var getCategories = function () {
     Categories.getAll().then(function(categories) {
-      $scope.theCategories = categories;
+      $scope.categories = categories;
     });
   }
 
