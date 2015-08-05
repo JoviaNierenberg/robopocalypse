@@ -1,17 +1,17 @@
 <div class="mdl-card mdl-shadow--3dp centerText marginBottom" style="padding:3%; width:inherit;">
     <form>
-        <div class="col-sm-12 col-md-3 col-lg-3">
+        <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="row marginTop marginBottom">
                 <img class="img-responsive marginAuto" ng-src="{{theUser.photo}}" />
             </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="row marginTop marginBottom">
                 <md-input-container class="lineItem" flex>
                     <label>ID</label>
                     <input ng-model="theUser._id" class="lineItem" disabled>
                 </md-input-container>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="row marginTop marginBottom">
                 <md-input-container class="lineItem" flex>
                     <label>First Name</label>
@@ -24,8 +24,6 @@
                     <input ng-model="theUser.name.last" class="lineItem">
                 </md-input-container>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="row marginTop marginBottom">
                 <md-input-container class="lineItem" flex>
                     <label>Role</label>
@@ -38,8 +36,6 @@
                     <input ng-model="theUser.email" class="lineItem">
                 </md-input-container>
             </div>
-        </div>
-        <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="row marginTop marginBottom">
                 <a class="btn-primary btn-lg btn-standard" ng-click="update()"><i class="fa fa-pencil"></i> Update</a>
             </div>

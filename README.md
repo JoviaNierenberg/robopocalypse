@@ -12,7 +12,7 @@
 
 <img alt="Robotocat" src="https://octodex.github.com/images/Robotocat.png" wdith="200" height="200">
 
-## Check out our robot store at [`http://robopocalypse.herokuapp.com`](http://robopocalypse.herokuapp.com).
+## Check out our robot store at <a href="http://robopocalypse.herokuapp.com" target="_blank">`http://robopocalypse.herokuapp.com`</a>
 
 ---
 
@@ -44,4 +44,4 @@
 
 > Built with ❤️ at [Fullstack Academy](http://fullstackacademy.com "Fullstack Academy").
 >
-> Last updated July 28, 2015
+> Last updated August 5, 2015

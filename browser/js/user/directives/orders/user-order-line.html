@@ -1,31 +1,33 @@
-<div>
-
-        <p><label>Order:</label>
-        {{theOrder.date}}</p>
-
-        <p><label>Billing Address:</label>
-        {{theOrder.billing}}</p>
-
-        <p><label>Shipping Address:</label>
-        {{theOrder.shipping}}"</p>
-
-        <p><label>Items:</label>
+<div class="row marginTop">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="row">
+            <p><b>Ordered On </b>{{theOrder.date}}</p>
+        </div>
+        <div class="row">
+            <p><b>Billing Address </b>{{theOrder.billing}}</p>
+        </div>
+        <div class="row">
+            <p><b>Shipping Address </b>{{theOrder.shipping}}"</p>
+        </div>
+        <div class="row">
+            <p><b>Subtotal </b> {{theOrder.subtotal | getPrice}}</p>
+        </div>
+        <div class="row">
+            <p><b>Status </b>{{theOrder.status}}</p>
+        </div>
+        <div class="row">
+            <p><b>Coupon </b>{{theOrder.coupon}}</p>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="row">
+            <p><b>Items Ordered</b></p>
+        </div>
+        <div class="row">
             <fieldset ng-repeat="product in theOrder.items.products track by $index">
-                <img ui-sref="singleProduct({id: product._id })" ng-src="{{product.photos[0]}}" style="width:80px"/>
-                <a ui-sref="singleProduct({id: product._id })">{{product.title}}</a>
-                Quantity: {{theOrder.items.quantities[$index]}}
-                Price: {{theOrder.items.prices[$index] | getPrice}}
-                <!-- {{item.total}} -->
+                <img ui-sref="singleProduct({id: product._id })" ng-src="{{product.photos[0]}}" style="width:80px" />
+                <a ui-sref="singleProduct({id: product._id })">{{product.title}}</a> Quantity: {{theOrder.items.quantities[$index]}} Price: {{theOrder.items.prices[$index] | getPrice}}
             </fieldset>
-        </p>
-
-        <p><label>Subtotal:</label>
-        {{theOrder.subtotal | getPrice}}</p>
-
-        <p><label>Status:</label>
-        {{theOrder.status}}</p>
-
-        <p><label>Coupon:</label>
-        {{theOrder.coupon}}</p>
-
+        </div>
+    </div>
 </div>
