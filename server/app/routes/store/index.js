@@ -11,6 +11,8 @@ var path = require("path");
 var ejs = require("ejs");
 var sass = Promise.promisifyAll(require("node-sass"));
 var _ = require("lodash");
+var secur = require("../security");
+
 
 router.param("storeURL", function(req, res, next, storeURL) {
     User.findOne({storeURL: storeURL}).exec()
@@ -50,7 +52,7 @@ router.get("/:storeURL", function(req, res) {
 });
 
 // add/update single store
-router.put('/:storeURL', function(req, res, next) {
+router.put('/:storeURL', secur.isMerchantOrAdmin, function(req, res, next) {
     for (var key in req.body) {
         req.store[key] = req.body[key];
     }
@@ -61,7 +63,7 @@ router.put('/:storeURL', function(req, res, next) {
         .then(null, next);
 });
 
-router.post("/customTheme/:storeURL", function(req, res, next) {
+router.post("/customTheme/:storeURL", secur.isMerchantOrAdmin, function(req, res, next) {
     req.body.storeURL = req.params.storeURL;
     fs.readFileAsync(path.join(__dirname, "./scssTemplate.ejs"), "utf8").then(function(template){
         var customScss = ejs.render(template, req.body);
@@ -74,7 +76,7 @@ router.post("/customTheme/:storeURL", function(req, res, next) {
 });
 
 // delete store
-router.delete("/:storeURL", function(req, res, next) {
+router.delete("/:storeURL", secur.isAdmin, function(req, res, next) {
     delete req.store.storeName
     delete req.store.storeURL
     delete req.store.storeDesc

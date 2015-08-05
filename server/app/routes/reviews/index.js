@@ -4,6 +4,7 @@ require('../../../db/models')
 var mongoose = require("mongoose");
 module.exports = router;
 var Review = mongoose.model("Review");
+var secur = require("../security");
 
 router.param('reviewId', function(req, res, next, reviewId) {
     Review.findById(reviewId)
@@ -45,7 +46,7 @@ router.get('/', function(req, res) {
 })
 
 // add a reviews
-router.post('/create', function(req, res) {
+router.post('/create', secur.ensureAuthenticated, function(req, res) {
     Review.create(req.body)
         .then(function(review) {
             res.send(review);
@@ -58,7 +59,7 @@ router.get('/:reviewId', function(req, res) {
 })
 
 // update single review
-router.put('/:reviewId', function(req, res, next) {
+router.put('/:reviewId', secur.isAdmin, function(req, res, next) {
      for (var key in req.body) {
         req.review[key] = req.body[key];
     }
@@ -70,7 +71,7 @@ router.put('/:reviewId', function(req, res, next) {
 })
 
 // delete reviewId
-router.delete('/:reviewId', function(req, res, next) {
+router.delete('/:reviewId', secur.isAdmin, function(req, res, next) {
     req.review.remove()
         .then(function() {
             res.status(200).end();

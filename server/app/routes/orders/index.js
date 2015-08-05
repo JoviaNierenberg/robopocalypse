@@ -3,6 +3,7 @@ var router = require('express').Router();
 require('../../../db/models');
 var mongoose = require("mongoose");
 var Order = mongoose.model("Order");
+var secur = require("../security");
 
 module.exports = router;
 
@@ -55,11 +56,10 @@ router.post('/', function(req, res) {
 });
 
 // update order
-router.put('/:orderId', function(req, res, next) {
+router.put('/:orderId', secur.isAdmin, function(req, res, next) {
     for(var key in req.body){
         req.order[key] = req.body[key];
     }
-    console.log(req.order)
     req.order.save()
         .then(function(order) {
             res.json(order);
@@ -68,7 +68,7 @@ router.put('/:orderId', function(req, res, next) {
 });
 
 // delete order
-router.delete('/:orderId', function(req, res, next) {
+router.delete('/:orderId', secur.isAdmin, function(req, res, next) {
     req.order.remove()
         .then(function() {
             res.status(204).end();
