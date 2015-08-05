@@ -26,7 +26,12 @@ app.factory('Emails', function($http) {
         	return $http.post('/api/send/merchantAccepted', data).then(responseData);
         },
         sendMerchantOrder: function(data){
-        	return $http.post('/api/send/merchantOrder', data).then(responseData);
+            return data.forEach(function(merchant){
+                return $http.post('/api/send/merchantOrder', data).then(responseData);
+            })
+        },
+        sendMerchantRequest: function(data){
+            return $http.post('/api/send/merchantRequest', {sellers: data}).then(responseData);
         }
     };
 });

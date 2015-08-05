@@ -25,10 +25,13 @@ app.controller('ProductCtrl', function($scope, Products, Reviews, $stateParams, 
     // creates reviews
     $scope.createReview = function(reviewData) {
         reviewData.product = $scope.singleProduct._id
+        var userName;
         AuthService.getLoggedInUser().then(function(user) {
+            userName = user.name;
             reviewData.user = user._id
             return Reviews.createReview(reviewData)
         }).then(function(createdReview){
+            createdReview.user = {name: userName};
             $scope.reviews.push(createdReview)
         })
         delete $scope.review

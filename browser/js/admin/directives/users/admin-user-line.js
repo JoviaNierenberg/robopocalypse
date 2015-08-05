@@ -9,7 +9,9 @@ app.directive("adminUserLine", function () {
 	};
 });
 
-app.controller("AdminUserLineCtrl", function ($scope, User){
+app.controller("AdminUserLineCtrl", function ($scope, User, Emails){
+
+	$scope.roles = ['User','Merchant','Admin']
 
 	$scope.delete = function () {
 		User.deleteUser($scope.theUser._id);
@@ -17,6 +19,13 @@ app.controller("AdminUserLineCtrl", function ($scope, User){
 
 	$scope.update = function () {
 		User.updateUser($scope.theUser._id, $scope.theUser);
+	}
+
+	$scope.makeMerchant = function(){
+		$scope.theUser.roles[0] = 'Merchant'
+		User.updateUser($scope.theUser._id, $scope.theUser)
+		Emails.sendMerchantAccepted($scope.theUser)
+		alert($scope.theUser.name.first + "" + $scope.theUser.name.last + " is now a Merchant")
 	}
 });
 

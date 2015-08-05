@@ -23,26 +23,6 @@ var itemize = function(items) {
 
 };
 
-// var cartize = function(items) {
-//     var dbItems = {};
-//     console.log(items);
-//     for (var item in items) {
-//         Product.findById(item).exec().then(function(product) {
-//             var input = {};
-//             input[product] = items[item];
-//             dbItems[product.title] = input;
-//         });
-//     }
-//     return dbItems;
-// };
-
-function getPrice(num){
-    return (num/100).toFixed(2);
-}
-
-function setPrice(num){
-    return num*100;
-}
 
 var schema = new mongoose.Schema({
     //using email so guests can make orders as well

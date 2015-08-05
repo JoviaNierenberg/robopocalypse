@@ -1,0 +1,40 @@
+<div class="container noPadding centerText specialRow">
+        <h1 class="form-signin-heading centerText">Request Your Store</h1>
+        <div class="row">
+            <!-- Password -->
+            <md-content class="col-lg-6 col-md-12 col-sm-12">
+                <div layout layout-sm="column">
+                    <md-input-container >
+                        <label>
+                            <h1>Store Name</h1></label>
+                        <input type="text" ng-model="user.storeName" class="form-control mdl-textfield__input" required>
+                    </md-input-container>
+                </div>
+            </md-content>
+            <md-content class="col-lg-6 col-md-12 col-sm-12">
+                <div layout layout-sm="column">
+                    <md-input-container >
+                        <label>
+                            <h1>Store URL</h1></label>
+                        <input type="text" ng-model="user.storeURL" class="form-control mdl-textfield__input"required>
+                    </md-input-container>
+                </div>
+            </md-content>
+            <md-content class="col-lg-6 col-md-12 col-sm-12">
+                <div layout layout-sm="column">
+                    <md-input-container >
+                        <label>
+                            <h1>Store Description</h1></label>
+                        <input type="textarea" ng-model="user.storeDesc" class="form-control mdl-textfield__input" required>
+                    </md-input-container>
+                </div>
+            </md-content>
+            <!-- Buttons -->
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <button class="btn btn-lg btn-primary btn-block btn-standard" ng-click="requestStore()"><i class="fa fa-sign-in"></i>Submit Request to Robot Overlords</button>
+            </div>
+        </div>
+        
+</div>

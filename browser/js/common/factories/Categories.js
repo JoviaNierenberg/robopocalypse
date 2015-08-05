@@ -14,16 +14,14 @@ app.factory('Categories', function($http) {
                 return response.data;
             });
         },
-        deleteCategory: function(catName) {
-            return $http.delete('api/categories', {
-                name: catName
-            }).then(function() {
-                console.log("Category succesfully deleted.");
+        deleteCategory: function(id) {
+            return $http.delete('api/categories/' + id).then(function(res) {
+                return res.data;
             });
         },
-        getOne: function(catName) {
-            return $http.get('/api/categories', {
-                name: catName
+        updateOne: function(id, newName) {
+            return $http.put('/api/categories/' + id, {
+                name: newName
             }).then(function(response) {
                 return response.data;
             });
