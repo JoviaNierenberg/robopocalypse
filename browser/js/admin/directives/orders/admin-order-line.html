@@ -30,13 +30,13 @@
                     </md-input-container>
                     <md-input-container class="lineItem" flex>
                         <label>Price Per:</label>
-                        <input ng-model="theOrder.items.prices[$index] | getPrice" class="lineItem">
+                        <input ng-model="theOrder.items.prices[$index]" class="lineItem">
                     </md-input-container>
                 </fieldset>
             </p>
             <md-input-container class="lineItem" flex>
                 <label>Subtotal</label>
-                <input ng-model="theOrder.subtotal | getPrice" class="lineItem">
+                <input ng-model="theOrder.subtotal" class="lineItem">
             </md-input-container>
             <md-select placeholder="Status" ng-model="theOrder.status">
                 <md-option ng-repeat="status in allStatus" value="{{status}}">{{status}}</md-option>
