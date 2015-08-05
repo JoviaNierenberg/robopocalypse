@@ -9,9 +9,7 @@
                 <option value="4">4 stars</option>
                 <option ng-selected="selected" value="5">5 stars</option>
             </select>
-<!--             <p ng-show="reviewform.stars.$invalid; reviewForm.$submitted" class="help-block">Please enter stars</p> -->
             <textarea name="review-text" class="form-control marginTop autofocus" cols="50" name="comment" ng-model="review.text" placeholder="Enter your review here..." rows="5" required ng-minlength="10"></textarea>
-<!--             <p ng-show="reviewform.review-text.$invalid; reviewForm.$submitted" class="help-block">Review must be longer than 10 characters</p> -->
             <button class="btn btn-primary btn-lg btn-standard marginTop" type="submit"><i class="fa fa-plus"></i> Add a Review</button>
         </div>
     </form>
