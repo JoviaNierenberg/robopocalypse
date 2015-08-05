@@ -22,7 +22,7 @@ router.param('userid', function(req, res, next, userid) {
 });
 
 // //for admin to see all users
-router.get("/", secur.isAdmin, function (req, res) {
+router.get("/", function (req, res) {
     User.find(req.query).then(function (users) {
         users = users.map(function (user) {
             return _.omit(user.toJSON(), ['salt', 'password']);
