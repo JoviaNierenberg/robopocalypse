@@ -3,6 +3,7 @@ var router = require("express").Router();
 require("../../../db/models");
 var mongoose = require("mongoose");
 var Category = mongoose.model("Category");
+var secur = require("../security");
 
 module.exports = router;
 
@@ -33,7 +34,7 @@ router.get("/:category", function (req, res) {
 });
 
 // add category
-router.post("/", function(req, res) {
+router.post("/", secur.isAdmin, function(req, res) {
 	Category.create({name: req.body.name})
     .then(function(category){
         res.send(category)
@@ -43,7 +44,7 @@ router.post("/", function(req, res) {
 })
 
 // update category
-router.put("/:category", function (req, res, next) {
+router.put("/:category", secur.isAdmin, function (req, res, next) {
 	for(var key in req.body){
         req.category[key] = req.body[key];
     }
@@ -55,7 +56,7 @@ router.put("/:category", function (req, res, next) {
 });
 
 // delete category
-router.delete("/:category", function(req, res, next) {
+router.delete("/:category", secur.isAdmin, function(req, res, next) {
 	req.category.remove()
         .then(function() {
             res.status(200).end();
