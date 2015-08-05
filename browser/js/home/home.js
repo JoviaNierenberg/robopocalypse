@@ -10,10 +10,13 @@ app.controller('HomeCtrl', function($scope, $state, Products, Cart) {
     // returns all products
     var assignData = function (data) {
         $scope.products = data;
-    }
+        if(data.length === 0){
+            $scope.noContent = true;
+        }
+    };
 
     if($scope.search) {
-        Products.search($scope.search).then(assignData)
+        Products.search($scope.search).then(assignData);
     }else {
         Products.getAll().then(assignData);
     }

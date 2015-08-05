@@ -1,15 +1,29 @@
-<div>
-  <div class="col-lg-1 col-md-1 col-sm-1">
-    <p ng-click="show('products')">My Products</p>
-    <p ng-click="show('orders')">My Orders</p>
-    <p ng-click="show('reviews')">My Reviews</p>
-    <p ng-click="show('css')">My Style</p>
-  </div>
-  <div class="col-lg-11 col-md-11 col-sm-11">
-    <merchant-products ng-show="'products' === activeTab" categories="theCategories" merchant='merchant'></merchant-products>
-    <merchant-orders ng-show="'orders' === activeTab"></merchant-orders>
-    <merchant-reviews ng-show="'reviews' === activeTab"></merchant-reviews>
-    <merchant-custom-css ng-show="'css' === activeTab" merchant="merchant"></merchant-custom-css>
-  </div>
-
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 centerText">
+        <div class="row centerText marginAuto marginTop">
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <h1>Welcome.</h1>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <a class="mdl-navigation__link btn btn-lg btn-primary btn-block btn-standard marginAuto" ng-click="show('css')"><i class="mdl-color-text--blue-grey-400 material-icons">people</i>My Style</a>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <a class="mdl-navigation__link btn btn-lg btn-primary btn-block btn-standard marginAuto" ng-click="show('orders')"><i class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>My Orders</a>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <a class="mdl-navigation__link btn btn-lg btn-primary btn-block btn-standard marginAuto" ng-click="show('products')"><i class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>My Products</a>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <a class="mdl-navigation__link btn btn-lg btn-primary btn-block btn-standard marginAuto" ng-click="show('reviews')"><i class="mdl-color-text--blue-grey-400 material-icons">rate_review</i>My Reviews</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row marginBottom">
+    <div class="col-sm-12 col-md-12 col-lg-12 centerText">
+        <merchant-products ng-show="'products' === activeTab" categories="theCategories" merchant='merchant'></merchant-products>
+        <merchant-orders ng-show="'orders' === activeTab"></merchant-orders>
+        <merchant-reviews ng-show="'reviews' === activeTab"></merchant-reviews>
+        <merchant-custom-css ng-show="'css' === activeTab" merchant="merchant"></merchant-custom-css>
+    </div>
 </div>

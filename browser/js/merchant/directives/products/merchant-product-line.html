@@ -1,28 +1,61 @@
-<div>
-	<form>
-		<img ng-src="{{theProduct.photo}}" style="width:80px"/>
-		<md-input-container class="lineItem" flex>
-			<label>Id</label>
-			<input ng-model="theProduct._id" class="lineItem" disabled>
-		</md-input-container>
-		<md-input-container class="lineItem" flex>
-			<label>Title</label>
-			<input ng-model="theProduct.title" class="lineItem">
-		</md-input-container>
-		<md-input-container class="lineItem" flex>
-			<label>Description</label>
-			<input ng-model="theProduct.description" class="lineItem">
-		</md-input-container>
-		<md-input-container class="lineItem" flex>
-			<label>Price</label>
-			<input ng-model="theProduct.price" class="lineItem">
-		</md-input-container>
-		<md-input-container class="lineItem" flex>
-			<label>Inventory</label>
-			<input ng-model="theProduct.inventory" class="lineItem">
-		</md-input-container>
-		<md-button ng-click="update()">Update</md-button>
-    	<md-button ng-click="delete()">Delete</md-button>
-	</form>    
+<div class="mdl-card mdl-shadow--3dp centerText marginBottom" style="padding:3%; width:inherit;">
+    <form>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="row marginTop marginBottom">
+                <div ng-repeat="photo in theProduct.photos track by $index">
+                    <img class="adminProductThumb" ng-src="{{photo}}">
+                    <!-- <i class="icon-remove-sign" ng-click="removeImg($index)"></i> -->
+                    <i class="fa fa-times-circle fa-2x" ng-click="removeImg($index)"></i>
+                </div>
+            </div>
+            <div class="row marginBottom">
+                <md-input-container class="lineItem" flex>
+                    <label>ID</label>
+                    <input ng-model="theProduct._id" disabled />
+                </md-input-container>
+            </div>
+            <div class="row marginTop marginBottom">
+                <md-input-container class="lineItem" flex>
+                    <label>Title</label>
+                    <input ng-model="theProduct.title" />
+                </md-input-container>
+            </div>
+            <div class="row marginTop marginBottom">
+                <a class="btn btn-primary btn-lg btn-standard" ng-click="update()"><i class="fa fa-pencil"></i> Update</a>
+            </div>
+            <div class="row marginTop marginBottom">
+                <a class="btn btn-primary btn-lg btn-standard" ng-click="delete()"><i class="fa fa-times"></i> Delete</a>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="row marginTop marginBottom">
+                <md-input-container class="lineItem" flex>
+                    <label>Description</label>
+                    <input ng-model="theProduct.description" />
+                </md-input-container>
+            </div>
+            <div class="row marginTop marginBottom">
+                <md-input-container class="lineItem" flex>
+                    <label>Price</label>
+                    <input ng-model="theProduct.price" />
+                </md-input-container>
+            </div>
+            <div class="row marginTop marginBottom">
+                <md-input-container class="lineItem" flex>
+                    <label>Inventory</label>
+                    <input ng-model="theProduct.inventory" />
+                </md-input-container>
+            </div>
+            <div class="row marginTop marginBottom">
+                <label>Categories</label>
+                <div layout="row" layout-wrap>
+                    <div ng-repeat="category in categories">
+                        <md-checkbox ng-checked="exists(category._id, theProduct.category)" ng-click="toggle(category._id, theProduct.category)">
+                            {{ category.name }}
+                        </md-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-<hr>

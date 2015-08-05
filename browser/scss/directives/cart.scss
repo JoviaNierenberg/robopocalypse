@@ -20,7 +20,7 @@ div .cartImg{
 	padding: 0;
 	display: inline-block;
 	margin: 0;
-	& h5{
+	h5{
 		margin: 0;
 	}
 }
@@ -28,3 +28,29 @@ div .cartImg{
 .cartText{
 	font-size: .75em;
 }
+
+div div .checkoutImg{
+		max-width: 40px;
+		height: auto;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0;
+	}
+
+.caption.checkoutCaption{
+	height: auto; 
+	width: 60%;
+	text-align: center; 
+	padding: 0;
+	display: inline-block;
+	margin: 0;
+	h5{
+		margin: 0;
+	}
+}
+
+.checkoutText{
+	font-size: 1.25em;
+}
+
+

@@ -7,8 +7,10 @@ app.directive("adminOrders", function () {
 });
 
 
-app.controller("AdminOrderCtrl", function ($scope, Orders, Products) {
+app.controller("AdminOrderCtrl", function ($scope, Orders) {
 	Orders.getOrdersByUser().then(function (orders) {
 		$scope.orders = orders;
 	})
 });
+
+

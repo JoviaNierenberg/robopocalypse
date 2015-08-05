@@ -24,6 +24,10 @@ body {
     font-family: "ProximaNova";
 }
 
+.nullMessage{
+    margin-left: 3%;
+}
+
 .container {
     padding: 1%;
 }
@@ -129,6 +133,12 @@ h2 {
     width: 100%;
 }
 
+//This is replacing the @media below, those are extremely broken and overlap
+.mainContainer {
+        min-height: 60.5vh;
+        margin-top: 3vh;
+    }
+
 @media (min-width: 1500px) {
     .col-md-9 {
         margin-top: -1.5%;
@@ -154,11 +164,14 @@ h2 {
     .container {
         width: 1600px;
     }
+    .mainContainer {
+        min-height: 76.5vh;
+    }
 }
 
 @media (min-width: 1900px) {
     .mainContainer {
-        min-height: 66.5vh;
+        min-height: 76.5vh;
     }
 }
 
