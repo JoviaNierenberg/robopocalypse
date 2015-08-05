@@ -1,6 +1,8 @@
 <div id="{{slug}}">
 	<cart></cart>
 	<div class="col-md-9">
+		<h1> {{store.storeName}}</h1>
+		<h3> {{store.storeDesc}}</h3>
 	    <div class="row">
 	        <md-content class="md-padding">
 	            <product-thumbnail ng-repeat="productEntry in products track by $index" product="productEntry"></product-thumbnail>

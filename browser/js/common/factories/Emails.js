@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Emails', function($http, User) {
+app.factory('Emails', function($http) {
     var responseData = function(response){ return response.data; };
     return {
         // returns all users
@@ -27,13 +27,11 @@ app.factory('Emails', function($http, User) {
         },
         sendMerchantOrder: function(data){
             return data.forEach(function(merchant){
-                User.getOne(merchant).then(function(data){
-                    return $http.post('/api/send/merchantOrder', data).then(responseData);
-                })
+                return $http.post('/api/send/merchantOrder', data).then(responseData);
             })
         },
         sendMerchantRequest: function(data){
-            return $http.post('/api/send/merchantRequest', data).then(responseData);
+            return $http.post('/api/send/merchantRequest', {sellers: data}).then(responseData);
         }
     };
 });

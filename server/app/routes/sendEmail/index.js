@@ -68,8 +68,12 @@ router.post("/merchantAccepted", function (req, res, next) {
 });
 
 router.post("/merchantOrder", function (req, res, next) {
-	var emailTemplate = fs.readFileSync('../views/emails/merchantOrder.ejs', 'utf8')
-	var email = ejs.render(emailTemplate, req.body)
-	mandrill.sendEmail(req.body.name.first+" "+req.body.name.last, req.body.email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', 'New Order for ' + storeName, email)
+	req.body.sellers.forEach(function(merchant){
+		User.findById(merchant).exec().then(function(user){
+			var emailTemplate = fs.readFileSync('../views/emails/merchantOrder.ejs', 'utf8')
+			var email = ejs.render(emailTemplate, req.body)
+			mandrill.sendEmail(user.name.first+" "+user.name.last, user.email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', 'New Order for ' + user.storeName, email)
+		})
+	})
 	res.end()
 });
