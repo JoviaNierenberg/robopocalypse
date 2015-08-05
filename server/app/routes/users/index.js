@@ -77,7 +77,7 @@ router.put("/:userid", function (req, res, next) {
     }).then(null, next);
 });
 
-router.delete("/:userid", function (req, res, next) {
+router.delete("/:userid", isAdmin, function (req, res, next) {
     req.user.remove().then(function () {
         res.send(200)
     }, next);

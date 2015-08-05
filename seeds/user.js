@@ -1,9 +1,9 @@
 module.exports = [{
-    email: "joe.alves@fullstackacademy.com",
-    password: "joerocks",
+    email: "test@testing.com",
+    password: "test",
     name: {
-        first: "Joe",
-        last: "Alves"
+        first: "Billy",
+        last: "Pilgrim"
     },
     roles: ["Merchant"],
     photo: "http://www.fullstackacademy.com/img/team/joe_alves.jpg",
@@ -11,11 +11,11 @@ module.exports = [{
     storeDesc: 'I want to dominate the world as I dominate the pixel.',
     storeURL: 'FWD'
 }, {
-    email: "omri.bernstein@fullstackacademy.com",
-    password: "imomri",
+    email: "gumbo@gmail.com",
+    password: "GoldMoney",
     name: {
-        first: "Omri",
-        last: "Bernstein"
+        first: "Elaine",
+        last: "Boxer"
     },
     roles: ["Admin"],
     photo: "http://www.fullstackacademy.com/img/team/omri_bernstein.jpg"
@@ -23,8 +23,8 @@ module.exports = [{
     email: "imscott@fullstackademy.com",
     password: "cheeseMongo",
     name: {
-        first: "Scott",
-        last: "D"
+        first: "Scooter",
+        last: "Libby"
     },
     roles: ["Admin"],
     photo: "http://www.fullstackacademy.com/img/team/scott_dalessandro.jpg"
@@ -32,8 +32,8 @@ module.exports = [{
     email: "zeke@gmail.com",
     password: "boxcutter",
     name: {
-        first: "Zeke",
-        last: "Nierenberg"
+        first: "Elbow",
+        last: "Pasta"
     },
     roles: ["Merchant"],
     photo: "http://www.fullstackacademy.com/img/team/zeke_nierenberg.jpg",
