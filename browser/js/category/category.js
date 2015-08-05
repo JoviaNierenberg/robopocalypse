@@ -15,6 +15,12 @@ app.controller('CategoryCtrl', function($scope, Categories, Products) {
                     $all: category._id
                 }
             }).then(function(products) {
+                products = products.filter(function (prodEntry) {
+                    if(prodEntry.inventory === 0 || prodEntry.seller){
+                        return false;
+                    }
+                    return true;
+                });
                 category.content = products;
                 $scope.tabs.push(category);
                 $scope.loaded = true;

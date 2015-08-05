@@ -19,9 +19,9 @@
         </div>
     </div>
 </div>
-<div class="row marginBottom">
+<div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 centerText">
-        <merchant-products ng-show="'products' === activeTab" categories="theCategories" merchant='merchant'></merchant-products>
+        <merchant-products ng-show="'products' === activeTab" categories="categories" merchant='merchant'></merchant-products>
         <merchant-orders ng-show="'orders' === activeTab"></merchant-orders>
         <merchant-reviews ng-show="'reviews' === activeTab"></merchant-reviews>
         <merchant-custom-css ng-show="'css' === activeTab" merchant="merchant"></merchant-custom-css>
