@@ -27,10 +27,13 @@
         </div>
         <div class="col-sm-12 col-md-3 col-lg-3">
             <div class="row marginTop marginBottom">
-                <md-input-container class="lineItem" flex>
+<!--                 <md-input-container class="lineItem" flex>
                     <label>Role</label>
                     <input ng-model="theUser.roles[0]" class="lineItem">
-                </md-input-container>
+                </md-input-container> -->
+                <md-select placeholder="Role" ng-model="theUser.roles[0]">
+                    <md-option ng-repeat="role in roles" value="{{role}}">{{role}}</md-option>
+                </md-select>
             </div>
             <div class="row marginTop marginBottom">
                 <md-input-container class="lineItem" flex>

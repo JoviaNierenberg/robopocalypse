@@ -11,6 +11,8 @@ app.directive("adminUserLine", function () {
 
 app.controller("AdminUserLineCtrl", function ($scope, User, Emails){
 
+	$scope.roles = ['User','Merchant','Admin']
+
 	$scope.delete = function () {
 		User.deleteUser($scope.theUser._id);
 	};
