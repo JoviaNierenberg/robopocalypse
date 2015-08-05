@@ -53,16 +53,27 @@ router.post("/orderCompleted", function (req, res, next) {
 	res.status(201).end()
 });
 
-// router.post("/merchantAccepted", function (req, res, next) {
-// 	var emailTemplate = fs.readFileSync('../views/emails/merchantAccepted.ejs', 'utf8')
-// 	var email = ejs.render(emailTemplate, req.body)
-// 	mandrill.sendEmail(to_name, to_email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', storeName + ' Approved!', email)
-// 	res.end()
-// });
+router.post("/merchantRequest", function (req, res, next) {
+	var emailTemplate = fs.readFileSync(__dirname + '/emails/merchantRequest.ejs', 'utf8')
+	var email = ejs.render(emailTemplate, req.body)
+	mandrill.sendEmail('Robo Admin', 'roboAdmin@robopocalypse.com', 'Robopocalypse', 'grumpyRobot@robopocalypse.com', 'New Merchant Request', email)
+	res.status(201).end()
+});
 
-// router.post("/merchantOrder", function (req, res, next) {
-// 	var emailTemplate = fs.readFileSync('../views/emails/merchantOrder.ejs', 'utf8')
-// 	var email = ejs.render(emailTemplate, req.body)
-// 	mandrill.sendEmail(to_name, to_email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', 'New Order for ' + storeName, email)
-// 	res.end()
-// });
+router.post("/merchantAccepted", function (req, res, next) {
+	var emailTemplate = fs.readFileSync(__dirname + '/emails/merchantAccepted.ejs', 'utf8')
+	var email = ejs.render(emailTemplate, req.body)
+	mandrill.sendEmail(req.body.name.first+" "+req.body.name.last, req.body.email, 'Robopocalypse', 'sergeantRobot@robopocalypse.com', req.body.storeName+" has been approved!", email)
+	res.status(201).end()
+});
+
+router.post("/merchantOrder", function (req, res, next) {
+	req.body.sellers.forEach(function(merchant){
+		User.findById(merchant).exec().then(function(user){
+			var emailTemplate = fs.readFileSync('../views/emails/merchantOrder.ejs', 'utf8')
+			var email = ejs.render(emailTemplate, req.body)
+			mandrill.sendEmail(user.name.first+" "+user.name.last, user.email, 'Robopocalypse', 'robopocalypse_admin@robopocalypse.com', 'New Order for ' + user.storeName, email)
+		})
+	})
+	res.end()
+});

@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
     });
 });
 
-app.controller('SingleStoreCtrl', function($scope, Stores, $stateParams, Cart) {
+app.controller('SingleStoreCtrl', function($scope, User, Stores, $stateParams, Cart) {
     // returns product
     $scope.slug = $stateParams.url
     Stores.injectCss($scope.slug);
@@ -20,4 +20,7 @@ app.controller('SingleStoreCtrl', function($scope, Stores, $stateParams, Cart) {
     $scope.addToCart = function(product) {
         Cart.addToCart(product);
     };
+    User.getAll({storeURL: $stateParams.url}).then(function(user){
+        $scope.store = user[0];
+    })
 });

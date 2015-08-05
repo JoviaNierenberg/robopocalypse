@@ -1,11 +1,11 @@
 'use strict';
 
-app.factory('User', function($http, $rootScope) {
+app.factory('User', function($http, $rootScope, Emails) {
     var responseData = function(response){ return response.data; };
     return {
         // returns all users
-        getAll: function() {
-            return $http.get('/api/users/').then(responseData);
+        getAll: function(query) {
+            return $http.get('/api/users/', {params:query}).then(responseData);
         },
         // get single user
         getOne: function(id) {
@@ -25,7 +25,14 @@ app.factory('User', function($http, $rootScope) {
         },
         // signs up the user
         signup: function(credentials) {
+            credentials.roles = ['User']
             return $http.post('/api/users/create', credentials).then(responseData);
+        },
+        requestStore: function(id, data) {
+            return $http.put('/api/users/' + id, data).then(function(res){
+                Emails.sendMerchantRequest(res.data)
+                return res.data
+            });
         }
     };
 });

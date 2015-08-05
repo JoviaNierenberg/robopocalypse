@@ -7,9 +7,9 @@ var Category = mongoose.model("Category");
 module.exports = router;
 
 router.param('category', function (req, res, next, category) {
-    Category.findOne({name: category}).exec()
+    Category.findById(category).exec()
         .then(function (cat) {
-            if (!category) throw new Error("Category doesn't exist");
+            if (!cat) throw new Error("Category doesn't exist");
             else {
                 req.category = cat;
                 next();

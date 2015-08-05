@@ -12,15 +12,12 @@ app.directive('adminCategoryLine', function() {
 app.controller("AdminCategoryLineCtrl", function($scope, $rootScope, Categories) {
 
     $scope.deleteCategory = function() {
-        Categories.deleteCategory($scope.theCategory.name);
-        $rootScope.$emit("categoryUpdate");
+        Categories.deleteCategory($scope.theCategory._id);
+        alert($scope.theCategory.name + ' has been deleted')
     };
     $scope.editCategory = function() {
-        Categories.getOne($scope.theCategory.name).then(function() {
-            // go to state where we edit category?
-            $rootScope.$emit("categoryUpdate");
-            // $scope.singleCategory = response; < not that
-        });
+        Categories.updateOne($scope.theCategory._id, $scope.theCategory.name)
+        alert($scope.theCategory.name + ' has been updated')
     };
     // $scope.createCategory = function(cat) {
     // }
