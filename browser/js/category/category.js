@@ -16,7 +16,6 @@ app.controller('CategoryCtrl', function($scope, Categories, Products) {
                 }
             }).then(function(products) {
                 products = products.filter(function (prodEntry) {
-                    console.log(prodEntry);
                     if(prodEntry.inventory === 0 || prodEntry.seller){
                         return false;
                     }

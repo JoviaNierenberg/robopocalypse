@@ -1,3 +1,15 @@
 <div class="centerText">
-    <admin-order-line ng-repeat="order in orders" order="order"></admin-order-line>
+	<div class="row">
+		<md-button ng-click="setFilter('Created')">Created</md-button>
+		<md-button ng-click="setFilter('Processing')">Processing</md-button>
+		<md-button ng-click="setFilter('Cancelled')">Cancelled</md-button>
+		<md-button ng-click="setFilter('Complete')">Complete</md-button>
+		<md-button ng-click="setFilter('all')">All</md-button>
+	</div>
+	<div class="row" ng-show="filterStatus !== 'all'">
+		<h3>Sorting by {{filterStatus}}</h3>
+	</div>
+	<div ng-repeat="order in orders" ng-show="filterStatus === 'all' || filterStatus === order.status">
+    	<admin-order-line order="order"></admin-order-line>
+    </div>
 </div>
