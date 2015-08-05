@@ -1,3 +1,17 @@
-<h1>Custom Css</h1>
-<textarea class="customCss" ng-model="customScss"></textarea>
-<button ng-click="submitStyle()" class="btn btn-primary btn-lg btn-standard col-sm-12 col-md-12 col-lg-12 centerText">Apply Your Style</button>
+<div class="row marginBottom marginTop">
+    <h1>Custom CSS</h1>
+</div>
+<div class="row">
+    <md-content layout-padding="">
+        <form>
+            <md-input-container flex>
+                <label>
+                    <h3>Enter your CSS here.</h3></label>
+                <textarea class="customCSS" ng-model="customScss" columns="1 " md-maxlength="400" style="height: 300px"></textarea>
+            </md-input-container>
+        </form>
+    </md-content>
+</div>
+<div class="row">
+    <button ng-click="submitStyle() " class="btn btn-primary btn-lg btn-standard col-sm-12 col-md-12 col-lg-12 centerText ">Apply Your Style</button>
+</div>
