@@ -19,3 +19,16 @@
 md-checkbox.md-checked .md-icon {
     background-color: #42dca3;
 }
+
+.customCss{
+	margin-bottom: 10px;
+	width: 100%;
+	height: 40vh;
+	resize: none;
+}
+
+div .reviewDisplay{
+	margin-right: 10px;
+	margin-left: 10px;
+	display: inline-flex;
+}
