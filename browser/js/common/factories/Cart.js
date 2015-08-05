@@ -71,7 +71,7 @@ app.factory('Cart', function ($rootScope, $http, $state, Emails) {
         submitOrder: function (order) {
             $http.post("/api/orders/", order).then(function (res) {
                 Emails.sendOrderCreated(res.data);
-                Emails.sendMerchantOrder(res.date.sellers)
+                Emails.sendMerchantOrder(res.data.sellers)
                 alert('Your order has been created. A confirmation has been sent. If you are a user, you can view it in your profile.')
                 $state.go("home");
             });
