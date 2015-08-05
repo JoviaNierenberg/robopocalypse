@@ -29,7 +29,7 @@ router.param("storeURL", function(req, res, next, storeURL) {
 
 //get all stores
 router.get("/", function(req, res) {
-    User.find({storeURL: {$exists: true}}).exec().then(function (users) {
+    User.find({storeURL: {$exists: true}, roles:{$all: 'Merchant'}}).exec().then(function (users) {
         users = users.map(function (user) {
             return _.omit(user.toJSON(), ['salt', 'password']);
         });

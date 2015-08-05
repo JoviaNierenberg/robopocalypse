@@ -9,8 +9,10 @@ app.directive("adminCategories", function () {
   };
 });
 
-app.controller("AdminCategoriesCtrl", function ($scope, $rootScope) {
-	$scope.add = function () {
-		$rootScope.$emit("categoryUpdate");
+app.controller("AdminCategoriesCtrl", function ($scope, Categories) {
+	$scope.addCategory = function () {
+		Categories.createCategory($scope.theCategory.name)
+    alert($scope.theCategory.name + ' has been added as a category')
+    $scope.categories.push({name: $scope.theCategory.name})
 	};
 });

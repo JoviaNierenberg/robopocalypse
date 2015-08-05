@@ -48,4 +48,17 @@
             </div>
         </div>
     </form>
+    <md-button class="md-raised md-warn" ng-if="theUser.roles[0] === 'User' && !!theUser.storeName" ng-click="makeMerchant()">New Merchant Requested (Click Here)</md-button>
+    <div ng-if="theUser.roles[0] === 'Merchant'">
+        <h2>User Store</h2>
+        <hr>
+    </div>
+    <div ng-show="theUser.storeName">
+        <p><b>Store Name:</b> {{theUser.storeName}}</p>
+        <p><b>Store URL:</b> {{theUser.storeURL}}</p>
+        <p>
+        <b>Store Description:</b>
+            {{theUser.storeDesc}}
+        </p>
+    </div>
 </div>

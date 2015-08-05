@@ -5,7 +5,7 @@ app.config(function ($stateProvider) {
     data: {
             authenticate: true
         },
-    controller: "MerchantCtrl"
+    controller: "RequestStoreCtrl"
   })
 });
 

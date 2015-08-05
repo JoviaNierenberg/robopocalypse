@@ -25,6 +25,7 @@ app.factory('User', function($http, $rootScope, Emails) {
         },
         // signs up the user
         signup: function(credentials) {
+            credentials.roles = ['User']
             return $http.post('/api/users/create', credentials).then(responseData);
         },
         requestStore: function(id, data) {

@@ -41,7 +41,10 @@ var schema = new mongoose.Schema({
             required: true
         }
     },
-    photo: String,
+    photo: {
+        type: String,
+        default: 'http://a.dilcdn.com/bl/wp-content/uploads/sites/8/2014/03/image5.jpg'
+    },
     roles: [{
         type: String,
         enum: ['User', 'Admin', 'Merchant'],
